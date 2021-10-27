@@ -1,5 +1,7 @@
 # ExpenseManagement
 
+![](https://img.shields.io/github/workflow/status/Runtime-Terror-G3/expense-management-front-end/Build)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.11.
 
 ## Development server
