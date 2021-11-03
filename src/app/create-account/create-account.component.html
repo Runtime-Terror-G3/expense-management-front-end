@@ -1,0 +1,30 @@
+<div>
+    <form [formGroup]="createAccountForm" (ngSubmit)="createAccount()">
+        <mat-form-field appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput  formControlName="firstName">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput  formControlName="lastName">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+          <mat-label>Date Of Birth</mat-label>
+            <input matInput  formControlName="dateOfBirts">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput  formControlName="email">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput  formControlName="password">
+          </mat-form-field>
+        <button mat-button type="submit">Create</button>
+    </form>
+
+
+
+
+</div>
+
