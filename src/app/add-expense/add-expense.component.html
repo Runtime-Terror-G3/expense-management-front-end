@@ -1,0 +1,29 @@
+<div class="container">
+  <form [formGroup]="form">
+    <div>
+      Amount:
+    </div>
+    <div>
+      <input formControlName="amount" id="amount" type="number" placeholder="ex: 120.00">
+    </div>
+    <div>
+      Category:
+    </div>
+    <div>
+      <select id="category" name="categoryDropdown" formControlName="category" >
+        <option value='{{category}}' *ngFor="let category of categories">{{expenseCategory[category]}}</option>
+      </select>
+    </div>
+    <div>
+      Date:
+    </div>
+    <div>
+      
+    </div>
+  </form>
+  <div class="submit-btn">
+    <button type="button" (click)="submitData()">
+      Submit
+    </button>
+  </div>
+</div>
