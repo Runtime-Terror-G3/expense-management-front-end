@@ -19,7 +19,7 @@ import { AddExpenseComponent } from './add-expense/add-expense.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
