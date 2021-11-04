@@ -1,0 +1,13 @@
+<main id="sign-in-panel">
+    <form id="sign-in-form" [formGroup]="signInForm" (submit)="submit()">
+    <h1 class="title-text">Hello there! 👋</h1>
+    <div class="text-field">
+      <input class="form-control" id="emailField" type="email" placeholder="email" formControlName="email">
+    </div>
+    <div class="text-field">
+      <input class="form-control" id="passwordField" type="password" placeholder="password" formControlName="password">
+    </div>
+    <button class="submit-button" type="submit">Sign in</button>
+  </form>
+  <p id="to-sign-up-text"> No account? <a [routerLink]="baseUrl + '/create-account'">Sign up!</a></p>
+</main>
