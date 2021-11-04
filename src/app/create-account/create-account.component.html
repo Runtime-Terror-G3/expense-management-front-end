@@ -1,29 +1,37 @@
-<div>
-    <form [formGroup]="createAccountForm" (ngSubmit)="createAccount()">
-        <mat-form-field appearance="fill">
-            <mat-label>First Name</mat-label>
-            <input matInput  formControlName="firstName">
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Last Name</mat-label>
-            <input matInput  formControlName="lastName">
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-          <mat-label>Date Of Birth</mat-label>
-            <input matInput  formControlName="dateOfBirts">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Email</mat-label>
-            <input matInput  formControlName="email">
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Password</mat-label>
-            <input matInput  formControlName="password">
-          </mat-form-field>
-        <button mat-button type="submit">Create</button>
-    </form>
+<div class="formContainer">
+  <h2> Create new account</h2>
+  <form [formGroup]="createAccountForm" (ngSubmit)="createAccount()">
+    <p>First name:</p>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter first name</mat-label>
+        <input matInput formControlName="firstName">
+      </mat-form-field>
 
-
+    <p>Last name:</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter last name</mat-label>
+      <input matInput formControlName="lastName">
+    </mat-form-field>
+    <p>Date of birth:</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter date of birth</mat-label>
+      <input matInput type="date" formControlName="dateOfBirth">
+    </mat-form-field>
+    <p>Email:</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+    <p>Password</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter password</mat-label>
+      <input matInput formControlName="password" type="password">
+    </mat-form-field>
+    <div mat-dialog-actions class="buttonContainer">
+    <button mat-raised-button color="primary" type="submit">Create account</button>
+    <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
 
 
 </div>

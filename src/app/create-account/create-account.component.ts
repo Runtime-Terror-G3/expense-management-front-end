@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { IUser } from '../models/user';
-import { UserServiceService } from '../services/user-service.service';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {IUser} from '../models/user';
+import {UserServiceService} from '../services/user-service.service';
+import {compileInjectable} from "@angular/compiler";
 
 @Component({
   selector: 'app-create-account',
@@ -10,9 +11,9 @@ import { UserServiceService } from '../services/user-service.service';
 })
 export class CreateAccountComponent implements OnInit {
 
-  constructor(private userService:UserServiceService ) {
-      
-   }
+  constructor(private userService: UserServiceService) {
+
+  }
 
   email: FormControl = new FormControl('', [
     Validators.required,
@@ -23,7 +24,7 @@ export class CreateAccountComponent implements OnInit {
   password: FormControl = new FormControl('', [Validators.required]);
   firstName: FormControl = new FormControl('', [Validators.required]);
   lastName: FormControl = new FormControl('', [Validators.required]);
-  dateOfBirth: FormControl = new FormControl('', [Validators.required]);
+  dateOfBirth: FormControl = new FormControl('', [Validators.required, this.dateValidation]);
 
   createAccountForm: FormGroup = new FormGroup({
     firstName: this.firstName,
@@ -35,21 +36,37 @@ export class CreateAccountComponent implements OnInit {
 
 
   createAccount(): void {
-    let currentUser={firstName:this.firstName.value,
-      lastName:this.lastName.value,
-      dateOfBirth:this.dateOfBirth.value,
-      passwordHash:this.password.value,
-      email:this.email.value,
-    }as IUser
-      if(this.createAccountForm.valid){
-        this.userService.createAccount(currentUser)
-        console.log("Testing if this is successful")
-      }
+    if (this.createAccountForm.valid) {
+      let currentUser = {
+        firstName: this.firstName.value,
+        lastName: this.lastName.value,
+        dateOfBirth: this.dateOfBirth.value,
+        passwordHash: this.password.value,
+        email: this.email.value,
+      } as IUser
+      this.userService.createAccount(currentUser)
+      alert("Account was created successfully!")
+      this.createAccountForm.reset()
+      //todo: redirect to login page when account created
+    }
   }
-  
 
 
   ngOnInit(): void {
   }
 
+  onCancel() {
+    //todo: navigate to the previous page
+    console.log("on cancel")
+  }
+
+  dateValidation(datepicker:FormControl) {
+    let pickedDate = datepicker.value;
+    let today = new Date();
+    pickedDate = new Date(pickedDate);
+    if (pickedDate >= today) {
+      return {dateError: {parsed: pickedDate}}
+    }
+    return null;
+  }
 }

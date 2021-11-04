@@ -1,5 +1,41 @@
-:host {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+p{
+  margin: auto;
+}
+
+form {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mat-form-field{
+  width: 60%;
+  margin-top: auto;
+}
+
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+  top: 2px;
+}
+
+.mat-raised-button {
+  cursor: pointer;
+  width:max-content;
+  margin: 8px;
+}
+
+
+
