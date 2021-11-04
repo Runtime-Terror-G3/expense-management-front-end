@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {environment} from '../../environments/environment'
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {SessionService} from "../services/session.service";
 
 @Component({
   selector: 'app-sign-in',
@@ -18,7 +18,7 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private httpClient: HttpClient,
+    private service: SessionService,
     private router: Router,
   ) {
   }
@@ -27,13 +27,11 @@ export class SignInComponent implements OnInit {
   }
 
   submit(): void {
-    this.httpClient.post(
-      this.baseUrl + '/session',
-      this.signInForm.getRawValue(),
-      {
-        withCredentials: true
-      }
-    ).subscribe(() => this.router.navigate([this.baseUrl]));
+    const val = this.signInForm.value;
+    if (val.email && val.password) {
+      this.service.signIn(val.email, val.password)
+        .subscribe(() => this.router.navigateByUrl(this.baseUrl));
+    }
     this.signInForm.reset();
   }
 }
