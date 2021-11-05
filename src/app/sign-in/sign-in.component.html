@@ -1,0 +1,28 @@
+<div class="root">
+  <div id="left-container" class="container">
+    <main id="sign-in-panel">
+      <img id="profile-image" src="assets/img/default-profile.png" alt="user profile"/>
+      <form id="sign-in-form" [formGroup]="form" (submit)="submit()">
+        <h1 id="title-text">Hello there! 👋</h1>
+        <input id="emailInput"
+               class="form-control"
+               type="email"
+               required
+               placeholder="email"/>
+        <input id="passwordInput"
+               class="form-control"
+               type="password"
+               required
+               minlength="5"
+               placeholder="password"/>
+        <button class="submit-button" type="submit">SIGN IN</button>
+        <p id="to-sign-up-text"> Don't have an account? <a routerLink="/sign-up">Create now!</a></p>
+      </form>
+    </main>
+  </div>
+  <div id="right-container" class="container">
+    <img id="expense-management-image" src="assets/img/expense-management.png" alt="expense management"/>
+  </div>
+</div>
+
+
