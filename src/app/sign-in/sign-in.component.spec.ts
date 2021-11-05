@@ -42,6 +42,6 @@ describe('SignInComponent', () => {
 
   it('should have a submit button', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('button')?.textContent).toContain('Sign in');
+    expect(compiled.querySelector('button')?.textContent).toContain('SIGN IN');
   });
 });

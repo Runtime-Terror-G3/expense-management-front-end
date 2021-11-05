@@ -4,12 +4,14 @@
       <img id="profile-image" src="assets/img/default-profile.png" alt="user profile"/>
       <form id="sign-in-form" [formGroup]="form" (submit)="submit()">
         <h1 id="title-text">Hello there! 👋</h1>
-        <input type="email"
+        <input id="emailInput"
                class="form-control"
+               type="email"
                required
                placeholder="email"/>
-        <input type="password"
+        <input id="passwordInput"
                class="form-control"
+               type="password"
                required
                minlength="5"
                placeholder="password"/>
