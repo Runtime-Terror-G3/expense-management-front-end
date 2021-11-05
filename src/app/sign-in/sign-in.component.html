@@ -1,13 +1,26 @@
-<main id="sign-in-panel">
-    <form id="sign-in-form" [formGroup]="signInForm" (submit)="submit()">
-    <h1 class="title-text">Hello there! 👋</h1>
-    <div class="text-field">
-      <input class="form-control" id="emailField" type="email" placeholder="email" formControlName="email">
-    </div>
-    <div class="text-field">
-      <input class="form-control" id="passwordField" type="password" placeholder="password" formControlName="password">
-    </div>
-    <button class="submit-button" type="submit">Sign in</button>
-  </form>
-  <p id="to-sign-up-text"> No account? <a [routerLink]="baseUrl + '/create-account'">Sign up!</a></p>
-</main>
+<div class="root">
+  <div id="left-container" class="container">
+    <main id="sign-in-panel">
+      <img id="profile-image" src="assets/img/default-profile.png" alt="user profile"/>
+      <form id="sign-in-form" [formGroup]="form" (submit)="submit()">
+        <h1 id="title-text">Hello there! 👋</h1>
+        <input type="email"
+               class="form-control"
+               required
+               placeholder="email"/>
+        <input type="password"
+               class="form-control"
+               required
+               minlength="5"
+               placeholder="password"/>
+        <button class="submit-button" type="submit">SIGN IN</button>
+        <p id="to-sign-up-text"> Don't have an account? <a routerLink="/sign-up">Create now!</a></p>
+      </form>
+    </main>
+  </div>
+  <div id="right-container" class="container">
+    <img id="expense-management-image" src="assets/img/expense-management.png" alt="expense management"/>
+  </div>
+</div>
+
+
