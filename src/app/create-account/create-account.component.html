@@ -1,6 +1,10 @@
-<div class="formContainer">
-  <h2> Create new account</h2>
+<div class="root">
+
+<div class="container">
+
+  <div class="container-right">
   <form [formGroup]="createAccountForm" (ngSubmit)="createAccount()">
+  <h1> Register </h1>
     <p>First name:</p>
       <mat-form-field appearance="fill">
         <mat-label>Enter first name</mat-label>
@@ -33,6 +37,12 @@
     </div>
   </form>
 
+  </div>
+
+  <div class="container-left">
+    <img src="assets/img/expense-guide-1.png" alt="expense guide"/>
+  </div>
 
 </div>
 
+</div>
