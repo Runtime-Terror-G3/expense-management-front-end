@@ -36,7 +36,6 @@ export class AddExpenseComponent implements OnInit {
   ngOnInit() {
     //this.userId = this.authenticationService.getLoggedUserId();
     this.createCategoryList();
-    
   }
 
   createCategoryList() {
@@ -60,5 +59,4 @@ export class AddExpenseComponent implements OnInit {
     this.expenseService.createExpense(expense).subscribe();
     this.form.reset();
   }
-
 }

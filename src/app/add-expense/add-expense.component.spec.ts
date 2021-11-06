@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { AddExpenseComponent } from './add-expense.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('AddExpenseComponent', () => {
   let component: AddExpenseComponent;
@@ -11,6 +12,7 @@ describe('AddExpenseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [ AddExpenseComponent ]
     })
     .compileComponents();

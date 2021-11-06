@@ -1,29 +1,46 @@
 <div class="container">
-  <form [formGroup]="form">
+  <div class="subtitle">Add your expenses to track how you spend your money and in which categories you spend the most.
+  </div>
+  <div style="display: flex;">
     <div>
-      Amount:
+      <form [formGroup]="form">
+        <div class="group-field">
+          <div class="form-item field-text">
+            Amount
+          </div>
+          <div>
+            <input class="input" formControlName="amount" id="amount" type="number" placeholder="ex: 120.00">
+          </div>
+        </div>
+        <div class="group-field">
+          <div class="form-item field-text">
+            Date
+          </div>
+          <div>
+            <input class="input" type="date">
+          </div>
+        </div>
+        <div class="group-field">
+          <div class="form-item field-text">
+            Category
+          </div>
+          <div>
+            <select class="input" id="category" name="categoryDropdown" formControlName="category"
+              style="width: 208px;">
+              <option style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                value='{{category}}' *ngFor="let category of categories">{{expenseCategory[category]}}</option>
+            </select>
+          </div>
+        </div>
+      </form>
+      <div class="button">
+        <button class="submit-btn" type="button" (click)="submitData()">
+          Submit
+        </button>
+      </div>
     </div>
-    <div>
-      <input formControlName="amount" id="amount" type="number" placeholder="ex: 120.00">
+    <div class="categories-image">
+      <img style="width: 600px;" src="assets/categories-expense.png">
     </div>
-    <div>
-      Category:
-    </div>
-    <div>
-      <select id="category" name="categoryDropdown" formControlName="category" >
-        <option value='{{category}}' *ngFor="let category of categories">{{expenseCategory[category]}}</option>
-      </select>
-    </div>
-    <div>
-      Date:
-    </div>
-    <div>
-      
-    </div>
-  </form>
-  <div class="submit-btn">
-    <button type="button" (click)="submitData()">
-      Submit
-    </button>
   </div>
 </div>

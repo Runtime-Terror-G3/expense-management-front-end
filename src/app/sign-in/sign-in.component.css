@@ -1,0 +1,110 @@
+.root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+#left-container {
+  flex-grow: 1.5;
+  flex-basis: 0;
+  background: #1D4952;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+}
+
+#sign-in-panel {
+  height: 38rem;
+  width: 30rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#sign-in-form {
+  height: 34rem;
+  width: 100%;
+  background: #E3EAEB;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#profile-image {
+  width: 8rem;
+  margin-bottom: -4rem;
+  z-index: 2;
+}
+
+#title-text {
+  margin-top: 7rem;
+  margin-bottom: 3rem;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.form-control {
+  height: 1.25rem;
+  width: 20rem;
+  margin: 0.75rem;
+  border: 0.15rem solid black;
+  padding: 0.8rem;
+}
+
+.submit-button {
+  height: 3.1rem;
+  width: 21.85rem;
+  margin: 0.75rem;
+  border: 0.15rem solid black;
+  background: black;
+  color: white;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+}
+
+.submit-button:hover {
+  background: #333333;
+}
+
+.submit-button:active {
+  background: #666666;
+}
+
+#to-sign-up-text {
+  width: 21.85rem;
+  margin: 2.5rem;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+}
+
+#right-container {
+  flex-grow: 1;
+  flex-basis: 0;
+  background: #E3EAEB;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  padding: 5rem 5rem 0 5rem;
+}
+
+#expense-management-image {
+  max-height: 100%;
+  max-width: 100%;
+}
