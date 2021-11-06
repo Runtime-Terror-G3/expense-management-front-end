@@ -1,3 +1,4 @@
+<!--
 <div class="root">
 
 <div class="container">
@@ -44,5 +45,78 @@
   </div>
 
 </div>
+
+</div>
+
+-->
+
+
+<div class="container">
+  <div class="container-left">
+    <div class="create-account-image">
+      <img src="assets/img/createAccount.png">
+    </div>
+  </div>
+  <div class="container-right">
+    <div class="title">
+    Register
+  </div>
+  <div class="subtitle">
+    Sign up to manage your budget much easier and get a quick overview on your expenses
+  </div>
+  <div style="display:flex;">
+    <div>
+      <form [formGroup]="createAccountForm">
+        <div class="group-field">
+          <div class="form-item field-text">
+            First Name
+          </div>
+          <div>
+            <input class="input" formControlName="firstName" id="firstName" type="text" placeholder="FirstName">
+          </div>
+        </div>
+        <div class="group-field">
+          <div class="form-item field-text">
+            Last Name
+          </div>
+          <div>
+            <input class="input" formControlName="lastName" id="lastName" type="text" placeholder="LastName">
+          </div>
+        </div>
+        <div class="group-field">
+          <div class="form-item field-text">
+            Date Of Birth
+          </div>
+          <div>
+            <input class="input" formControlName="dateOfBirth" id="dateOfBirth" type="date">
+          </div>
+        </div>
+        <div class="group-field">
+          <div class="form-item field-text">
+            Email
+          </div>
+          <div>
+            <input class="input" formControlName="email" id="email" type="text" placeholder="Email">
+          </div>
+        </div>
+        <div class="group-field">
+          <div class="form-item field-text">
+            Password
+          </div>
+          <div>
+            <input class="input" formControlName="password" id="password" type="text" placeholder="password">
+          </div>
+        </div>
+      </form>
+      <div class="button">
+        <button class="submit-btn" type="button" (click)="createAccount()">
+          Create Account
+        </button>
+      </div>
+
+  </div>
+
+</div>
+
 
 </div>
