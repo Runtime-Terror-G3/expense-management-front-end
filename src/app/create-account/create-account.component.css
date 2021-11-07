@@ -1,25 +1,140 @@
-/*.formContainer {*/
-/*  display: flex;*/
-/*  justify-content: center;*/
-/*  align-items: center;*/
-/*  flex-direction: column;*/
-/*}*/
+.root {
+  background-color: #1D4952;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.container-main {
+  height: 50rem;
+  width: 80%;
+  background: #E3EAEB;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.container-left {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  align-content: flex-end;
+  gap: 10px;
+  padding: 5rem;
+}
+
+.container-right {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+  row-gap: 0px;
+  column-gap: 0px;
+  padding: -1rem;
+  margin-right: 100px;
+}
+
+.container-center-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 20px;
+  padding: 2rem;
+}
+
+.container-center-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 1px;
+  padding: 1rem;
+}
+
+.container-center-row-fields {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 0px;
+  padding: 0rem;
+}
+
+.field-text {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+  display: flex;
+  text-align: center;
+  align-self: center;
+  align-items: center;
+  align-content: center;
+  align-items: center;
+  
+}
+
+.title {
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size: 36px;
+display: flex;
+align-items: center;
+
+}
+
+.subtitle {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+  display: flex;
+  text-align: center;
+  align-self: center;
+  align-items: center;
+  align-content: center;
+  align-items: center;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.create-account-button {
+  height: 3.1rem;
+  width: 21.85rem;
+  margin: 0.75rem;
+  border: 0.15rem solid black;
+  background: black;
+  color: white;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+}
 
 p{
   margin: auto;
 }
 
-form {
+.form {
   width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.mat-form-field{
-  width: 60%;
-  margin-top: auto;
 }
 
 
@@ -31,34 +146,9 @@ form {
   top: 2px;
 }
 
-.mat-raised-button {
-  cursor: pointer;
-  width:max-content;
-  margin: 8px;
-}
 
-/* /*
 
-/*.root {*/
-/*  height: 100%;*/
-/*  width: 100%;*/
-/*  display: flex;*/
-/*  flex-flow: row nowrap;*/
-/*  justify-content: center;*/
-/*  align-items: stretch;*/
-/*  align-content: stretch;*/
-/*}*/
 
-.root {
-  flex-grow: 1.5;
-  flex-basis: 0;
-  background: #1D4952;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem 7rem;
-}
 
 #sign-in-panel {
   height: 38rem;
@@ -69,18 +159,6 @@ form {
   align-items: center;
 }
 
-.container-center {
-  align-self: center;
-float:center;
-margin-top:auto;
-margin-left: 40%;
-margin-right: 40%;
-text-align: center;
-}
-
-
-
-
 
 
 #profile-image {
@@ -89,14 +167,7 @@ text-align: center;
   z-index: 2;
 }
 
-#title-text {
-  margin-top: 7rem;
-  margin-bottom: 3rem;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
+
 
 .form-control {
   height: 1.25rem;
@@ -137,69 +208,21 @@ text-align: center;
 }
 
 
-.container {
-  background-color: #E3EAEB;
-  border-radius: 20px;
-  align-self: center;
-  width: 1340px;
-  height: 767px;
-  margin: auto;
-  margin-top:50px;
-  padding: 40px;
-}
 
-.container-right {
-  margin-top: -30px;
-  border-radius: 20px;
-  margin-left: 400px;
-  align-self: center;
-  flex-flow: column nowrap;
-  justify-content: center;
-  flex-direction: column;
-  align-items: flex-end;
-}
 
-.container-left {
-  align-self: auto;
-  float: left;
-  margin-left: -100px;
-  margin-top: 466px;
 
-}
+
+
 
 #expense-management-image {
   max-height: 100%;
   max-width: 100%;
 }
 
-.create-account-image {
-  margin-left: 90px;
-}
 
 
-.title {
-  width: 80%;
-  height: auto;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 36px;
-  line-height: 40px;
-  display: flex;
-  align-items: center;
-  letter-spacing: -0.015em;
-  margin-bottom: 30px;
-}
 
-.subtitle {
-  width: auto;
-  height: 20px;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 20px;
-  line-height: 40px;
-  display: flex;
-  align-items: center;
-  letter-spacing: -0.015em;
-  margin-bottom: 75px;
-}
+
 
 .field-text {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
