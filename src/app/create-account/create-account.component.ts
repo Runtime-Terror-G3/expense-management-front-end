@@ -22,6 +22,7 @@ export class CreateAccountComponent implements OnInit {
     ),
   ]);
   password: FormControl = new FormControl('', [Validators.required]);
+  confirmPassword: FormControl = new FormControl('', [Validators.required]);
   firstName: FormControl = new FormControl('', [Validators.required]);
   lastName: FormControl = new FormControl('', [Validators.required]);
   dateOfBirth: FormControl = new FormControl('', [Validators.required, this.dateValidation]);
@@ -31,7 +32,8 @@ export class CreateAccountComponent implements OnInit {
     lastName: this.lastName,
     email: this.email,
     dateOfBirth: this.dateOfBirth,
-    password: this.password
+    password: this.password,
+    confirmPassword: this.confirmPassword
   });
 
 
@@ -49,6 +51,9 @@ export class CreateAccountComponent implements OnInit {
       this.createAccountForm.reset()
       //todo: redirect to login page when account created
     }
+    else{
+      alert("Fields are invalid!")
+    }
   }
 
 
@@ -60,7 +65,7 @@ export class CreateAccountComponent implements OnInit {
     console.log("on cancel")
   }
 
-  dateValidation(datepicker:FormControl) {
+  dateValidation(datepicker: FormControl) {
     let pickedDate = datepicker.value;
     let today = new Date();
     pickedDate = new Date(pickedDate);

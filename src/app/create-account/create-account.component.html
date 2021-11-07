@@ -50,7 +50,7 @@
 
 -->
 
-<!-- Attempt 1 
+<!-- Attempt 1
 
 <div class="container">
   <div class="container-left">
@@ -126,7 +126,7 @@
 <div class="root">
   <div class="container-main">
     <div class="container-left">
-      <img src="assets/img/createAccount.png" align="bottom" width="400" >
+      <img src="assets/img/createAccount.png" >
     </div>
     <div class="container-right">
       <div class="title">
@@ -141,53 +141,41 @@
             <div class="container-center-row-fields">
               <div class="container-center-column">
                 <div class="field-text">
-                  First Name
-                </div>
-                <div>
-                  <input style="height:30px" class="input" formControlName="firstName" id="firstName" type="text" placeholder="FirstName">
+                  <label for="firstName">First name</label>
+                  <input style="height:30px"  formControlName="firstName" id="firstName" type="text" placeholder="First name">
                 </div>
               </div>
               <div class="container-center-column">
                 <div class="field-text">
-                  Last Name
-                </div>
-                <div>
-                  <input style="height:30px" class="input" formControlName="firstName" id="firstName" type="text" placeholder="FirstName">
+                  <label for="lastName">Last name</label>
+                  <input style="height:30px" formControlName="lastName" id="lastName" type="text" placeholder="Last name">
                 </div>
               </div>
             </div>
             <div class="container-center-row-fields">
               <div class="container-center-column">
                 <div class="field-text">
-                  E-mail
-                </div>
-                <div>
-                  <input style="height:30px" class="input" formControlName="email" id="email" type="text" placeholder="E-mail">
+                  <label for="email">Email</label>
+                  <input style="height:30px" formControlName="email" id="email" type="text" placeholder="E-mail">
                 </div>
               </div>
               <div class="container-center-column">
                 <div class="field-text">
-                  Date Of Birth
-                </div>
-                <div>
-                  <input style="height:30px" class="input" formControlName="dateOfBirth" id="dateOfBirth" type="date">
+                  <label for="dateOfBirth" style="margin-left: 3rem">Date of birth</label>
+                  <input style="height:30px; margin-left: 1.85rem; width: 190px" formControlName="dateOfBirth" id="dateOfBirth" type="date">
                 </div>
               </div>
             </div>
             <div class="center-row-fields">
               <div class="field-text">
-                Password
-              </div>
-              <div>
-                <input style="height:30px;width:400px" class="input" formControlName="password" id="password" type="text" placeholder="password">
+                <label for="password">Password</label>
+                <input style="height:30px;width:425px" formControlName="password" id="password" type="password" placeholder="Password">
               </div>
             </div>
             <div class="center-row-fields">
               <div class="field-text">
-                Confirm Password
-              </div>
-              <div>
-                <input style="height:30px;width:400px" class="input" formControlName="password" id="password" type="text" placeholder="password">
+                <label>Confirm password</label>
+                <input style="height:30px;width:425px;" formControlName="confirmPassword" id="confirmPassword" type="password" placeholder="Confirm password">
               </div>
             </div>
           </form>
@@ -196,7 +184,7 @@
               Create Account
             </button>
           </div>
-        </div>  
+        </div>
       </div>
     </div>
   </div>
