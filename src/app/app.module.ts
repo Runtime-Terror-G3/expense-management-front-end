@@ -6,13 +6,17 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardCardComponent } from './dashboard-card/dashboard-card.component';
 
 @NgModule({
-  declarations: [
+  declarations: [		
     AppComponent,
     SignInComponent,
-    AddExpenseComponent
-  ],
+    AddExpenseComponent,
+      DashboardComponent,
+      DashboardCardComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,0 +1,26 @@
+.container {
+    align-self: center;
+    width: 90%;
+    margin: auto;
+    margin-top: 3rem;
+    padding: 20px;
+}
+
+.subtitle {
+    width: 80%;
+    height: 61px;
+    font-size: 40px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.015em;
+}
+
+.gray-text {
+    color: gray;
+    font-size: 20px;
+}
+
+.cards {
+    display: flex;
+}
