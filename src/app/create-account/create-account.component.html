@@ -1,0 +1,44 @@
+<div class="root">
+  <div class="container-main">
+    <div class="container-left">
+      <img id="expense-management-image" src="assets/img/createAccount.png" alt="Expenses management image">
+    </div>
+    <form id="container-right" [formGroup]="createAccountForm">
+      <h1 class="title">
+        Register
+      </h1>
+      <p class="subtitle">
+        Sign up to manage your budget much easier and get a quick overview on your expenses
+      </p>
+      <div class="input-fields-grid">
+        <div class="input-field">
+          <label class="label-field" for="firstName">First name</label>
+          <input class="input" formControlName="firstName" id="firstName" type="text" placeholder="First name">
+        </div>
+        <div class="input-field">
+          <label class="label-field" for="lastName">Last name</label>
+          <input class="input" formControlName="lastName" id="lastName" type="text" placeholder="Last name">
+        </div>
+        <div class="input-field">
+          <label class="label-field" for="email">Email</label>
+          <input class="input" formControlName="email" id="email" type="text" placeholder="E-mail">
+        </div>
+        <div class="input-field">
+          <label class="label-field" for="dateOfBirth">Date of birth</label>
+          <input class="input" formControlName="dateOfBirth" id="dateOfBirth" type="date">
+        </div>
+        <div class="grid-item2 input-field">
+          <label class="label-field" for="password">Password</label>
+          <input class="input" formControlName="password" id="password" type="password" placeholder="Password">
+        </div>
+        <div class="grid-item2 input-field">
+          <label class="label-field" for="confirm-password">Confirm password</label>
+          <input class="input" formControlName="confirmPassword" id="confirmPassword" type="password" placeholder="Confirm password">
+        </div>
+      </div>
+      <button class="create-account-button" type="button" (click)="createAccount()">
+        Create Account
+      </button>
+    </form>
+  </div>
+</div>

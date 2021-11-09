@@ -6,12 +6,21 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
-    AddExpenseComponent
+    AddExpenseComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +28,12 @@ import { SignInComponent } from './sign-in/sign-in.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatFormFieldModule,
+    NoopAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatDatepickerModule
   ],
   providers: [
     HttpClient
