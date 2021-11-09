@@ -59,12 +59,12 @@ export class CreateAccountComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+/*
   onCancel() {
     //todo: navigate to the previous page
     console.log("on cancel")
   }
-
+*/
   dateValidation(datepicker: FormControl) {
     let pickedDate = datepicker.value;
     let today = new Date();
