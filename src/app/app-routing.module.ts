@@ -1,3 +1,4 @@
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddExpenseComponent } from './add-expense/add-expense.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'add-expense',
     component: AddExpenseComponent
+  },
+  {
+    path: 'home', 
+    component: DashboardComponent
   },
   {
     path: 'create-account',

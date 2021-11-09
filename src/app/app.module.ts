@@ -13,15 +13,18 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatDatepickerModule} from '@angular/material/datepicker';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardCardComponent } from './dashboard-card/dashboard-card.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     SignInComponent,
     AddExpenseComponent,
-    CreateAccountComponent
-  ],
+    CreateAccountComponent,
+    DashboardComponent,
+    DashboardCardComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
