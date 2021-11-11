@@ -1,0 +1,74 @@
+.header {
+    background-color: #1D4952;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    padding-top: 30px;
+}
+
+.logo {
+    display: flex;
+    margin-left: 1rem;
+}
+
+.title {
+    font-size: 25px;
+    color: #e7e5e9;
+    margin-top: 0.6rem;
+}
+
+.menu:hover {
+    cursor: pointer;
+}
+
+.menu {
+    padding-top: 10px;
+}
+
+.icon-left {
+    height: 30px;
+    margin-right: 2rem;
+    filter: invert(95%);
+}
+
+.icon {
+    height: 30px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    filter: invert(95%);
+}
+
+.dropdown-toggle {
+    padding-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    margin-right: 10px;
+    padding-bottom: 10px;
+}
+
+.dropdown-toggle:hover {
+    background-color: #215863;
+    cursor: pointer;
+}
+
+.name {
+    padding-top: 3px;
+    color: #e7e5e9;
+    font-size: 22px;
+}
+
+.dropdown-menu {
+    background-color: rgb(255, 255, 255);
+    height: 40px;
+    font-size: 22px;
+    margin-right: 10px;
+    text-align: center;
+    padding-top: 13px;
+    width: 13rem;
+    margin-left: 60px;
+}
+
+.dropdown-menu:hover {
+    cursor: pointer;
+    background-color: rgb(235, 227, 227);
+}

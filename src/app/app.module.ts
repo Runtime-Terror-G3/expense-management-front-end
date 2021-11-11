@@ -1,3 +1,4 @@
+import { SidebarElementComponent } from './sidebar/sidebar-element/sidebar-element.component';
 import { AddExpenseComponent } from './add-expense/add-expense.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,15 +16,22 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardCardComponent } from './dashboard-card/dashboard-card.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarContainerComponent } from './sidebar/sidebar-container/sidebar-container.component';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [			
     AppComponent,
     SignInComponent,
     AddExpenseComponent,
     CreateAccountComponent,
     DashboardComponent,
-    DashboardCardComponent
+    DashboardCardComponent,
+    NavbarComponent,
+    SidebarElementComponent,
+    SidebarContainerComponent,
+    LayoutComponent
    ],
   imports: [
     BrowserModule,
