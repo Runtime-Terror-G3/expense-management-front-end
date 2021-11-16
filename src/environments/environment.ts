@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: '',
-  apiUrl: '/api',
+  apiUrl: '/api/expense-management',
 };
 
 /*

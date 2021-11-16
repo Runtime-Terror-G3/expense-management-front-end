@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SessionService} from "../services/session.service";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormBuilder} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
@@ -12,14 +12,15 @@ import {Router} from "@angular/router";
  * Component that handles the signing in process
  */
 export class SignInComponent implements OnInit {
-  form: FormGroup = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+  form = this.formBuilder.group({
+    email: '',
+    password: '',
   });
 
   constructor(
     private sessionService: SessionService,
     private router: Router,
+    private formBuilder: FormBuilder,
   ) {
   }
 
@@ -32,11 +33,14 @@ export class SignInComponent implements OnInit {
    * Submits the sign in form data to the service and starts a new session
    */
   submit(): void {
-    const {email, password} = this.form.getRawValue();
-    this.sessionService.signIn(email, password).subscribe(
+    this.sessionService.signIn(this.form.value.email, this.form.value.password).subscribe(
       response => {
-        this.sessionService.saveToken(response.accessToken);
+        this.sessionService.saveToken(response.token);
         this.toHome();
+      },
+      error => {
+        alert(error.message);
+        this.form.reset();
       });
   }
 
@@ -44,6 +48,8 @@ export class SignInComponent implements OnInit {
    * Redirects to the home page
    */
   toHome(): void {
-    this.router.navigate(['home']).then(() => this.form.reset());
+    this.router.navigate(['home']).then(() => {
+      this.form.reset();
+    });
   }
 }

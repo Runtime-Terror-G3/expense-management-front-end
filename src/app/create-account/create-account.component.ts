@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {IUser} from '../models/user';
 import {UserServiceService} from '../services/user-service.service';
-import {compileInjectable} from "@angular/compiler";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-account',
@@ -10,11 +9,6 @@ import {compileInjectable} from "@angular/compiler";
   styleUrls: ['./create-account.component.css']
 })
 export class CreateAccountComponent implements OnInit {
-
-  constructor(private userService: UserServiceService) {
-
-  }
-
   email: FormControl = new FormControl('', [
     Validators.required,
     Validators.pattern(
@@ -26,7 +20,6 @@ export class CreateAccountComponent implements OnInit {
   firstName: FormControl = new FormControl('', [Validators.required]);
   lastName: FormControl = new FormControl('', [Validators.required]);
   dateOfBirth: FormControl = new FormControl('', [Validators.required, this.dateValidation]);
-
   createAccountForm: FormGroup = new FormGroup({
     firstName: this.firstName,
     lastName: this.lastName,
@@ -36,35 +29,31 @@ export class CreateAccountComponent implements OnInit {
     confirmPassword: this.confirmPassword
   });
 
+  constructor(
+    private userService: UserServiceService,
+    private router: Router,
+  ) {
+  }
+
+  ngOnInit(): void {
+  }
 
   createAccount(): void {
     if (this.createAccountForm.valid) {
-      let currentUser = {
-        firstName: this.firstName.value,
-        lastName: this.lastName.value,
-        dateOfBirth: this.dateOfBirth.value,
-        passwordHash: this.password.value,
-        email: this.email.value,
-      } as IUser
-      this.userService.createAccount(currentUser)
-      alert("Account was created successfully!")
-      this.createAccountForm.reset()
-      //todo: redirect to login page when account created
-    }
-    else{
+      this.userService.createAccount(this.firstName.value, this.lastName.value, this.dateOfBirth.value, this.email.value, this.password.value).subscribe(
+        response => {
+          alert("Account was created successfully!");
+          this.toSignIn();
+        },
+        error => {
+          alert(error.message);
+        }
+      );
+    } else {
       alert("Fields are invalid!")
     }
   }
 
-
-  ngOnInit(): void {
-  }
-/*
-  onCancel() {
-    //todo: navigate to the previous page
-    console.log("on cancel")
-  }
-*/
   dateValidation(datepicker: FormControl) {
     let pickedDate = datepicker.value;
     let today = new Date();
@@ -73,5 +62,9 @@ export class CreateAccountComponent implements OnInit {
       return {dateError: {parsed: pickedDate}}
     }
     return null;
+  }
+
+  private toSignIn() {
+    this.router.navigate(["sign-in"]).then(() => this.createAccountForm.reset())
   }
 }
