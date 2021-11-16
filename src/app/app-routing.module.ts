@@ -7,6 +7,7 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 
 const routes: Routes = [
 
+  {path: '', redirectTo: 'sign-in', pathMatch: 'full'},
   {path: 'login', redirectTo: 'sign-in', pathMatch: 'full'},
   {path: 'log-in', redirectTo: 'sign-in', pathMatch: 'full'},
   {path: 'signin', redirectTo: 'sign-in', pathMatch: 'full'},
