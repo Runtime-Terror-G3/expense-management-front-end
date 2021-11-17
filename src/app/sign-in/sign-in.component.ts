@@ -48,7 +48,7 @@ export class SignInComponent implements OnInit {
    * Redirects to the home page
    */
   toHome(): void {
-    this.router.navigate(['home']).then(() => {
+    this.router.navigate(['/home']).then(() => {
       this.form.reset();
     });
   }

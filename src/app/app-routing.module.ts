@@ -1,3 +1,4 @@
+import { ExpenseManagementComponent } from './expense-management/expense-management.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddExpenseComponent } from './add-expense/add-expense.component';
 import { NgModule } from '@angular/core';
@@ -13,8 +14,8 @@ const routes: Routes = [
   {path: 'signin', redirectTo: 'sign-in', pathMatch: 'full'},
   {path: 'sign-in', component: SignInComponent},
   {
-    path: 'add-expense',
-    component: AddExpenseComponent
+    path: 'expense-management',
+    component:ExpenseManagementComponent
   },
   {
     path: 'home', 

@@ -1,0 +1,50 @@
+.tab {
+    display: flex;
+    width: 75%;
+    height: 3rem;
+    align-self: center;
+    margin: auto;
+    margin-top: 5rem;
+    z-index: 2;
+    padding-left: 5rem;
+}
+
+.tab-item {
+    background-color: white;
+    width: 10rem;
+    text-align: center;
+    padding: 1rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: gray;
+}
+
+.tab-item:hover {
+    cursor: pointer;
+}
+
+.selected-tab {
+    color: black;
+    font-weight: bold;
+}
+
+.selected-tab .icon-add {
+    filter: invert(0%);
+}
+
+.selected-tab .icon-edit {
+    filter: invert(0%);
+}
+
+
+.icon-add {
+    height: 1rem;
+    filter: invert(40%);
+    margin-right: 0.5rem;
+}
+
+.icon-edit {
+    width: 1rem;
+    filter: invert(40%);
+    margin-right: 0.5rem;
+}

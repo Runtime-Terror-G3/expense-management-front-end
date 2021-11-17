@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from "../../environments/environment";
 import { sha256 } from 'js-sha256';
+import  jwtDecode  from 'jwt-decode';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -15,7 +16,7 @@ const httpOptions = {
  * Session related services, like signing up, in, out etc.
  */
 export class SessionService {
-  private apiUrl: string = environment.apiUrl;
+  private apiUrl: string = environment.baseUrl;
   private token: string = '';
 
   constructor(
@@ -31,7 +32,7 @@ export class SessionService {
    */
   signIn(email: string, password: string): Observable<any> {
     password = sha256(password)
-    return this.httpClient.post(this.apiUrl + '/sign-in', {
+    return this.httpClient.post(this.apiUrl + 'sign-in', {
       email,
       password
     }, httpOptions);
@@ -42,7 +43,7 @@ export class SessionService {
    */
   signOut(): Observable<any> {
     window.sessionStorage.clear();
-    return this.httpClient.get(this.apiUrl + '/sign-out', httpOptions);
+    return this.httpClient.get(this.apiUrl + 'sign-out', httpOptions);
   }
 
   /**
@@ -59,6 +60,18 @@ export class SessionService {
    */
   getToken(): string | null {
     return window.sessionStorage.getItem(this.token);
+  }
+
+  getDecodedToken(): any {
+    return jwtDecode(this.getToken()!);
+  }
+
+  getLoggedUserId(): number | null {
+    return this.getDecodedToken().id;
+  }
+
+  getLoggedUserName(): string | null {
+    return this.getDecodedToken().first_name + " " + this.getDecodedToken().last_name;
   }
 
   /**

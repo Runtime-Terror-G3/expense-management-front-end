@@ -6,12 +6,16 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent{
-  name="Cristian Rotar";
+export class NavbarComponent implements OnInit{
+  name="";
   isSignedOut = false;
   title = "Expense Management App";
 
   constructor(private sessionService: SessionService) { }
+  
+  ngOnInit(): void {
+    this.name = this.sessionService.getLoggedUserName()!;
+  }
 
   signOut() {
     this.sessionService.signOut();

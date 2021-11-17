@@ -28,7 +28,7 @@ export class SidebarContainerComponent implements OnInit {
       {
         title: 'Expense Management',
         icon: 'ic-expense',
-        route: '/add-expense'
+        route: '/expense-management'
       },
       {
         title: 'Budget Management',

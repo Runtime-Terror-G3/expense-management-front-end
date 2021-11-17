@@ -1,5 +1,6 @@
 import { SessionService } from './../services/session.service';
 import { Component, OnInit } from '@angular/core';
+import { EventEmitterService } from '../services/event-emitter.service';
 
 @Component({
   selector: 'app-layout',
@@ -11,9 +12,16 @@ export class LayoutComponent implements OnInit {
   isSidebarActive = false;
   isLoggedIn = false;
 
-  constructor(private sessionService: SessionService) { }
+  constructor(private sessionService: SessionService, private eventEmitterService: EventEmitterService) { }
 
   ngOnInit() {
-    this.isLoggedIn = this.sessionService.activeSession();
+    this.eventEmitterService.getEmitter('onRouteChanged')?.subscribe(route => {
+      if (route == '/sign-in' || route == '/create-account' || route == '/'){
+        this.isLoggedIn = false;
+      }
+      else {
+        this.isLoggedIn = true;
+      }
+    })
   }
 }
