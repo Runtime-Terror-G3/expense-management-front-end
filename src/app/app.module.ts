@@ -19,9 +19,10 @@ import { DashboardCardComponent } from './dashboard-card/dashboard-card.componen
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarContainerComponent } from './sidebar/sidebar-container/sidebar-container.component';
 import { LayoutComponent } from './layout/layout.component';
+import { ExpenseManagementComponent } from './expense-management/expense-management.component';
 
 @NgModule({
-  declarations: [			
+  declarations: [				
     AppComponent,
     SignInComponent,
     AddExpenseComponent,
@@ -31,7 +32,8 @@ import { LayoutComponent } from './layout/layout.component';
     NavbarComponent,
     SidebarElementComponent,
     SidebarContainerComponent,
-    LayoutComponent
+    LayoutComponent,
+    ExpenseManagementComponent
    ],
   imports: [
     BrowserModule,

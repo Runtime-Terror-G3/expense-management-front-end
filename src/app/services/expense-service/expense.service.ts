@@ -19,6 +19,6 @@ export class ExpenseService {
 
   createExpense(expense: IExpense): Observable<IExpense> {
     const body = JSON.stringify(expense);
-    return this.http.post<IExpense>(this.baseUrl + '/expenses', body, this.options);
+    return this.http.post<IExpense>(this.baseUrl + 'add-expense', body, this.options);
   }
 }

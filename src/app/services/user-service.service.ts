@@ -8,7 +8,7 @@ import { sha256 } from "js-sha256";
   providedIn: 'root'
 })
 export class UserServiceService {
-  private apiUrl = environment.apiUrl;
+  private apiUrl = environment.baseUrl;
 
   constructor(
     private httpClient: HttpClient
@@ -17,12 +17,12 @@ export class UserServiceService {
 
   createAccount(firstName: string, lastName: string, dateOfBirth: Date, email: string, password: string): Observable<any> {
     password = sha256(password);
-    return this.httpClient.post(this.apiUrl + '/create-account', {
+    return this.httpClient.post(this.apiUrl + 'create-account', {
       firstName: firstName,
       lastName: lastName,
       dateOfBirth: dateOfBirth,
       email: email,
-      password: password
+      passwordHash: password
     }, {responseType: "text", headers: new HttpHeaders({"Content-Type": "application/json"})});
   }
 }

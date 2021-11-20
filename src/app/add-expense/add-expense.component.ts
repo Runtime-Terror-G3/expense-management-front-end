@@ -1,3 +1,4 @@
+import { SessionService } from './../services/session.service';
 import { ExpenseCategory } from './../models/expense-category.enum';
 import { IExpense } from './../models/expense.model';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +20,7 @@ export class AddExpenseComponent implements OnInit {
     date: new FormControl('')
   });
 
-  constructor(private expenseService: ExpenseService) { }
+  constructor(private expenseService: ExpenseService, private sessionService: SessionService) { }
 
   get amount() {
     return this.form.get('amount') as FormControl;
@@ -38,23 +39,24 @@ export class AddExpenseComponent implements OnInit {
   }
 
   createCategoryList() {
-    this.categories.push(ExpenseCategory.Clothing)
-    this.categories.push(ExpenseCategory.Education)
-    this.categories.push(ExpenseCategory.Entertainment)
-    this.categories.push(ExpenseCategory.Food)
-    this.categories.push(ExpenseCategory.Health)
-    this.categories.push(ExpenseCategory.Housekeeping)
-    this.categories.push(ExpenseCategory.SelfCare)
-    this.categories.push(ExpenseCategory.Others)
+    this.categories.push(ExpenseCategory.Clothing);
+    this.categories.push(ExpenseCategory.Education);
+    this.categories.push(ExpenseCategory.Entertainment);
+    this.categories.push(ExpenseCategory.Food);
+    this.categories.push(ExpenseCategory.Health);
+    this.categories.push(ExpenseCategory.Housekeeping);
+    this.categories.push(ExpenseCategory.SelfCare);
+    this.categories.push(ExpenseCategory.Others);
   }
 
   submitData() {
     let expense = {
-      userId: this.userId,
+      userId: this.sessionService.getLoggedUserId(),
       amount: this.amount.value,
       category: this.category.value,
-      date: this.category.value
+      date: this.date.value
     } as IExpense
+    console.log(expense);
     this.expenseService.createExpense(expense).subscribe();
     this.form.reset();
   }

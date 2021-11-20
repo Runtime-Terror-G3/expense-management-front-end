@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: '',
   apiUrl: '/api/expense-management',
+  baseUrl: 'http://localhost:8080/api/expense-management/',
 };
 
 /*

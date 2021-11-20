@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {UserServiceService} from '../services/user-service.service';
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserServiceService } from '../services/user-service.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-create-account',
@@ -59,12 +59,12 @@ export class CreateAccountComponent implements OnInit {
     let today = new Date();
     pickedDate = new Date(pickedDate);
     if (pickedDate >= today) {
-      return {dateError: {parsed: pickedDate}}
+      return { dateError: { parsed: pickedDate } }
     }
     return null;
   }
 
   private toSignIn() {
-    this.router.navigate(["sign-in"]).then(() => this.createAccountForm.reset())
+    this.router.navigate(["/sign-in"]).then(() => this.createAccountForm.reset())
   }
 }
