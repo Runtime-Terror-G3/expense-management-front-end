@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignInComponent } from "./sign-in/sign-in.component";
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { BudgetManagementComponent } from './budget-management/budget-management.component';
 
 const routes: Routes = [
 
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'create-account',
     component: CreateAccountComponent
+  },
+  {
+    path: 'budget-management',
+    component: BudgetManagementComponent
   }
 ];
 
