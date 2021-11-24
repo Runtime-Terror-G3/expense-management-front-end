@@ -20,6 +20,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarContainerComponent } from './sidebar/sidebar-container/sidebar-container.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ExpenseManagementComponent } from './expense-management/expense-management.component';
+import { EditExpenseComponent } from './edit-expense/edit-expense.component';
 
 @NgModule({
   declarations: [				
@@ -33,7 +34,8 @@ import { ExpenseManagementComponent } from './expense-management/expense-managem
     SidebarElementComponent,
     SidebarContainerComponent,
     LayoutComponent,
-    ExpenseManagementComponent
+    ExpenseManagementComponent,
+    EditExpenseComponent
    ],
   imports: [
     BrowserModule,

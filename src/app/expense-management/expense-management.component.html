@@ -1,16 +1,20 @@
-<div class="tab">
-  <div class="tab-item">
-    <div class="tab-button" tabindex="0" (click)="optionMenu='AddExpense'" [class.selected-tab]="optionMenu == 'AddExpense'">
-      <img src="assets/ic-add.png" class="icon-add">
-      <span class="tab-label">Add</span>
+<div class="tabs">
+  <div class="tab-headers">
+    <div class="tab-header">
+      <div class="tab-button" tabindex="0" (click)="optionMenu='AddExpense'"
+           [class.selected-tab]="optionMenu == 'AddExpense'">
+        <img src="assets/ic-add.png" class="icon-add">
+        <span class="tab-label">Add</span>
+      </div>
+    </div>
+    <div class="tab-header">
+      <div class="tab-button" tabindex="0" (click)="optionMenu='EditExpense'"
+           [class.selected-tab]="optionMenu == 'EditExpense'">
+        <img src="assets/ic-update.png" class="icon-edit">
+        <span class="tab-label">Update/Delete</span>
+      </div>
     </div>
   </div>
-  <div class="tab-item">
-    <div class="tab-button" tabindex="0" (click)="optionMenu='EditExpense'" [class.selected-tab]="optionMenu == 'EditExpense'">
-      <img src="assets/ic-update.png" class="icon-edit">
-      <span class="tab-label">Update/Delete</span>
-    </div>
-  </div>
+  <app-add-expense class="tab-content" *ngIf="optionMenu == 'AddExpense'"></app-add-expense>
+  <app-edit-expense class="tab-content" *ngIf="optionMenu == 'EditExpense'"></app-edit-expense>
 </div>
-<app-add-expense *ngIf="optionMenu == 'AddExpense'"></app-add-expense>
-<app-dashboard *ngIf="optionMenu == 'EditExpense'"></app-dashboard>

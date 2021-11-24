@@ -23,5 +23,4 @@ export class DashboardComponent implements OnInit {
   toSignIn() {
     this.router.navigate(["sign-in"]).then(() => {})
   }
-
 }

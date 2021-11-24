@@ -1,65 +1,60 @@
 .container {
-    background-color: white;
-    border-radius: 20px;
-    border-top-left-radius: 0px;
-    align-self: center;
-    width: 70%;
-    height: 500px;
-    margin: auto;
-    padding: 40px;
-    margin-left: 17.5rem;
+  background-color: white;
+  border-radius: 0 20px 20px 20px;
+  height: 500px;
+  padding: 40px;
 }
 
 .subtitle {
-    width: 80%;
-    height: 61px;
-    font-size: 36px;
-    line-height: 40px;
-    display: flex;
-    align-items: center;
-    letter-spacing: -0.015em;
-    margin-bottom: 75px;
-    margin-left: 2rem;
+  width: 80%;
+  height: 61px;
+  font-size: 36px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.015em;
+  margin-bottom: 75px;
+  margin-left: 2rem;
 }
 
 .field-text {
-    font-size: 22px;
-    margin-right: 2rem;
-    text-align: center;
+  font-size: 22px;
+  margin-right: 2rem;
+  text-align: center;
 }
 
 .group-field {
-    display: flex;
-    margin: 30px;
+  display: flex;
+  margin: 30px;
 }
 
 .form-item {
-    width: 100px;
+  width: 100px;
 }
 
 .input {
-    width: 200px;
-    height: 25px;
-    border-color: black;
-    border-radius: 5px;
+  width: 200px;
+  height: 25px;
+  border-color: black;
+  border-radius: 5px;
 }
 
 .submit-btn {
-    background-color: #1D4952;
-    color: white;
-    width: 150px;
-    height: 35px;
-    border-radius: 5px;
-    font-size: 20px;
+  background-color: #1D4952;
+  color: white;
+  width: 150px;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 20px;
 }
 
 .button {
-    margin-top: 60px;
-    margin-left: 40px;
+  margin-top: 60px;
+  margin-left: 40px;
 }
 
 .categories-image {
-    align-self: flex-end;
-    float: right;
-    margin-left: 15rem;
+  align-self: flex-end;
+  float: right;
+  margin-left: 15rem;
 }

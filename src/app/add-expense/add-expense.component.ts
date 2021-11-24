@@ -1,6 +1,6 @@
-import { SessionService } from './../services/session.service';
-import { ExpenseCategory } from './../models/expense-category.enum';
-import { IExpense } from './../models/expense.model';
+import { SessionService } from '../services/session.service';
+import { ExpenseCategory } from '../models/expense-category.enum';
+import { IExpense } from '../models/expense.model';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ExpenseService } from '../services/expense-service/expense.service';
