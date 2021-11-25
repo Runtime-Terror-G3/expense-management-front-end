@@ -56,7 +56,6 @@ export class AddExpenseComponent implements OnInit {
       category: this.category.value,
       date: this.date.value
     } as IExpense
-    console.log(expense);
     this.expenseService.createExpense(expense).subscribe();
     this.form.reset();
   }
