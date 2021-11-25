@@ -1,5 +1,37 @@
 <div id="edit-expense-root">
-  <div>
-
-  </div>
+  <form id="filter-area">
+    <div class="field-group">
+      <p class="field-description">
+        Category
+      </p>
+      <select class="field-input" formControlName="category">
+        <option class="option" value="{{expenseCategory[category]}}" *ngFor="let category of categories">
+          {{expenseCategory[category]}}
+        </option>
+      </select>
+    </div>
+    <div class="field-group">
+      <p class="field-description">
+        Date
+      </p>
+      <input class="field-input" formControlName="date" type="datetime-local"/>
+    </div>
+    <button id="filter-button" type="button" (click)="filterExpenses()">
+      Filter
+    </button>
+  </form>
+  <table id="expenses-table">
+    <tr>
+      <th>Category</th>
+      <th>Date</th>
+      <th>Amount</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let expense of expenses">
+      <td>{{expense.category}}</td>
+      <td>{{expense.date}}</td>
+      <td>{{expense.amount}}</td>
+      <td>Modify/Delete</td>
+    </tr>
+  </table>
 </div>
