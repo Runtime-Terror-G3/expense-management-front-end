@@ -21,6 +21,7 @@ import { SidebarContainerComponent } from './sidebar/sidebar-container/sidebar-c
 import { LayoutComponent } from './layout/layout.component';
 import { ExpenseManagementComponent } from './expense-management/expense-management.component';
 import { BudgetManagementComponent } from './budget-management/budget-management.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [					
@@ -51,7 +52,8 @@ import { BudgetManagementComponent } from './budget-management/budget-management
     MatDatepickerModule
   ],
   providers: [
-    HttpClient
+    HttpClient,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
