@@ -21,6 +21,7 @@ import { SidebarContainerComponent } from './sidebar/sidebar-container/sidebar-c
 import { LayoutComponent } from './layout/layout.component';
 import { ExpenseManagementComponent } from './expense-management/expense-management.component';
 import { BudgetManagementComponent } from './budget-management/budget-management.component';
+import { ActivateAccountComponent } from './activate-account/activate-account.component';
 
 @NgModule({
   declarations: [					
@@ -35,7 +36,8 @@ import { BudgetManagementComponent } from './budget-management/budget-management
     SidebarContainerComponent,
     LayoutComponent,
     ExpenseManagementComponent,
-    BudgetManagementComponent
+    BudgetManagementComponent,
+    ActivateAccountComponent
    ],
   imports: [
     BrowserModule,

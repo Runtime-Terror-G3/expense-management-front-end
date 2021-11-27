@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignInComponent } from "./sign-in/sign-in.component";
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { BudgetManagementComponent } from './budget-management/budget-management.component';
+import { ActivateAccountComponent } from './activate-account/activate-account.component';
 
 const routes: Routes = [
 
@@ -28,8 +29,12 @@ const routes: Routes = [
   },
   {
     path: 'budget-management',
-    component: BudgetManagementComponent
-  }
+    component: BudgetManagementComponent 
+  },
+  {
+    path: 'activate-account/:token',
+    component: ActivateAccountComponent
+  },
 ];
 
 @NgModule({

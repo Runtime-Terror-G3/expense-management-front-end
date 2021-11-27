@@ -25,4 +25,11 @@ export class UserServiceService {
       passwordHash: password
     }, {responseType: "text", headers: new HttpHeaders({"Content-Type": "application/json"})});
   }
+
+  activateAccount(activationToken: string): Observable<any> {
+    return this.httpClient.post(`${this.apiUrl}activate-account`,
+      activationToken,
+      {responseType: "text", headers: new HttpHeaders({"Content-Type": "application/json"})}
+    )
+  }
 }
