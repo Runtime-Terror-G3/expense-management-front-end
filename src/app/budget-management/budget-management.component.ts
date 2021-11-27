@@ -13,6 +13,7 @@ import { DatePipe } from '@angular/common';
 export class BudgetManagementComponent implements OnInit {
   monthlyBudgets: IMonthlyBudget[] = [] as IMonthlyBudget[];
   loggedUserId: number | undefined;
+  currentBudget: IMonthlyBudget = {} as IMonthlyBudget;
 
   form = new FormGroup({
     income: new FormControl(''),
@@ -32,6 +33,7 @@ export class BudgetManagementComponent implements OnInit {
   ngOnInit() {
     this.loggedUserId = this.sessionService.getLoggedUserId()!;
     this.getMonthlyBudgetsFromCurrentYear();
+    this.getCurrentBudget();
   }
 
   createMonthlyBudget() {
@@ -66,5 +68,9 @@ export class BudgetManagementComponent implements OnInit {
     let endDate = this.datePipe.transform(new Date(new Date().getFullYear(), 11, 31), 'yyyy-MM-dd');
     this.budgetService.getMonthlyBudgets(this.loggedUserId!, startDate!, endDate!)
       .subscribe(budgets => this.monthlyBudgets = budgets);
+  }
+
+  getCurrentBudget() {
+    this.currentBudget = this.monthlyBudgets.filter(x => x.date.getMonth() == new Date().getMonth())[0];
   }
 }
