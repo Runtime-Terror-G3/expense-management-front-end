@@ -1,0 +1,176 @@
+.container {
+    background-color: white;
+    border-radius: 20px;
+    align-self: center;
+    width: 70%;
+    height: 34rem;
+    margin: auto;
+    padding: 40px;
+    margin-left: 17.5rem;
+    margin-top: 5rem;
+}
+
+.subtitle {
+    width: 100%;
+    height: 61px;
+    font-size: 36px;
+    line-height: 40px;
+    display: block;
+    align-items: center;
+    letter-spacing: -0.015em;
+    /* margin-bottom: 75px; */
+    margin-left: 2rem;
+}
+
+.field-text {
+    font-size: 22px;
+    margin-right: 2rem;
+    text-align: center;
+}
+
+.group-field {
+    display: flex;
+    margin: 30px;
+}
+
+.form-item {
+    width: 50px;
+    margin-left: 3rem;
+}
+
+.input {
+    width: 200px;
+    height: 25px;
+    border-color: black;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    background-color: #1D4952;
+    color: white;
+    width: 150px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: white;
+    color: #1D4952;
+    border-color: #1D4952;
+    width: 150px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.buttons {
+    width: 50%;
+    align-self: flex-end;
+    margin-left: 50%;
+    margin-bottom: 1rem;
+}
+
+.budget-image {
+    margin-top: 10rem !important;
+}
+
+.container-table {
+    margin-left: 15rem;
+    float: right;
+    top: 0% !important;
+    width: 100rem;
+}
+.budget-table {
+    width: 20rem;
+  }
+
+  .mat-column-date {
+    text-align: left;
+  }
+
+  .mat-column-actions {
+      text-align: right;
+  }
+
+  .mat-column-income {
+    text-align: center;
+  }
+  
+  
+  .mat-header-cell {
+      background-color: #1D4952;
+      color: #E3EAEB;
+      font-weight: bold;
+      font-size: 18px;
+  }
+
+  .mat-row:nth-child(even){
+    background-color: #E3EAEB;
+    height: 1rem;
+}
+        
+.mat-row:nth-child(odd){
+    background-color: #C7CBCC;
+    height: 1rem;
+}
+
+.modal {
+    display: block;
+    position: absolute; z-index:2;
+    top: 40%; left: 30%;
+    width: 50rem;  
+    background-color: #E3EAEB;
+    border-radius: 20px;
+    align-self: center;
+    align-content: center;
+}
+
+.title-modal {
+    background-color: #1D4952;
+    color: white;
+    font-size: 25px;
+    height: 3rem;
+    padding: 1rem 0 0 3rem;
+    border-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.content-modal {
+    border-radius: 20px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.icon {
+    color: #1D4952;
+}
+
+.add-icon {
+    color: #E3EAEB;
+}
+
+.content {
+    display: flex;
+    top: 0% !important;
+}
+
+.left-child {
+    float: left;
+    width: 90%;
+}
+
+.error_message {
+    margin-top: 0%;
+    color: red;
+    font-size: 15px;
+}
+
+.p-text {
+    margin-bottom: 0%;
+}

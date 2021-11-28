@@ -1,3 +1,84 @@
-<p>
-  budget-management works!
-</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="container">
+ 
+  <div class="content">
+    <div class="left-child">
+      <div class="subtitle">
+        <div style="display: flex;">
+          <p class="p-text">Your current budget</p>
+          <p class="p-text" *ngIf="currentBudget">: $ {{ currentBudget }}</p>
+        </div>
+        <p *ngIf="!currentBudget" class="error_message"> There is no budget set for the current month. You should add it by clicking on plus button. </p>
+      </div>
+      <div class="budget-image">
+        <img style="width: 500px;" src="assets/img/budget-management.jpg">
+      </div>
+    </div>
+    <div class="container-table">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 budget-table">
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let element">{{element.date | date: 'dd-MM-yyyy' }}</td>
+        </ng-container>
+        <ng-container matColumnDef="income">
+          <th mat-header-cell *matHeaderCellDef>Income</th>
+          <td mat-cell *matCellDef="let element">$ {{element.income}}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>
+            <button mat-icon-button color="primary" (click)="addRow()" title="Add Budget">
+              <mat-icon class="add-icon" aria-hidden="false" aria-label="Add budget">add</mat-icon>
+            </button>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="editRow(element)" title="Edit Budget">
+              <mat-icon class="icon" aria-hidden="false" aria-label="Edit budget">edit</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" (click)="deleteRow(element)" title="Edit Budget">
+              <mat-icon class="icon" aria-hidden="false" aria-label="Edit budget">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="showModal == true" class="modal">
+      <div class="title-modal">
+        {{ isAddMode ? "Add" : "Edit"}} budget </div>
+      <div class="content-modal">
+        <form [formGroup]="form">
+          <div class="group-field">
+            <div class="form-item field-text">
+              Date
+            </div>
+            <div>
+              <input class="input" type="date" formControlName="date"
+              ngModel="{{ isAddMode ? null : currentMonthlyBudget.date | date: 'dd//mm/yyyy' }}">
+            </div>
+            <div class="form-item field-text">
+              Amount
+            </div>
+            <div>
+              <input class="input" formControlName="income" id="income" type="number" 
+              placeholder="{{ isAddMode ? 'e.x. 200.00' : null }}"
+              ngModel="{{ isAddMode ? null : currentMonthlyBudget.income}}">
+            </div>
+          </div>
+        </form>
+        <div class="buttons">
+          <button class="cancel-btn" type="button" (click)="cancel()">
+            Cancel
+          </button>
+          <button *ngIf="isAddMode == true" class="submit-btn" type="button" (click)= "createMonthlyBudget()">
+            Add
+          </button>
+          <button *ngIf="isAddMode == false" class="submit-btn" type="button" (click)= "updateMonthlyBudget()">
+            Update
+          </button>
+        </div>
+      </div>
+  </div>
+</div>

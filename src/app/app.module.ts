@@ -21,9 +21,11 @@ import { SidebarContainerComponent } from './sidebar/sidebar-container/sidebar-c
 import { LayoutComponent } from './layout/layout.component';
 import { ExpenseManagementComponent } from './expense-management/expense-management.component';
 import { BudgetManagementComponent } from './budget-management/budget-management.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
-  declarations: [					
+  declarations: [						
     AppComponent,
     SignInComponent,
     AddExpenseComponent,
@@ -35,7 +37,7 @@ import { BudgetManagementComponent } from './budget-management/budget-management
     SidebarContainerComponent,
     LayoutComponent,
     ExpenseManagementComponent,
-    BudgetManagementComponent
+    BudgetManagementComponent,
    ],
   imports: [
     BrowserModule,
@@ -48,7 +50,9 @@ import { BudgetManagementComponent } from './budget-management/budget-management
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatTableModule,
+    MatIconModule
   ],
   providers: [
     HttpClient
