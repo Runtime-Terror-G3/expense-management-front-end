@@ -23,6 +23,7 @@ import { ExpenseManagementComponent } from './expense-management/expense-managem
 import { BudgetManagementComponent } from './budget-management/budget-management.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [						
@@ -55,7 +56,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatIconModule
   ],
   providers: [
-    HttpClient
+    HttpClient,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

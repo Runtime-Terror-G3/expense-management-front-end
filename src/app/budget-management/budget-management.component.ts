@@ -3,6 +3,8 @@ import { SessionService } from './../services/session.service';
 import { BudgetService } from './../services/budget-service/budget.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+// import { IMonthlyBudget } from '../models/monthly-budget.model';
+import { DatePipe } from '@angular/common';
 
 
 const ELEMENT_DATA: IMonthlyBudget[] = [
@@ -78,6 +80,7 @@ const ELEMENT_DATA: IMonthlyBudget[] = [
 }
 ]
 
+
 @Component({
   selector: 'app-budget-management',
   templateUrl: './budget-management.component.html',
@@ -95,9 +98,10 @@ export class BudgetManagementComponent implements OnInit {
     "income": 0,
     "date": new Date()
   };
-  currentBudget = null; 
+  // currentBudget = null; 
   showModal = false;
   isAddMode = true;
+  currentBudget: IMonthlyBudget = {} as IMonthlyBudget;
 
   form = new FormGroup({
     income: new FormControl(''),
@@ -116,11 +120,13 @@ export class BudgetManagementComponent implements OnInit {
     return this.form.get('date') as FormControl;
   }
 
-  constructor(private budgetService: BudgetService, private sessionService: SessionService) { }
+  constructor(private budgetService: BudgetService, private sessionService: SessionService, private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.loggedUserId = this.sessionService.getLoggedUserId()!;
     // this.budgetService.getMonthlyBudgets(this.loggedUserId, Date.now, Date.now)
+    this.getMonthlyBudgetsFromCurrentYear();
+    this.getCurrentBudget();
   }
 
   createMonthlyBudget() {
@@ -169,5 +175,16 @@ export class BudgetManagementComponent implements OnInit {
 
   cancel() {
     this.showModal = false;
+  }
+
+  getMonthlyBudgetsFromCurrentYear() {
+    let startDate = this.datePipe.transform(new Date(new Date().getFullYear(), 0, 1), 'yyyy-MM-dd');
+    let endDate = this.datePipe.transform(new Date(new Date().getFullYear(), 11, 31), 'yyyy-MM-dd');
+    this.budgetService.getMonthlyBudgets(this.loggedUserId!, startDate!, endDate!)
+      .subscribe(budgets => this.monthlyBudgets = budgets);
+  }
+
+  getCurrentBudget() {
+    this.currentBudget = this.monthlyBudgets.filter(x => x.date.getMonth() == new Date().getMonth())[0];
   }
 }
