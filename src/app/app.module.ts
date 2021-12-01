@@ -24,6 +24,8 @@ import {BudgetManagementComponent} from './budget-management/budget-management.c
 import {StatisticsComponent} from './statistics/statistics.component';
 import {ChartsModule} from "ng2-charts";
 import { ChartComponent } from './chart/chart.component';
+import { DatePipe } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ import { ChartComponent } from './chart/chart.component';
     ChartsModule
   ],
   providers: [
-    HttpClient
+    HttpClient,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

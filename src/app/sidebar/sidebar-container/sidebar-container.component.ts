@@ -33,7 +33,7 @@ export class SidebarContainerComponent implements OnInit {
       {
         title: 'Budget Management',
         icon: 'ic-budget',
-        route: ''
+        route: '/budget-management'
       }
     ];
   }
