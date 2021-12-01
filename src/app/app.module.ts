@@ -1,14 +1,14 @@
-import { SidebarElementComponent } from './sidebar/sidebar-element/sidebar-element.component';
-import { AddExpenseComponent } from './add-expense/add-expense.component';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { CreateAccountComponent } from './create-account/create-account.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {SidebarElementComponent} from './sidebar/sidebar-element/sidebar-element.component';
+import {AddExpenseComponent} from './add-expense/add-expense.component';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {SignInComponent} from './sign-in/sign-in.component';
+import {CreateAccountComponent} from './create-account/create-account.component';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
@@ -23,10 +23,14 @@ import { ExpenseManagementComponent } from './expense-management/expense-managem
 import { BudgetManagementComponent } from './budget-management/budget-management.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
+import {StatisticsComponent} from './statistics/statistics.component';
+import {ChartsModule} from "ng2-charts";
+import { ChartComponent } from './chart/chart.component';
 import { DatePipe } from '@angular/common';
 
+
 @NgModule({
-  declarations: [						
+  declarations: [
     AppComponent,
     SignInComponent,
     AddExpenseComponent,
@@ -39,7 +43,9 @@ import { DatePipe } from '@angular/common';
     LayoutComponent,
     ExpenseManagementComponent,
     BudgetManagementComponent,
-   ],
+    StatisticsComponent,
+    ChartComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -53,7 +59,8 @@ import { DatePipe } from '@angular/common';
     MatDialogModule,
     MatDatepickerModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    ChartsModule
   ],
   providers: [
     HttpClient,
@@ -61,4 +68,5 @@ import { DatePipe } from '@angular/common';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

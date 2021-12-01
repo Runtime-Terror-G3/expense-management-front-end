@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignInComponent } from "./sign-in/sign-in.component";
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { BudgetManagementComponent } from './budget-management/budget-management.component';
+import {StatisticsComponent} from "./statistics/statistics.component";
 
 const routes: Routes = [
 
@@ -19,7 +20,7 @@ const routes: Routes = [
     component:ExpenseManagementComponent
   },
   {
-    path: 'home', 
+    path: 'home',
     component: DashboardComponent
   },
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'budget-management',
     component: BudgetManagementComponent
+  },
+  {
+    path:'statistics',
+    component:StatisticsComponent
   }
 ];
 
