@@ -11,73 +11,9 @@ const ELEMENT_DATA: IMonthlyBudget[] = [
   {
     "id": 1,
     "userId": 1,
-    "income": 25478,
-    "date": new Date("11/12/2021")
-  }, {
-    "id": 2,
-    "userId": 1,
-    "income": 1078,
-    "date": new Date("11/11/2021")
-  }, {
-      "id": 3,
-      "userId": 1,
-      "income": 8078,
-      "date": new Date("10/10/2021")
-  },
-  {
-    "id": 3,
-    "userId": 1,
-    "income": 8078,
-    "date": new Date("10/10/2021")
-},
-{
-  "id": 3,
-  "userId": 1,
-  "income": 8078,
-  "date": new Date("10/10/2021")
-},
-{
-  "id": 3,
-  "userId": 1,
-  "income": 8078,
-  "date": new Date("10/10/2021")
-},
-{
-  "id": 3,
-  "userId": 1,
-  "income": 8078,
-  "date": new Date("10/10/2021")
-},
-{
-  "id": 3,
-  "userId": 1,
-  "income": 8078,
-  "date": new Date("10/10/2021")
-},
-{
-  "id": 3,
-  "userId": 1,
-  "income": 8078,
-  "date": new Date("10/10/2021")
-},
-{
-  "id": 3,
-  "userId": 1,
-  "income": 8078,
-  "date": new Date("10/10/2021")
-},
-{
-  "id": 3,
-  "userId": 1,
-  "income": 8078,
-  "date": new Date("10/10/2021")
-},
-{
-  "id": 3,
-  "userId": 1,
-  "income": 8078,
-  "date": new Date("10/10/2021")
-}
+    "income": 2500,
+    "date": new Date("2021-11-28")
+  }
 ]
 
 
@@ -97,8 +33,8 @@ export class BudgetManagementComponent implements OnInit {
     "userId": 0,
     "income": 0,
     "date": new Date()
-  };
-  // currentBudget = null; 
+  } as IMonthlyBudget;
+  currentDate: string | undefined;
   showModal = false;
   isAddMode = true;
   currentBudget: IMonthlyBudget = {} as IMonthlyBudget;
@@ -111,6 +47,7 @@ export class BudgetManagementComponent implements OnInit {
 
   displayedColumns: string[] = ['date', 'income', 'actions'];
   dataSource = ELEMENT_DATA;
+  // dataSource = this.monthlyBudgets;
 
   get income() {
     return this.form.get('income') as FormControl;
@@ -124,7 +61,6 @@ export class BudgetManagementComponent implements OnInit {
 
   ngOnInit() {
     this.loggedUserId = this.sessionService.getLoggedUserId()!;
-    // this.budgetService.getMonthlyBudgets(this.loggedUserId, Date.now, Date.now)
     this.getMonthlyBudgetsFromCurrentYear();
     this.getCurrentBudget();
   }
@@ -139,6 +75,7 @@ export class BudgetManagementComponent implements OnInit {
     this.budgetService.createMonthlyBudget(budget).subscribe();
     this.form.reset();
     this.showModal = false;
+    this.getMonthlyBudgetsFromCurrentYear();
   }
 
   delelteMonthlyBudget(budgetId: number) {
@@ -152,10 +89,10 @@ export class BudgetManagementComponent implements OnInit {
       income: this.income.value,
       date: this.date.value
     } as IMonthlyBudget
-
     this.budgetService.updateMonthlyBudget(budget).subscribe();
     this.form.reset();
     this.showModal = false;
+    this.getMonthlyBudgetsFromCurrentYear();
   }
 
   addRow() {
@@ -170,7 +107,9 @@ export class BudgetManagementComponent implements OnInit {
   }
 
   deleteRow(row: IMonthlyBudget) {
-    
+    if(confirm("Are you sure to delete this item?")) {
+      this.delelteMonthlyBudget(row.id);
+    }
   }
 
   cancel() {
@@ -187,4 +126,5 @@ export class BudgetManagementComponent implements OnInit {
   getCurrentBudget() {
     this.currentBudget = this.monthlyBudgets.filter(x => x.date.getMonth() == new Date().getMonth())[0];
   }
+
 }
