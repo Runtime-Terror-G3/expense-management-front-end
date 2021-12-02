@@ -14,18 +14,18 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {DashboardCardComponent} from './dashboard-card/dashboard-card.component';
-import {NavbarComponent} from './navbar/navbar.component';
-import {SidebarContainerComponent} from './sidebar/sidebar-container/sidebar-container.component';
-import {LayoutComponent} from './layout/layout.component';
-import {ExpenseManagementComponent} from './expense-management/expense-management.component';
-import {BudgetManagementComponent} from './budget-management/budget-management.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardCardComponent } from './dashboard-card/dashboard-card.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarContainerComponent } from './sidebar/sidebar-container/sidebar-container.component';
+import { LayoutComponent } from './layout/layout.component';
+import { ExpenseManagementComponent } from './expense-management/expense-management.component';
+import { BudgetManagementComponent } from './budget-management/budget-management.component';
+import { ActivateAccountComponent } from './activate-account/activate-account.component';
 import {StatisticsComponent} from './statistics/statistics.component';
 import {ChartsModule} from "ng2-charts";
 import { ChartComponent } from './chart/chart.component';
 import { DatePipe } from '@angular/common';
-
 
 @NgModule({
   declarations: [
@@ -41,8 +41,9 @@ import { DatePipe } from '@angular/common';
     LayoutComponent,
     ExpenseManagementComponent,
     BudgetManagementComponent,
+    ActivateAccountComponent,
     StatisticsComponent,
-    ChartComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
