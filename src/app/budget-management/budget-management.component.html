@@ -7,7 +7,7 @@
       <div class="subtitle">
         <div style="display: flex;">
           <p class="p-text">Your current budget</p>
-          <p class="p-text" *ngIf="currentBudget">: $ {{ currentBudget }}</p>
+          <p class="p-text" *ngIf="currentBudget">: $ {{ currentBudget.income }}</p>
         </div>
         <p *ngIf="!currentBudget" class="error_message"> There is no budget set for the current month. You should add it by clicking on plus button. </p>
       </div>
@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="container-table">
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 budget-table">
+      <table mat-table [dataSource]="monthlyBudgets" class="mat-elevation-z8 budget-table">
         <ng-container matColumnDef="date">
           <th mat-header-cell *matHeaderCellDef>Date</th>
           <td mat-cell *matCellDef="let element">{{element.date | date: 'yyyy-MM-dd' }}</td>

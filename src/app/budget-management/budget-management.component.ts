@@ -6,24 +6,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 // import { IMonthlyBudget } from '../models/monthly-budget.model';
 import { DatePipe } from '@angular/common';
 
-
-const ELEMENT_DATA: IMonthlyBudget[] = [
-  {
-    "id": 1,
-    "userId": 1,
-    "income": 2500,
-    "date": new Date("2021-11-28")
-  }
-]
-
-
 @Component({
   selector: 'app-budget-management',
   templateUrl: './budget-management.component.html',
   styleUrls: ['./budget-management.component.css']
 })
-
-
 
 export class BudgetManagementComponent implements OnInit {
   monthlyBudgets: IMonthlyBudget[] = [] as IMonthlyBudget[];
@@ -44,10 +31,7 @@ export class BudgetManagementComponent implements OnInit {
     date: new FormControl('')
   });
 
-
   displayedColumns: string[] = ['date', 'income', 'actions'];
-  dataSource = ELEMENT_DATA;
-  // dataSource = this.monthlyBudgets;
 
   get income() {
     return this.form.get('income') as FormControl;
@@ -62,7 +46,6 @@ export class BudgetManagementComponent implements OnInit {
   ngOnInit() {
     this.loggedUserId = this.sessionService.getLoggedUserId()!;
     this.getMonthlyBudgetsFromCurrentYear();
-    this.getCurrentBudget();
   }
 
   createMonthlyBudget() {
@@ -71,15 +54,15 @@ export class BudgetManagementComponent implements OnInit {
       income: this.income.value,
       date: this.date.value
     } as IMonthlyBudget
-
-    this.budgetService.createMonthlyBudget(budget).subscribe();
-    this.form.reset();
-    this.showModal = false;
-    this.getMonthlyBudgetsFromCurrentYear();
+    if(this.validateBudget(budget)) {
+      this.budgetService.createMonthlyBudget(budget).subscribe(x => {this.getMonthlyBudgetsFromCurrentYear();});
+      this.form.reset();
+      this.showModal = false;
+    }
   }
 
   delelteMonthlyBudget(budgetId: number) {
-    this.budgetService.deleteMonthlyBudget(budgetId, this.loggedUserId!).subscribe();
+    this.budgetService.deleteMonthlyBudget(budgetId, this.loggedUserId!).subscribe(x => {this.getMonthlyBudgetsFromCurrentYear();});
   }
 
   updateMonthlyBudget() {
@@ -89,10 +72,11 @@ export class BudgetManagementComponent implements OnInit {
       income: this.income.value,
       date: this.date.value
     } as IMonthlyBudget
-    this.budgetService.updateMonthlyBudget(budget).subscribe();
-    this.form.reset();
-    this.showModal = false;
-    this.getMonthlyBudgetsFromCurrentYear();
+    if(this.validateBudget(budget)) {
+      this.budgetService.updateMonthlyBudget(budget).subscribe(x => {this.getMonthlyBudgetsFromCurrentYear();});
+      this.form.reset();
+      this.showModal = false;
+    }
   }
 
   addRow() {
@@ -120,11 +104,27 @@ export class BudgetManagementComponent implements OnInit {
     let startDate = this.datePipe.transform(new Date(new Date().getFullYear(), 0, 1), 'yyyy-MM-dd');
     let endDate = this.datePipe.transform(new Date(new Date().getFullYear(), 11, 31), 'yyyy-MM-dd');
     this.budgetService.getMonthlyBudgets(this.loggedUserId!, startDate!, endDate!)
-      .subscribe(budgets => this.monthlyBudgets = budgets);
+      .subscribe(budgets => {this.monthlyBudgets = budgets.sort(
+        (a, b) => {
+          return <any>new Date(a.date) - <any>new Date(b.date);
+        }
+      ); this.getCurrentBudget();});
   }
 
   getCurrentBudget() {
-    this.currentBudget = this.monthlyBudgets.filter(x => x.date.getMonth() == new Date().getMonth())[0];
+    this.currentBudget = this.monthlyBudgets.filter(x => new Date(x.date).getUTCMonth() == new Date().getMonth())[0];
   }
 
+  validateBudget(budget: IMonthlyBudget) {
+      if (!budget.income || budget.income < 0) {
+        alert('Invalid income field!');
+        return false;
+      }
+      if (this.monthlyBudgets.filter(x => new Date(x.date).getUTCMonth() == new Date(budget.date).getUTCMonth() && x.id != budget.id).length >= 1)
+      {
+        alert('There is already a budget set for this month!');
+        return false;
+      }
+      return true;
+  }
 }
