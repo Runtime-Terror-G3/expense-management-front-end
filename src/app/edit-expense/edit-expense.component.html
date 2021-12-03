@@ -37,7 +37,14 @@
         <td>{{expenseCategory[expense.category]}}</td>
         <td>{{expense.date.toLocaleDateString('en-US')}}</td>
         <td>{{expense.amount}}</td>
-        <td>Modify/Delete</td>
+        <td class="edit-buttons">
+          <div class="edit-button" (click)="openUpdateDialog(expense)">
+            <img class="icon" src="assets/ic_edit.png" alt="Update">
+          </div>
+          <div class="edit-button" (click)="openDeleteDialog(expense)">
+            <img class="icon" src="assets/ic_delete.png" alt="Delete">
+          </div>
+        </td>
       </tr>
     </table>
   </div>

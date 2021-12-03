@@ -68,7 +68,6 @@
 }
 
 td, th {
-  height: 10px;
   text-align: left;
   padding: 5px 5px 5px 15px;
   min-width: 50px;
@@ -93,4 +92,19 @@ tr:nth-child(1) {
   color: white;
   position: sticky;
   top: 0;
+}
+
+.edit-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.edit-button {
+  margin: 0 10px 0 10px;
+  padding: 5px;
+}
+
+.icon {
+  width: 33px;
 }

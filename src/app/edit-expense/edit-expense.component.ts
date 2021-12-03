@@ -57,7 +57,7 @@ export class EditExpenseComponent implements OnInit {
     {userId: 16, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
   ] as IExpense[];
 
-  category: string = '';
+  category: string = 'All';
   date: string = '';
 
   constructor(
@@ -79,5 +79,13 @@ export class EditExpenseComponent implements OnInit {
         }
       }
     }
+  }
+
+  openUpdateDialog(expense: IExpense) {
+    alert("Updating " + expense.userId);
+  }
+
+  openDeleteDialog(expense: IExpense) {
+    alert("Deleting " + expense.userId);
   }
 }
