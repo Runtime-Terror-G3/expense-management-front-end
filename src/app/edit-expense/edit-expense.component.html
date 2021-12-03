@@ -4,7 +4,11 @@
       <p class="field-description">
         Category
       </p>
-      <select class="field-input" formControlName="category">
+      <select class="field-input" [ngModel]="category" (ngModelChange)="category = $event"
+              [ngModelOptions]="{standalone: true}">
+        <option class="option" value="All">
+          All
+        </option>
         <option class="option" value="{{expenseCategory[category]}}" *ngFor="let category of categories">
           {{expenseCategory[category]}}
         </option>
@@ -14,24 +18,27 @@
       <p class="field-description">
         Date
       </p>
-      <input class="field-input" formControlName="date" type="datetime-local"/>
+      <input class="field-input" type="date" [ngModel]="date" (ngModelChange)="date = $event"
+             [ngModelOptions]="{standalone: true}">
     </div>
     <button id="filter-button" type="button" (click)="filterExpenses()">
       Filter
     </button>
   </form>
-  <table id="expenses-table">
-    <tr>
-      <th>Category</th>
-      <th>Date</th>
-      <th>Amount</th>
-      <th></th>
-    </tr>
-    <tr *ngFor="let expense of expenses">
-      <td>{{expense.category}}</td>
-      <td>{{expense.date}}</td>
-      <td>{{expense.amount}}</td>
-      <td>Modify/Delete</td>
-    </tr>
-  </table>
+  <div id="expenses-table-container">
+    <table id="expenses-table">
+      <tr>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let expense of this.expenses">
+        <td>{{expenseCategory[expense.category]}}</td>
+        <td>{{expense.date.toLocaleDateString('en-US')}}</td>
+        <td>{{expense.amount}}</td>
+        <td>Modify/Delete</td>
+      </tr>
+    </table>
+  </div>
 </div>

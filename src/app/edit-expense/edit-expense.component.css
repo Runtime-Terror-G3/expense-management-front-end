@@ -5,12 +5,13 @@
   background-color: white;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
 }
 
 #filter-area {
   width: 85%;
+  margin: 2rem 0 2rem 0;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -53,21 +54,30 @@
   font-size: 20px;
 }
 
-#expenses-table {
+#expenses-table-container {
+  overflow: hidden;
+  overflow-y: scroll;
   width: 85%;
   height: 350px;
+}
+
+#expenses-table {
   display: table;
+  width: 100%;
   border-collapse: collapse;
 }
 
 td, th {
   height: 10px;
   text-align: left;
-  padding: 5px;
+  padding: 5px 5px 5px 15px;
+  min-width: 50px;
 }
 
 tr {
-  height: 30px;
+  height: 46px;
+  width: 100%;
+  display: table-row;
 }
 
 tr:nth-child(even) {
@@ -81,5 +91,6 @@ tr:nth-child(odd) {
 tr:nth-child(1) {
   background-color: #1D4952;
   color: white;
-  min-width: 50px;
+  position: sticky;
+  top: 0;
 }
