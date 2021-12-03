@@ -3,7 +3,6 @@ import { SessionService } from './../services/session.service';
 import { BudgetService } from './../services/budget-service/budget.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-// import { IMonthlyBudget } from '../models/monthly-budget.model';
 import { DatePipe } from '@angular/common';
 
 @Component({
