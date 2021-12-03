@@ -21,13 +21,13 @@ import { SidebarContainerComponent } from './sidebar/sidebar-container/sidebar-c
 import { LayoutComponent } from './layout/layout.component';
 import { ExpenseManagementComponent } from './expense-management/expense-management.component';
 import { BudgetManagementComponent } from './budget-management/budget-management.component';
-import {MatTableModule} from '@angular/material/table';
-import {MatIconModule} from '@angular/material/icon';
-import {StatisticsComponent} from './statistics/statistics.component';
-import {ChartsModule} from "ng2-charts";
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { ActivateAccountComponent } from './activate-account/activate-account.component';
+import { StatisticsComponent } from './statistics/statistics.component';
+import { ChartsModule } from "ng2-charts";
 import { ChartComponent } from './chart/chart.component';
 import { DatePipe } from '@angular/common';
-
 
 @NgModule({
   declarations: [
@@ -43,6 +43,7 @@ import { DatePipe } from '@angular/common';
     LayoutComponent,
     ExpenseManagementComponent,
     BudgetManagementComponent,
+    ActivateAccountComponent,
     StatisticsComponent,
     ChartComponent
   ],
