@@ -24,7 +24,7 @@ export class WishlistServiceService {
     return this.http.post<IWishlistItem>(`${this.baseUrl}add-wishlistItem`, body, this.options);
   }
 
-  getWishlistItems(): Observable<IWishlistItem[]> {
+  getWishlistItems(): Observable<IWishlistItem[]> { //this endpoint is not yet fully implemented on BE
     return this.http.get<IWishlistItem[]>(`${this.baseUrl}get-wishlist-items`, this.options);
   }
 
