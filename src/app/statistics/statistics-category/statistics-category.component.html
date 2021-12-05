@@ -1,0 +1,25 @@
+<div class="container-main">
+  <h1>View all of your expenses from a certain period of time, grouped by categories</h1>
+
+  <div class="container-wrapper">
+
+    <div class="container-column">
+      <form [formGroup]="datesForm">
+        <label class="label-field" for="startDate">Start date and time: </label>
+        <input type="datetime-local" formControlName="startDate" id="startDate">
+
+        <label class="label-field" for="endDate">End date and time: </label>
+        <input type="datetime-local" formControlName="endDate" id="endDate">
+
+        <button class="create-account-button" type="button" (click)="getStatistics()">
+          Show expenses
+        </button>
+      </form>
+    </div>
+
+    <div class="container-column">
+      <app-chart [statistics]="statistics"></app-chart>
+    </div>
+  </div>
+
+</div>

@@ -1,26 +1,15 @@
-<div class="container-main">
-  <h1>View all of your expenses from a certain period of time, grouped by categories</h1>
-
-  <div class="container-wrapper">
-
-    <div class="container-column">
-      <form [formGroup]="datesForm">
-        <label class="label-field" for="startDate">Start date and time: </label>
-        <input type="datetime-local" formControlName="startDate" id="startDate">
-
-        <label class="label-field" for="endDate">End date and time: </label>
-        <input type="datetime-local" formControlName="endDate" id="endDate">
-
-        <button class="create-account-button" type="button" (click)="getStatistics()">
-          Show expenses
-        </button>
-      </form>
-    </div>
-
-    <div class="container-column">
-<!--      <img src="assets/img/add-expense.jpg" alt="add expense">-->
-      <app-chart [statistics]="statistics"></app-chart>
+<div class="tab">
+  <div class="tab-item">
+    <div class="tab-button" tabindex="0" (click)="optionMenu='category'" [class.selected-tab]="optionMenu == 'category'">
+      <span class="tab-label">Expenses by category</span>
     </div>
   </div>
-
+  <div class="tab-item">
+    <div class="tab-button" tabindex="0" (click)="optionMenu='time'" [class.selected-tab]="optionMenu == 'time'">
+      <span class="tab-label">Expenses by time</span>
+    </div>
+  </div>
 </div>
+
+<app-statistics-category *ngIf="optionMenu == 'category'"></app-statistics-category>
+<app-statistics-time *ngIf="optionMenu == 'time'"></app-statistics-time>
