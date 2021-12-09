@@ -26,8 +26,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { ActivateAccountComponent } from './activate-account/activate-account.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { ChartsModule } from "ng2-charts";
-import { ChartComponent } from './chart/chart.component';
+import { ChartComponent } from './chart-doughnut/chart.component';
 import { DatePipe } from '@angular/common';
+import { StatisticsCategoryComponent } from './statistics/statistics-category/statistics-category.component';
+import { StatisticsTimeComponent } from './statistics/statistics-time/statistics-time.component';
+import { ChartLineComponent } from './chart-line/chart-line.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { DatePipe } from '@angular/common';
     BudgetManagementComponent,
     ActivateAccountComponent,
     StatisticsComponent,
-    ChartComponent
+    ChartComponent,
+    StatisticsCategoryComponent,
+    StatisticsTimeComponent,
+    ChartLineComponent
   ],
   imports: [
     BrowserModule,

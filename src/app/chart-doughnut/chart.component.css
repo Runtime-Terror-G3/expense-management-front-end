@@ -1,5 +1,3 @@
-@import '~bootstrap/dist/css/bootstrap.min.css';
-
 .container{
   width: 100%;
 }
@@ -14,6 +12,4 @@
 .chartjs-render-monitor {
   animation: chartjs-render-animation 0.005s;
   display: block;
-  height: 180% !important;
-  width: 150% !important;
 }
