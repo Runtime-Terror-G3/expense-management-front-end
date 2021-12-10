@@ -17,18 +17,20 @@ export class AddExpenseComponent implements OnInit {
     date: new FormControl('')
   });
 
+  formDate: string = '';
+
   constructor(private expenseService: ExpenseService) { }
 
   get amount() {
-    return this.form.get('amount') as FormControl;
+    return (this.form.get('amount') as FormControl).value;
   }
 
   get category() {
-    return this.form.get('category') as FormControl;
+    return (this.form.get('category') as FormControl).value;
   }
 
   get date() {
-    return this.form.get('date') as FormControl;
+    return new Date(this.formDate);
   }
 
   ngOnInit() {
@@ -47,7 +49,13 @@ export class AddExpenseComponent implements OnInit {
   }
 
   submitData() {
-    this.expenseService.createExpense(this.amount.value, this.category.value, this.date.value).subscribe();
-    this.form.reset();
+    this.expenseService.createExpense(this.amount, this.category, this.date).subscribe(
+      () => {
+        this.form.reset();
+      },
+      error => {
+        alert(error.message);
+      }
+    );
   }
 }

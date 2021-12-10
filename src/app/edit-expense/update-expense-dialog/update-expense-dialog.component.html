@@ -10,8 +10,8 @@
         <option class="option" value="All">
           All
         </option>
-        <option *ngFor="let category of categories" class="option" value="{{expenseCategory[category]}}">
-          {{expenseCategory[category]}}
+        <option *ngFor="let category of categories" class="option" value="{{category}}">
+          {{category}}
         </option>
       </select>
     </div>
@@ -19,19 +19,21 @@
       <p class="field-description">
         Date
       </p>
-      <input (ngModelChange)="data.date = $event" [ngModelOptions]="{standalone: true}" [ngModel]="data.date" class="field-input"
+      <input (ngModelChange)="this.date = $event" [ngModelOptions]="{standalone: true}"
+             [ngModel]="this.date" class="field-input"
              type="date">
     </div>
     <div class="field-group">
       <p class="field-description">
         Amount
       </p>
-      <input (ngModelChange)="data.amount = $event" [ngModelOptions]="{standalone: true}" [ngModel]="data.amount" class="field-input"
+      <input (ngModelChange)="data.amount = $event" [ngModelOptions]="{standalone: true}" [ngModel]="data.amount"
+             class="field-input"
              type="number">
     </div>
   </form>
 </div>
-<div mat-dialog-actions align="end">
+<div align="end" mat-dialog-actions>
   <button (click)="onCancel()" mat-button>Cancel</button>
   <button (click)="onSave()" cdkFocusInitial mat-button>Save</button>
 </div>

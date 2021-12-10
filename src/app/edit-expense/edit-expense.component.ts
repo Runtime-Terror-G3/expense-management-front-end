@@ -2,7 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {ExpenseCategory} from "../models/expense-category.enum";
 import {IExpense} from "../models/expense.model";
 import {MatDialog} from "@angular/material/dialog";
-import {UpdateExpenseDialogData, UpdateExpenseDialogComponent} from "./update-expense-dialog/update-expense-dialog.component";
+import {
+  UpdateExpenseDialogComponent,
+  UpdateExpenseDialogData
+} from "./update-expense-dialog/update-expense-dialog.component";
 import {
   DeleteExpenseDialogComponent,
   DeleteExpenseDialogData
@@ -15,7 +18,6 @@ import {ExpenseService} from "../services/expense-service/expense.service";
   styleUrls: ['./edit-expense.component.css']
 })
 export class EditExpenseComponent implements OnInit {
-  expenseCategory = ExpenseCategory;
   categories: ExpenseCategory[] = [
     ExpenseCategory.Clothing,
     ExpenseCategory.Education,
@@ -26,42 +28,7 @@ export class EditExpenseComponent implements OnInit {
     ExpenseCategory.SelfCare,
     ExpenseCategory.Others,
   ] as ExpenseCategory[];
-  allExpenses: IExpense[] = [
-    {expenseId: 1, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {expenseId: 2, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {expenseId: 3, amount: 1, category: ExpenseCategory.Entertainment, date: new Date()} as IExpense,
-    {expenseId: 4, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {expenseId: 5, amount: 1, category: ExpenseCategory.Food, date: new Date()} as IExpense,
-    {expenseId: 6, amount: 2, category: ExpenseCategory.Food, date: new Date()} as IExpense,
-    {expenseId: 7, amount: 1, category: ExpenseCategory.Food, date: new Date()} as IExpense,
-    {expenseId: 8, amount: 2, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {expenseId: 9, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {expenseId: 10, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {expenseId: 11, amount: 1, category: ExpenseCategory.Others, date: new Date()} as IExpense,
-    {expenseId: 12, amount: 2, category: ExpenseCategory.Housekeeping, date: new Date()} as IExpense,
-    {expenseId: 13, amount: 1, category: ExpenseCategory.SelfCare, date: new Date()} as IExpense,
-    {expenseId: 14, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {expenseId: 15, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {expenseId: 16, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-  ] as IExpense[];
-  expenses: IExpense[] = [
-    {expenseId: 1, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {expenseId: 2, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {expenseId: 3, amount: 1, category: ExpenseCategory.Entertainment, date: new Date()} as IExpense,
-    {expenseId: 4, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {expenseId: 5, amount: 1, category: ExpenseCategory.Food, date: new Date()} as IExpense,
-    {expenseId: 6, amount: 2, category: ExpenseCategory.Food, date: new Date()} as IExpense,
-    {expenseId: 7, amount: 1, category: ExpenseCategory.Food, date: new Date()} as IExpense,
-    {expenseId: 8, amount: 2, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {expenseId: 9, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {expenseId: 10, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {expenseId: 11, amount: 1, category: ExpenseCategory.Others, date: new Date()} as IExpense,
-    {expenseId: 12, amount: 2, category: ExpenseCategory.Housekeeping, date: new Date()} as IExpense,
-    {expenseId: 13, amount: 1, category: ExpenseCategory.SelfCare, date: new Date()} as IExpense,
-    {expenseId: 14, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {expenseId: 15, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {expenseId: 16, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-  ] as IExpense[];
+  expenses: IExpense[] = [];
 
   category: string = 'All';
   date: string = '';
@@ -73,18 +40,39 @@ export class EditExpenseComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.displayAllExpenses();
   }
 
-  filterExpenses() {
-    this.expenses.length = 0;
-    for (let expense of this.allExpenses) {
-      if (this.expenseCategory[expense.category] == this.category
-        || this.category == 'All') {
-        if (new Date(this.date).toLocaleDateString('en-US') == expense.date.toLocaleDateString('en-US')
-          || this.date == '') {
-          this.expenses.push(expense);
-        }
+  private displayAllExpenses() {
+    this.expenseService.getAllExpenses().subscribe(
+      (response: IExpense[]) => {
+        this.expenses = response;
+      },
+      error => {
+        alert(error.message);
       }
+    );
+  }
+
+  displayFilteredExpenses() {
+    if (this.date == '') {
+      this.expenseService.getFilteredExpensesByCategory(this.category).subscribe(
+        (response: IExpense[]) => {
+          this.expenses = response;
+        },
+        error => {
+          alert(error.message);
+        }
+      );
+    } else {
+      this.expenseService.getFilteredExpenses(this.category, new Date(this.date)).subscribe(
+        (response: IExpense[]) => {
+          this.expenses = response;
+        },
+        error => {
+          alert(error.message);
+        }
+      );
     }
   }
 
@@ -100,7 +88,7 @@ export class EditExpenseComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
+      this.displayAllExpenses();
     });
   }
 
@@ -113,7 +101,7 @@ export class EditExpenseComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
+      this.displayAllExpenses();
     });
   }
 }

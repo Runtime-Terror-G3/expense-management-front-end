@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ExpenseService} from "../../services/expense-service/expense.service";
 import {UpdateExpenseDialogData} from "../update-expense-dialog/update-expense-dialog.component";
@@ -24,6 +24,12 @@ export class DeleteExpenseDialogComponent {
   }
 
   onYes(): void {
+    this.expenseService.deleteExpense(this.data.expenseId).subscribe(
+      () => {},
+      error => {
+        alert(error.message);
+      }
+    );
     this.dialogRef.close();
   }
 }

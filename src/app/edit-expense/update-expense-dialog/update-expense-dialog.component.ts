@@ -16,7 +16,6 @@ export interface UpdateExpenseDialogData {
   styleUrls: ['./update-expense-dialog.component.css']
 })
 export class UpdateExpenseDialogComponent {
-  expenseCategory = ExpenseCategory;
   categories: ExpenseCategory[] = [
     ExpenseCategory.Clothing,
     ExpenseCategory.Education,
@@ -28,14 +27,24 @@ export class UpdateExpenseDialogComponent {
     ExpenseCategory.Others,
   ] as ExpenseCategory[];
 
+  date: string = this.data.date.toLocaleDateString('en-US');
+
   constructor(
     public dialogRef: MatDialogRef<UpdateExpenseDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: UpdateExpenseDialogData,
     private expenseService: ExpenseService,
-  ) { }
+  ) {
+    this.date = this.data.date.toLocaleDateString('en-US');
+    console.log(this.date);
+  }
 
   onSave(): void {
-    this.expenseService.updateExpense(this.data.expenseId, this.data.amount, this.data.category, this.data.date);
+    this.expenseService.updateExpense(this.data.expenseId, this.data.amount, this.data.category, new Date(this.date)).subscribe(
+      () => {},
+      error => {
+        alert(error.message);
+      }
+    );
     this.dialogRef.close();
   }
 

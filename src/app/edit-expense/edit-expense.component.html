@@ -9,8 +9,8 @@
         <option class="option" value="All">
           All
         </option>
-        <option class="option" value="{{expenseCategory[category]}}" *ngFor="let category of categories">
-          {{expenseCategory[category]}}
+        <option class="option" value="{{category}}" *ngFor="let category of categories">
+          {{category}}
         </option>
       </select>
     </div>
@@ -21,7 +21,7 @@
       <input class="field-input" type="date" [ngModel]="date" (ngModelChange)="date = $event"
              [ngModelOptions]="{standalone: true}">
     </div>
-    <button id="filter-button" type="button" (click)="filterExpenses()">
+    <button id="filter-button" type="button" (click)="displayFilteredExpenses()">
       Filter
     </button>
   </form>
@@ -34,7 +34,7 @@
         <th></th>
       </tr>
       <tr *ngFor="let expense of this.expenses">
-        <td>{{expenseCategory[expense.category]}}</td>
+        <td>{{expense.category}}</td>
         <td>{{expense.date.toLocaleDateString('en-US')}}</td>
         <td>{{expense.amount}}</td>
         <td class="edit-buttons">
