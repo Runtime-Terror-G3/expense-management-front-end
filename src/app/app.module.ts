@@ -21,9 +21,11 @@ import { SidebarContainerComponent } from './sidebar/sidebar-container/sidebar-c
 import { LayoutComponent } from './layout/layout.component';
 import { ExpenseManagementComponent } from './expense-management/expense-management.component';
 import { EditExpenseComponent } from './edit-expense/edit-expense.component';
+import {UpdateExpenseDialogComponent} from "./edit-expense/update-expense-dialog/update-expense-dialog.component";
+import {DeleteExpenseDialogComponent} from "./edit-expense/delete-expense-dialog/delete-expense-dialog.component";
 
 @NgModule({
-  declarations: [				
+  declarations: [
     AppComponent,
     SignInComponent,
     AddExpenseComponent,
@@ -35,7 +37,9 @@ import { EditExpenseComponent } from './edit-expense/edit-expense.component';
     SidebarContainerComponent,
     LayoutComponent,
     ExpenseManagementComponent,
-    EditExpenseComponent
+    EditExpenseComponent,
+    UpdateExpenseDialogComponent,
+    DeleteExpenseDialogComponent
    ],
   imports: [
     BrowserModule,

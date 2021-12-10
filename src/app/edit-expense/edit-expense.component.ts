@@ -1,7 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {ExpenseCategory} from "../models/expense-category.enum";
-import {ExpenseService} from "../services/expense-service/expense.service";
 import {IExpense} from "../models/expense.model";
+import {MatDialog} from "@angular/material/dialog";
+import {UpdateExpenseDialogData, UpdateExpenseDialogComponent} from "./update-expense-dialog/update-expense-dialog.component";
+import {
+  DeleteExpenseDialogComponent,
+  DeleteExpenseDialogData
+} from "./delete-expense-dialog/delete-expense-dialog.component";
+import {ExpenseService} from "../services/expense-service/expense.service";
 
 @Component({
   selector: 'app-edit-expense',
@@ -21,47 +27,48 @@ export class EditExpenseComponent implements OnInit {
     ExpenseCategory.Others,
   ] as ExpenseCategory[];
   allExpenses: IExpense[] = [
-    {userId: 1, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {userId: 2, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {userId: 3, amount: 1, category: ExpenseCategory.Entertainment, date: new Date()} as IExpense,
-    {userId: 4, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {userId: 5, amount: 1, category: ExpenseCategory.Food, date: new Date()} as IExpense,
-    {userId: 6, amount: 2, category: ExpenseCategory.Food, date: new Date()} as IExpense,
-    {userId: 7, amount: 1, category: ExpenseCategory.Food, date: new Date()} as IExpense,
-    {userId: 8, amount: 2, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {userId: 9, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {userId: 10, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {userId: 11, amount: 1, category: ExpenseCategory.Others, date: new Date()} as IExpense,
-    {userId: 12, amount: 2, category: ExpenseCategory.Housekeeping, date: new Date()} as IExpense,
-    {userId: 13, amount: 1, category: ExpenseCategory.SelfCare, date: new Date()} as IExpense,
-    {userId: 14, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {userId: 15, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {userId: 16, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
+    {expenseId: 1, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
+    {expenseId: 2, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
+    {expenseId: 3, amount: 1, category: ExpenseCategory.Entertainment, date: new Date()} as IExpense,
+    {expenseId: 4, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
+    {expenseId: 5, amount: 1, category: ExpenseCategory.Food, date: new Date()} as IExpense,
+    {expenseId: 6, amount: 2, category: ExpenseCategory.Food, date: new Date()} as IExpense,
+    {expenseId: 7, amount: 1, category: ExpenseCategory.Food, date: new Date()} as IExpense,
+    {expenseId: 8, amount: 2, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
+    {expenseId: 9, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
+    {expenseId: 10, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
+    {expenseId: 11, amount: 1, category: ExpenseCategory.Others, date: new Date()} as IExpense,
+    {expenseId: 12, amount: 2, category: ExpenseCategory.Housekeeping, date: new Date()} as IExpense,
+    {expenseId: 13, amount: 1, category: ExpenseCategory.SelfCare, date: new Date()} as IExpense,
+    {expenseId: 14, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
+    {expenseId: 15, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
+    {expenseId: 16, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
   ] as IExpense[];
   expenses: IExpense[] = [
-    {userId: 1, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {userId: 2, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {userId: 3, amount: 1, category: ExpenseCategory.Entertainment, date: new Date()} as IExpense,
-    {userId: 4, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {userId: 5, amount: 1, category: ExpenseCategory.Food, date: new Date()} as IExpense,
-    {userId: 6, amount: 2, category: ExpenseCategory.Food, date: new Date()} as IExpense,
-    {userId: 7, amount: 1, category: ExpenseCategory.Food, date: new Date()} as IExpense,
-    {userId: 8, amount: 2, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {userId: 9, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {userId: 10, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {userId: 11, amount: 1, category: ExpenseCategory.Others, date: new Date()} as IExpense,
-    {userId: 12, amount: 2, category: ExpenseCategory.Housekeeping, date: new Date()} as IExpense,
-    {userId: 13, amount: 1, category: ExpenseCategory.SelfCare, date: new Date()} as IExpense,
-    {userId: 14, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
-    {userId: 15, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
-    {userId: 16, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
+    {expenseId: 1, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
+    {expenseId: 2, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
+    {expenseId: 3, amount: 1, category: ExpenseCategory.Entertainment, date: new Date()} as IExpense,
+    {expenseId: 4, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
+    {expenseId: 5, amount: 1, category: ExpenseCategory.Food, date: new Date()} as IExpense,
+    {expenseId: 6, amount: 2, category: ExpenseCategory.Food, date: new Date()} as IExpense,
+    {expenseId: 7, amount: 1, category: ExpenseCategory.Food, date: new Date()} as IExpense,
+    {expenseId: 8, amount: 2, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
+    {expenseId: 9, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
+    {expenseId: 10, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
+    {expenseId: 11, amount: 1, category: ExpenseCategory.Others, date: new Date()} as IExpense,
+    {expenseId: 12, amount: 2, category: ExpenseCategory.Housekeeping, date: new Date()} as IExpense,
+    {expenseId: 13, amount: 1, category: ExpenseCategory.SelfCare, date: new Date()} as IExpense,
+    {expenseId: 14, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
+    {expenseId: 15, amount: 1, category: ExpenseCategory.Clothing, date: new Date()} as IExpense,
+    {expenseId: 16, amount: 2, category: ExpenseCategory.Education, date: new Date()} as IExpense,
   ] as IExpense[];
 
   category: string = 'All';
   date: string = '';
 
   constructor(
-    private expenseService: ExpenseService,
+    public dialog: MatDialog,
+    public expenseService: ExpenseService,
   ) {
   }
 
@@ -82,10 +89,31 @@ export class EditExpenseComponent implements OnInit {
   }
 
   openUpdateDialog(expense: IExpense) {
-    alert("Updating " + expense.userId);
+    const dialogRef = this.dialog.open(UpdateExpenseDialogComponent, {
+      width: '1000px',
+      data: {
+        expenseId: expense.expenseId,
+        amount: expense.amount,
+        category: expense.category,
+        date: expense.date,
+      } as UpdateExpenseDialogData,
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('The dialog was closed');
+    });
   }
 
   openDeleteDialog(expense: IExpense) {
-    alert("Deleting " + expense.userId);
+    const dialogRef = this.dialog.open(DeleteExpenseDialogComponent, {
+      width: '500px',
+      data: {
+        expenseId: expense.expenseId,
+      } as DeleteExpenseDialogData,
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('The dialog was closed');
+    });
   }
 }
