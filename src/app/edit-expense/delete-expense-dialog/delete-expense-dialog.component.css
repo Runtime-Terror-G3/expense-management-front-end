@@ -1,0 +1,28 @@
+.dialog-title {
+  text-align: center;
+}
+
+.footer-area {
+  display: flex;
+  justify-content: center;
+}
+
+.dialog-button {
+  margin: 0 10px 0 10px;
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: white;
+  color: #1D4952;
+  border: 1px solid #1D4952;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.focus-button {
+  background-color: #1D4952;
+  color: white;
+  border-color: transparent;
+}

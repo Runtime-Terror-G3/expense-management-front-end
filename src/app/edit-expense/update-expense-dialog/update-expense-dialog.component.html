@@ -1,6 +1,5 @@
-<h1 mat-dialog-title>Update expense</h1>
-<div mat-dialog-content>
-  <form id="filter-area">
+<div>
+  <form id="form-area">
     <div class="field-group">
       <p class="field-description">
         Category
@@ -32,8 +31,8 @@
              type="number">
     </div>
   </form>
-</div>
-<div align="end" mat-dialog-actions>
-  <button (click)="onCancel()" mat-button>Cancel</button>
-  <button (click)="onSave()" cdkFocusInitial mat-button>Save</button>
+  <div class="footer-area">
+    <button (click)="onCancel()" class="dialog-button" mat-button>Cancel</button>
+    <button (click)="onSave()" cdkFocusInitial class="dialog-button focus-button" mat-button>Save</button>
+  </div>
 </div>
