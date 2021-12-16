@@ -80,7 +80,7 @@ export class EditExpenseComponent implements OnInit {
     const dialogRef = this.dialog.open(UpdateExpenseDialogComponent, {
       width: '1000px',
       data: {
-        expenseId: expense.expenseId,
+        expenseId: expense.id,
         amount: expense.amount,
         category: expense.category,
         date: expense.date,
@@ -96,7 +96,7 @@ export class EditExpenseComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteExpenseDialogComponent, {
       width: '500px',
       data: {
-        expenseId: expense.expenseId,
+        expenseId: expense.id,
       } as DeleteExpenseDialogData,
     });
 

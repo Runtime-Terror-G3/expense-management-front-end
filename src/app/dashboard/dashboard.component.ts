@@ -15,7 +15,6 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.sessionService.signOut();
     if (!this.sessionService.activeSession())
       this.toSignIn();
   }

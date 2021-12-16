@@ -17,7 +17,6 @@ export class ExpenseManagementComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.sessionService.signOut();
     if (!this.sessionService.activeSession())
       this.toSignIn();
   }
