@@ -1,3 +1,4 @@
+import { AddToWishlistComponent } from './add-to-wishlist/add-to-wishlist.component';
 import { ExpenseManagementComponent } from './expense-management/expense-management.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddExpenseComponent } from './add-expense/add-expense.component';
@@ -33,12 +34,27 @@ const routes: Routes = [
     component: BudgetManagementComponent 
   },
   {
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+    path:'statistics',
+    component:StatisticsComponent
+=======
+>>>>>>> Stashed changes
     path: 'activate-account/:token',
     component: ActivateAccountComponent
   },
   {
     path: 'statistics',
     component: StatisticsComponent
+<<<<<<< Updated upstream
+=======
+  },
+  {
+    path: 'add-to-wishlist',
+    component: AddToWishlistComponent
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
   }
 ];
 

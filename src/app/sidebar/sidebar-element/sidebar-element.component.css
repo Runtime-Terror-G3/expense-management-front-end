@@ -55,3 +55,14 @@
     content: url('../../../assets/ic_budget.png');
     filter: invert(90%);
 }
+
+.ic-add-to-wishlist {
+    position: absolute;
+    display: block;
+    height: 2.5rem;
+    margin-left: 0.3rem;
+    justify-content: center;
+    content: url('../../../assets/ic-add-to-wishlist.png');
+    filter: invert(75%);
+}
+

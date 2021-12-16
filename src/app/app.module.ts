@@ -28,12 +28,24 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { ChartsModule } from "ng2-charts";
 import { ChartComponent } from './chart-doughnut/chart.component';
 import { DatePipe } from '@angular/common';
+<<<<<<< Updated upstream
 import { StatisticsCategoryComponent } from './statistics/statistics-category/statistics-category.component';
 import { StatisticsTimeComponent } from './statistics/statistics-time/statistics-time.component';
 import { ChartLineComponent } from './chart-line/chart-line.component';
+=======
+<<<<<<< Updated upstream
+
+=======
+import { StatisticsCategoryComponent } from './statistics/statistics-category/statistics-category.component';
+import { StatisticsTimeComponent } from './statistics/statistics-time/statistics-time.component';
+import { ChartLineComponent } from './chart-line/chart-line.component';
+import { AddToWishlistComponent } from './add-to-wishlist/add-to-wishlist.component';
+import { ItemWishlistComponent } from './item-wishlist/item-wishlist.component';
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 @NgModule({
-  declarations: [
+  declarations: [		
     AppComponent,
     SignInComponent,
     AddExpenseComponent,
@@ -48,11 +60,25 @@ import { ChartLineComponent } from './chart-line/chart-line.component';
     BudgetManagementComponent,
     ActivateAccountComponent,
     StatisticsComponent,
+<<<<<<< Updated upstream
     ChartComponent,
     StatisticsCategoryComponent,
     StatisticsTimeComponent,
     ChartLineComponent
+=======
+<<<<<<< Updated upstream
+    ChartComponent
+>>>>>>> Stashed changes
   ],
+=======
+    ChartComponent,
+    StatisticsCategoryComponent,
+    StatisticsTimeComponent,
+    ChartLineComponent,
+    AddToWishlistComponent,
+      ItemWishlistComponent
+   ],
+>>>>>>> Stashed changes
   imports: [
     BrowserModule,
     AppRoutingModule,

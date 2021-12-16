@@ -34,6 +34,11 @@ export class SidebarContainerComponent implements OnInit {
         title: 'Budget Management',
         icon: 'ic-budget',
         route: '/budget-management'
+      },
+      {
+        title: 'Add to wishlist',
+        icon: 'ic-add-to-wishlist',
+        route: '/add-to-wishlist'
       }
     ];
   }

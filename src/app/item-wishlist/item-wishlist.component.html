@@ -1,0 +1,16 @@
+<div class="container" >
+  <div class="title text"> {{ title }} </div>
+  <div class="content">
+    <div class="left">
+      <img id="action" class="image" [src]="image_src" alt="item photo" (click)="goToLink()"/>
+    </div>
+    <div class="right">
+      <p class="price">{{ price }} Lei</p>
+      <img *ngIf="vendor_src !== ''" id="vendor" class="image_vendor" [src]="vendor_src" alt="action image"/>
+    </div>
+  </div>
+  <div class="buttons">
+    <button class="left_button" *ngIf="!isShowCompetitorMode">Show Competitor</button>
+    <button class="right_button" *ngIf="!isWishListItem">Add To Wishlist</button>
+  </div>
+</div>
