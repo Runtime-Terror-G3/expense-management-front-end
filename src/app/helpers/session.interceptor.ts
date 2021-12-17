@@ -23,8 +23,9 @@ export class SessionInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let sessionRequest = request;
     const token = this.sessionService.getToken();
-    if (token != null)
+    if (token != null){
       sessionRequest = request.clone({headers: request.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token)});
+    }
     return next.handle(sessionRequest);
   }
 }
