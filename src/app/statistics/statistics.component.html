@@ -1,0 +1,15 @@
+<div class="tab">
+  <div class="tab-item">
+    <div class="tab-button" tabindex="0" (click)="optionMenu='category'" [class.selected-tab]="optionMenu == 'category'">
+      <span class="tab-label">Expenses by category</span>
+    </div>
+  </div>
+  <div class="tab-item">
+    <div class="tab-button" tabindex="0" (click)="optionMenu='time'" [class.selected-tab]="optionMenu == 'time'">
+      <span class="tab-label">Expenses by time</span>
+    </div>
+  </div>
+</div>
+
+<app-statistics-category *ngIf="optionMenu == 'category'"></app-statistics-category>
+<app-statistics-time *ngIf="optionMenu == 'time'"></app-statistics-time>

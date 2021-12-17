@@ -42,8 +42,8 @@ export class CreateAccountComponent implements OnInit {
     if (this.createAccountForm.valid) {
       this.userService.createAccount(this.firstName.value, this.lastName.value, this.dateOfBirth.value, this.email.value, this.password.value).subscribe(
         response => {
-          alert("Account was created successfully!");
-          this.toSignIn();
+          this.createAccountForm.reset();
+          alert("Account was created successfully! Please check your email and click the activation link in order to activate it!");
         },
         error => {
           alert(error.message);
@@ -64,7 +64,4 @@ export class CreateAccountComponent implements OnInit {
     return null;
   }
 
-  private toSignIn() {
-    this.router.navigate(["/sign-in"]).then(() => this.createAccountForm.reset())
-  }
 }

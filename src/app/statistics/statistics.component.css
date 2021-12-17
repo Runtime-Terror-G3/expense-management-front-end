@@ -1,0 +1,28 @@
+.tab {
+  display: flex;
+  width: 75%;
+  height: 3rem;
+  align-self: center;
+  margin: 4rem auto auto 16rem;
+  z-index: 2;
+
+}
+
+.tab-item {
+  background-color: white;
+  width: 12rem;
+  text-align: center;
+  padding: 1rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: gray;
+}
+
+.tab-item:hover {
+  cursor: pointer;
+}
+
+.selected-tab {
+  color: black;
+  font-weight: bold;
+}

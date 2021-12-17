@@ -16,7 +16,8 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit() {
     this.eventEmitterService.getEmitter('onRouteChanged')?.subscribe(route => {
-      if (route == '/sign-in' || route == '/create-account' || route == '/'){
+      let activateAccountRouteRegex = /^\/activate-account\/.*$/; 
+      if (route == '/sign-in' || route == '/create-account' || route == '/' || activateAccountRouteRegex.test(route)){
         this.isLoggedIn = false;
       }
       else {

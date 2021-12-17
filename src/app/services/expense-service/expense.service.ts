@@ -4,6 +4,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http'
 import {Observable} from 'rxjs';
 import {ExpenseCategory} from "../../models/expense-category.enum";
+import {StatisticTime} from "../../models/statistic-time";
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +52,13 @@ export class ExpenseService {
 
   deleteExpense(expenseId: number): Observable<any> {
     return this.http.delete<any>(this.baseUrl + 'delete-expense/' + expenseId, this.options);
+  }
+
+  getStatisticsByCategory(userId:number, startDate:Date, endDate:Date):Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}category-total?userId=${userId}&start=${startDate}&end=${endDate}`);
+  }
+
+  getStatisticsByTime(userId:number,granularity:string,startDate:Date, endDate:Date,category:string):Observable<any>{
+    return this.http.get<StatisticTime>(`${this.baseUrl}total-expenses-in-time?userId=${userId}&granularity=${granularity}&startDate=${startDate}&endDate=${endDate}&category=${category}`);
   }
 }
