@@ -3,7 +3,7 @@ import {AddExpenseComponent} from './add-expense/add-expense.component';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {HttpClientModule, HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {SignInComponent} from './sign-in/sign-in.component';
@@ -33,6 +33,7 @@ import { StatisticsTimeComponent } from './statistics/statistics-time/statistics
 import { ChartLineComponent } from './chart-line/chart-line.component';
 import { AddToWishlistComponent } from './add-to-wishlist/add-to-wishlist.component';
 import { ItemWishlistComponent } from './item-wishlist/item-wishlist.component';
+import { SessionInterceptor } from './helpers/session.interceptor';
 
 @NgModule({
   declarations: [		
@@ -75,7 +76,8 @@ import { ItemWishlistComponent } from './item-wishlist/item-wishlist.component';
   ],
   providers: [
     HttpClient,
-    DatePipe
+    DatePipe,
+    {provide: HTTP_INTERCEPTORS, useClass: SessionInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
