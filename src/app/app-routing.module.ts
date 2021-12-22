@@ -34,27 +34,16 @@ const routes: Routes = [
     component: BudgetManagementComponent 
   },
   {
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
     path:'statistics',
     component:StatisticsComponent
-=======
->>>>>>> Stashed changes
+  },
+  {
     path: 'activate-account/:token',
     component: ActivateAccountComponent
   },
   {
-    path: 'statistics',
-    component: StatisticsComponent
-<<<<<<< Updated upstream
-=======
-  },
-  {
     path: 'add-to-wishlist',
     component: AddToWishlistComponent
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   }
 ];
 

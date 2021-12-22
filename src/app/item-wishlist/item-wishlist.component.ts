@@ -22,6 +22,8 @@ export class ItemWishlistComponent implements OnInit {
   isShowCompetitorMode!: boolean;
   @Input()
   isWishListItem!: boolean;
+  @Input()
+  isItemAffordable!: boolean;
 
   vendor_src: string | undefined;
 

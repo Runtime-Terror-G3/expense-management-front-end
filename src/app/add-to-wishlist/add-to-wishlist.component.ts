@@ -18,4 +18,8 @@ export class AddToWishlistComponent implements OnInit {
 
   searchItem() {
   }
+
+  openAddCustomItemModal() {
+    
+  }
 }

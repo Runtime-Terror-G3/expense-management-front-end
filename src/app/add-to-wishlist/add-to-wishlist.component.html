@@ -14,6 +14,7 @@
         </div>
         <div class="search-icon">
           <img style="width: 2rem;" src="assets/ic_search.png" (click)="searchItem()">
+          <img style="margin-left: 0.5rem; width: 2rem;" src="assets/ic-add.png" (click)="openAddCustomItemModal()">
         </div>
       </div>
     </form>
@@ -27,6 +28,7 @@
         vendor="Altex"
         [isShowCompetitorMode]="false"
         [isWishListItem]="false"
+        [isItemAffordable]="true"
       >  </item-wishlist>
       </div>
       <div class="item">
@@ -38,6 +40,7 @@
         vendor="CEL"
         [isShowCompetitorMode]="false"
         [isWishListItem]="false"
+        [isItemAffordable]="false"
       >  </item-wishlist>
       </div>
       <div class="item">
@@ -49,6 +52,7 @@
         vendor="Others"
         [isShowCompetitorMode]="false"
         [isWishListItem]="false"
+        [isItemAffordable]="true"
       >  </item-wishlist>
       </div>
       <div class="item">
@@ -60,6 +64,7 @@
         vendor="CEL"
         [isShowCompetitorMode]="false"
         [isWishListItem]="false"
+        [isItemAffordable]="true"
       >  </item-wishlist>
       </div>
     </div>
