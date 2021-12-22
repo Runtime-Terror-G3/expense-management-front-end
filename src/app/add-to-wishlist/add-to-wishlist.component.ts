@@ -20,6 +20,5 @@ export class AddToWishlistComponent implements OnInit {
   }
 
   openAddCustomItemModal() {
-    
   }
 }
