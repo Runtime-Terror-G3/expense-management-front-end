@@ -1,0 +1,51 @@
+<div id="edit-expense-root">
+  <form id="filter-area">
+    <div class="field-group">
+      <p class="field-description">
+        Category
+      </p>
+      <select class="field-input" [ngModel]="category" (ngModelChange)="category = $event"
+              [ngModelOptions]="{standalone: true}">
+        <option class="option" value="All">
+          All
+        </option>
+        <option class="option" value="{{category}}" *ngFor="let category of categories">
+          {{category}}
+        </option>
+      </select>
+    </div>
+    <div class="field-group">
+      <p class="field-description">
+        Date
+      </p>
+      <input class="field-input" type="date" [ngModel]="date" (ngModelChange)="date = $event"
+             [ngModelOptions]="{standalone: true}">
+    </div>
+    <button id="filter-button" type="button" (click)="displayFilteredExpenses()">
+      Filter
+    </button>
+  </form>
+  <div id="expenses-table-container">
+    <table id="expenses-table">
+      <tr>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let expense of this.expenses">
+        <td>{{expense.category}}</td>
+        <td>{{expense.date.toLocaleDateString('en-US')}}</td>
+        <td>{{expense.amount}}</td>
+        <td class="edit-buttons">
+          <div class="edit-button" (click)="openUpdateDialog(expense)">
+            <img class="icon" src="assets/ic_edit.png" alt="Update">
+          </div>
+          <div class="edit-button" (click)="openDeleteDialog(expense)">
+            <img class="icon" src="assets/ic_delete.png" alt="Delete">
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

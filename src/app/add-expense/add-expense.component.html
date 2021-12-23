@@ -17,7 +17,7 @@
             Date
           </div>
           <div>
-            <input class="input" type="datetime-local" formControlName="date">
+            <input class="input" type="date" formControlName="date" [ngModel]="this.formDate" (ngModelChange)="this.formDate = $event">
           </div>
         </div>
         <div class="group-field">
@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="categories-image">
-      <img style="width: 600px;" src="assets/categories-expense.png">
+      <img style="width: 600px;" src="assets/categories-expense.png" alt="">
     </div>
   </div>
 </div>

@@ -1,6 +1,4 @@
-import { SessionService } from './../services/session.service';
-import { ExpenseCategory } from './../models/expense-category.enum';
-import { IExpense } from './../models/expense.model';
+import { ExpenseCategory } from '../models/expense-category.enum';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ExpenseService } from '../services/expense-service/expense.service';
@@ -11,7 +9,6 @@ import { ExpenseService } from '../services/expense-service/expense.service';
   styleUrls: ['./add-expense.component.css']
 })
 export class AddExpenseComponent implements OnInit {
-  private userId: number | undefined;
   categories: ExpenseCategory[] = [] as ExpenseCategory[];
   expenseCategory = ExpenseCategory;
   form = new FormGroup({
@@ -20,18 +17,20 @@ export class AddExpenseComponent implements OnInit {
     date: new FormControl('')
   });
 
-  constructor(private expenseService: ExpenseService, private sessionService: SessionService) { }
+  formDate: string = '';
+
+  constructor(private expenseService: ExpenseService) { }
 
   get amount() {
-    return this.form.get('amount') as FormControl;
+    return (this.form.get('amount') as FormControl).value;
   }
 
   get category() {
-    return this.form.get('category') as FormControl;
+    return (this.form.get('category') as FormControl).value;
   }
 
   get date() {
-    return this.form.get('date') as FormControl;
+    return new Date(this.formDate);
   }
 
   ngOnInit() {
@@ -50,13 +49,13 @@ export class AddExpenseComponent implements OnInit {
   }
 
   submitData() {
-    let expense = {
-      userId: this.sessionService.getLoggedUserId(),
-      amount: this.amount.value,
-      category: this.category.value,
-      date: this.date.value
-    } as IExpense
-    this.expenseService.createExpense(expense).subscribe();
-    this.form.reset();
+    this.expenseService.createExpense(this.amount, this.category, this.date).subscribe(
+      () => {
+        this.form.reset();
+      },
+      error => {
+        alert(error.message);
+      }
+    );
   }
 }

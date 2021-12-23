@@ -1,10 +1,10 @@
 export enum ExpenseCategory {
-    Food,
-    Housekeeping,
-    Education,
-    Health,
-    SelfCare,
-    Entertainment,
-    Clothing,
-    Others
+    Food = 'Food',
+    Housekeeping = 'Housekeeping',
+    Education = 'Education',
+    Health = 'Health',
+    SelfCare = 'SelfCare',
+    Entertainment = 'Entertainment',
+    Clothing = 'Clothing',
+    Others = 'Others'
 }

@@ -1,51 +1,57 @@
-.tab {
-    display: flex;
-    width: 75%;
-    height: 3rem;
-    align-self: center;
-    margin: auto;
-    margin-top: 5rem;
-    z-index: 2;
-    margin-left: 17.5rem;
-
+.tabs {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.tab-item {
-    background-color: white;
-    width: 10rem;
-    text-align: center;
-    padding: 1rem;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    color: gray;
+.tab-headers {
+  width: 75%;
+  height: 3rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
 }
 
-.tab-item:hover {
-    cursor: pointer;
+.tab-header {
+  background-color: white;
+  width: 10rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 20px 20px 0 0;
+  color: gray;
+}
+
+.tab-header:hover {
+  cursor: pointer;
 }
 
 .selected-tab {
-    color: black;
-    font-weight: bold;
+  color: black;
+  font-weight: bold;
 }
 
 .selected-tab .icon-add {
-    filter: invert(0%);
+  filter: invert(0%);
 }
 
 .selected-tab .icon-edit {
-    filter: invert(0%);
+  filter: invert(0%);
 }
 
-
 .icon-add {
-    height: 1rem;
-    filter: invert(40%);
-    margin-right: 0.5rem;
+  height: 1rem;
+  filter: invert(40%);
+  margin-right: 0.5rem;
 }
 
 .icon-edit {
-    width: 1rem;
-    filter: invert(40%);
-    margin-right: 0.5rem;
+  width: 1rem;
+  filter: invert(40%);
+  margin-right: 0.5rem;
+}
+
+.tab-content {
+  width: 75%;
 }

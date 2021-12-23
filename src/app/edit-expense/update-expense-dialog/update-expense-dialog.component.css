@@ -1,0 +1,59 @@
+#form-area {
+  margin: 2rem 0 2rem 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.field-group {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.field-description {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+  margin-right: 10px;
+}
+
+.field-input {
+  width: 200px;
+  height: 25px;
+  border-color: black;
+  border-radius: 5px;
+}
+
+.option {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.footer-area {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dialog-button {
+  margin: 0 10px 0 10px;
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: white;
+  color: #1D4952;
+  border: 1px solid #1D4952;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.focus-button {
+  background-color: #1D4952;
+  color: white;
+  border-color: transparent;
+}

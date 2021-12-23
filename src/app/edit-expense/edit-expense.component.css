@@ -1,0 +1,110 @@
+#edit-expense-root {
+  height: 500px;
+  padding: 40px;
+  border-radius: 0 20px 20px 20px;
+  background-color: white;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#filter-area {
+  width: 85%;
+  margin: 2rem 0 2rem 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.field-group {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.field-description {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+  margin-right: 10px;
+}
+
+.field-input {
+  width: 200px;
+  height: 25px;
+  border-color: black;
+  border-radius: 5px;
+}
+
+.option {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#filter-button {
+  width: 200px;
+  height: 45px;
+  border-radius: 5px;
+  background-color: #1D4952;
+  color: white;
+  font-size: 20px;
+}
+
+#expenses-table-container {
+  overflow: hidden;
+  overflow-y: scroll;
+  width: 85%;
+  height: 350px;
+}
+
+#expenses-table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  text-align: left;
+  padding: 5px 5px 5px 15px;
+  min-width: 50px;
+}
+
+tr {
+  height: 46px;
+  width: 100%;
+  display: table-row;
+}
+
+tr:nth-child(even) {
+  background-color: #E3EAEB;
+}
+
+tr:nth-child(odd) {
+  background-color: #C7CBCC;
+}
+
+tr:nth-child(1) {
+  background-color: #1D4952;
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+.edit-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.edit-button {
+  margin: 0 10px 0 10px;
+  padding: 5px;
+}
+
+.icon {
+  width: 33px;
+}

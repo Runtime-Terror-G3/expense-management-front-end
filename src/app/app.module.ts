@@ -20,6 +20,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarContainerComponent } from './sidebar/sidebar-container/sidebar-container.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ExpenseManagementComponent } from './expense-management/expense-management.component';
+import { EditExpenseComponent } from './edit-expense/edit-expense.component';
+import { UpdateExpenseDialogComponent } from "./edit-expense/update-expense-dialog/update-expense-dialog.component";
+import { DeleteExpenseDialogComponent } from "./edit-expense/delete-expense-dialog/delete-expense-dialog.component";
 import { BudgetManagementComponent } from './budget-management/budget-management.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
@@ -32,6 +35,7 @@ import { StatisticsCategoryComponent } from './statistics/statistics-category/st
 import { StatisticsTimeComponent } from './statistics/statistics-time/statistics-time.component';
 import { ChartLineComponent } from './chart-line/chart-line.component';
 import { SessionInterceptor } from './helpers/session.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +49,9 @@ import { SessionInterceptor } from './helpers/session.interceptor';
     SidebarContainerComponent,
     LayoutComponent,
     ExpenseManagementComponent,
+    EditExpenseComponent,
+    UpdateExpenseDialogComponent,
+    DeleteExpenseDialogComponent,
     BudgetManagementComponent,
     ActivateAccountComponent,
     StatisticsComponent,

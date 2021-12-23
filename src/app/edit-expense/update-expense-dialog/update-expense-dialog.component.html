@@ -1,0 +1,38 @@
+<div>
+  <form id="form-area">
+    <div class="field-group">
+      <p class="field-description">
+        Category
+      </p>
+      <select (ngModelChange)="data.category = $event" [ngModelOptions]="{standalone: true}" [ngModel]="data.category"
+              class="field-input">
+        <option class="option" value="All">
+          All
+        </option>
+        <option *ngFor="let category of categories" class="option" value="{{category}}">
+          {{category}}
+        </option>
+      </select>
+    </div>
+    <div class="field-group">
+      <p class="field-description">
+        Date
+      </p>
+      <input (ngModelChange)="this.date = $event" [ngModelOptions]="{standalone: true}"
+             [ngModel]="this.date" class="field-input"
+             type="date">
+    </div>
+    <div class="field-group">
+      <p class="field-description">
+        Amount
+      </p>
+      <input (ngModelChange)="data.amount = $event" [ngModelOptions]="{standalone: true}" [ngModel]="data.amount"
+             class="field-input"
+             type="number">
+    </div>
+  </form>
+  <div class="footer-area">
+    <button (click)="onCancel()" class="dialog-button" mat-button>Cancel</button>
+    <button (click)="onSave()" cdkFocusInitial class="dialog-button focus-button" mat-button>Save</button>
+  </div>
+</div>

@@ -30,7 +30,7 @@ export class SignInComponent implements OnInit {
   }
 
   /**
-   * Submits the sign in form data to the service and starts a new session
+   * Submits the sign-in form data to the service and starts a new session
    */
   submit(): void {
     this.sessionService.signIn(this.form.value.email, this.form.value.password).subscribe(

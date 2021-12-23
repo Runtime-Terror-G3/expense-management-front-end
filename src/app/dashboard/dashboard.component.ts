@@ -15,7 +15,6 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.sessionService.signOut();
     if (!this.sessionService.activeSession())
       this.toSignIn();
   }
@@ -23,5 +22,4 @@ export class DashboardComponent implements OnInit {
   toSignIn() {
     this.router.navigate(["sign-in"]).then(() => {})
   }
-
 }
