@@ -34,10 +34,12 @@ import { DatePipe } from '@angular/common';
 import { StatisticsCategoryComponent } from './statistics/statistics-category/statistics-category.component';
 import { StatisticsTimeComponent } from './statistics/statistics-time/statistics-time.component';
 import { ChartLineComponent } from './chart-line/chart-line.component';
+import { AddToWishlistComponent } from './add-to-wishlist/add-to-wishlist.component';
+import { ItemWishlistComponent } from './item-wishlist/item-wishlist.component';
 import { SessionInterceptor } from './helpers/session.interceptor';
 
 @NgModule({
-  declarations: [
+  declarations: [		
     AppComponent,
     SignInComponent,
     AddExpenseComponent,
@@ -58,8 +60,10 @@ import { SessionInterceptor } from './helpers/session.interceptor';
     ChartComponent,
     StatisticsCategoryComponent,
     StatisticsTimeComponent,
-    ChartLineComponent
-  ],
+    ChartLineComponent,
+    AddToWishlistComponent,
+      ItemWishlistComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

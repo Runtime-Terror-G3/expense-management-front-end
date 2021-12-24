@@ -1,0 +1,20 @@
+<div class="container" >
+  <div class="title"> 
+    <div class="text"> {{ title }} </div>
+    <img class="icon" src="../assets/ic_buy_white.png"/>
+  </div>
+  <div class="content">
+    <div class="left">
+      <img id="action" class="image" [src]="image_src" alt="item photo" (click)="goToLink()"/>
+    </div>
+    <div class="right">
+      <p class="price">{{ price }} Lei</p>
+      <div class="affordable_tag" *ngIf="isItemAffordable">affordable</div>
+      <img *ngIf="vendor_src !== ''" id="vendor" class="image_vendor" [src]="vendor_src" alt="action image"/>
+    </div>
+  </div>
+  <div class="buttons">
+    <button class="left_button" *ngIf="!isShowCompetitorMode">Show Competitor</button>
+    <button class="right_button" *ngIf="!isWishListItem">Add To Wishlist</button>
+  </div>
+</div>
