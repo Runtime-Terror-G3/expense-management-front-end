@@ -13,59 +13,23 @@
           <input class="input" formControlName="item" id="item" type="search">
         </div>
         <div class="search-icon">
-          <img style="width: 2rem;" src="assets/ic_search.png" (click)="searchItem()">
+          <img style="width: 2rem;" src="assets/ic_search.png" (click)="searchItems()">
           <img style="margin-left: 0.5rem; width: 2rem;" src="assets/ic-add.png" (click)="openAddCustomItemModal()">
         </div>
       </div>
     </form>
     <div class="cards">
-      <div class="item">
+      <div class="item" *ngFor="let item of searchResult">
         <item-wishlist 
-        title="IPhone 12"
-        image_src="assets/iphone_example.png"
-        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/"
-        [price]="3999.90"
-        vendor="Altex"
-        [isShowCompetitorMode]="false"
-        [isWishListItem]="false"
-        [isItemAffordable]="true"
-      >  </item-wishlist>
-      </div>
-      <div class="item">
-        <item-wishlist 
-        title="IPhone 12"
-        image_src="assets/iphone_example.png"
-        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/"
-        [price]="3999.90"
-        vendor="CEL"
-        [isShowCompetitorMode]="false"
-        [isWishListItem]="false"
-        [isItemAffordable]="false"
-      >  </item-wishlist>
-      </div>
-      <div class="item">
-        <item-wishlist 
-        title="IPhone 12"
-        image_src="assets/iphone_example.png"
-        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/"
-        [price]="3999.90"
-        vendor="Others"
-        [isShowCompetitorMode]="false"
-        [isWishListItem]="false"
-        [isItemAffordable]="true"
-      >  </item-wishlist>
-      </div>
-      <div class="item">
-        <item-wishlist 
-        title="IPhone 12"
-        image_src="assets/iphone_example.png"
-        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/"
-        [price]="3999.90"
-        vendor="CEL"
-        [isShowCompetitorMode]="false"
-        [isWishListItem]="false"
-        [isItemAffordable]="true"
-      >  </item-wishlist>
+          title={{item.title}}
+          image_src={{item.image}}
+          link={{item.link}}
+          [price]="item.price"
+          vendor={{item.vendor}}
+          [isShowCompetitorMode]="false"
+          [isWishListItem]="false"
+          [isItemAffordable]="false"
+        ></item-wishlist>
       </div>
     </div>
 </div>
