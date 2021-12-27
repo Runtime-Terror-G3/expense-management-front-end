@@ -4,68 +4,98 @@
   <div class="subtitle">
     <p class="p-text">Add To Your Wishlist</p>
   </div>
-    <form [formGroup]="form">
-      <div class="group-field">
-        <div class="form-item field-text">
-          Search
-        </div>
-        <div>
-          <input class="input" formControlName="item" id="item" type="search">
-        </div>
-        <div class="search-icon">
-          <img style="width: 2rem;" src="assets/ic_search.png" (click)="searchItem()">
-          <img style="margin-left: 0.5rem; width: 2rem;" src="assets/ic-add.png" (click)="openAddCustomItemModal()">
-        </div>
+  <form [formGroup]="form">
+    <div class="group-field">
+      <div class="form-item field-text">
+        Search
       </div>
-    </form>
-    <div class="cards">
-      <div class="item">
-        <item-wishlist 
-        title="IPhone 12"
-        image_src="assets/iphone_example.png"
-        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/"
-        [price]="3999.90"
-        vendor="Altex"
-        [isShowCompetitorMode]="false"
-        [isWishListItem]="false"
-        [isItemAffordable]="true"
-      >  </item-wishlist>
+      <div>
+        <input class="input" formControlName="item" id="item" type="search">
       </div>
-      <div class="item">
-        <item-wishlist 
-        title="IPhone 12"
-        image_src="assets/iphone_example.png"
-        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/"
-        [price]="3999.90"
-        vendor="CEL"
-        [isShowCompetitorMode]="false"
-        [isWishListItem]="false"
-        [isItemAffordable]="false"
-      >  </item-wishlist>
-      </div>
-      <div class="item">
-        <item-wishlist 
-        title="IPhone 12"
-        image_src="assets/iphone_example.png"
-        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/"
-        [price]="3999.90"
-        vendor="Others"
-        [isShowCompetitorMode]="false"
-        [isWishListItem]="false"
-        [isItemAffordable]="true"
-      >  </item-wishlist>
-      </div>
-      <div class="item">
-        <item-wishlist 
-        title="IPhone 12"
-        image_src="assets/iphone_example.png"
-        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/"
-        [price]="3999.90"
-        vendor="CEL"
-        [isShowCompetitorMode]="false"
-        [isWishListItem]="false"
-        [isItemAffordable]="true"
-      >  </item-wishlist>
+      <div class="search-icon">
+        <img style="width: 2rem;" src="assets/ic_search.png" (click)="searchItem()">
+        <img style="margin-left: 0.5rem; width: 2rem;" src="assets/ic-add.png" (click)="showCustomModal=true">
       </div>
     </div>
+  </form>
+  <div class="cards">
+    <div class="item">
+      <item-wishlist title="IPhone 12" image_src="assets/iphone_example.png"
+        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/" [price]="3999.90" vendor="Altex"
+        [isShowCompetitorMode]="false" [isWishListItem]="false" [isItemAffordable]="true"> </item-wishlist>
+    </div>
+    <div class="item">
+      <item-wishlist title="IPhone 12" image_src="assets/iphone_example.png"
+        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/" [price]="3999.90" vendor="CEL"
+        [isShowCompetitorMode]="false" [isWishListItem]="false" [isItemAffordable]="false"> </item-wishlist>
+    </div>
+    <div class="item">
+      <item-wishlist title="IPhone 12" image_src="assets/iphone_example.png"
+        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/" [price]="3999.90" vendor="Others"
+        [isShowCompetitorMode]="false" [isWishListItem]="false" [isItemAffordable]="true"> </item-wishlist>
+    </div>
+    <div class="item">
+      <item-wishlist title="IPhone 12" image_src="assets/iphone_example.png"
+        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/" [price]="3999.90" vendor="CEL"
+        [isShowCompetitorMode]="false" [isWishListItem]="false" [isItemAffordable]="true"> </item-wishlist>
+    </div>
+  </div>
+  <div *ngIf="showCustomModal==true" class="modal-container">
+    <div class="custom-item-modal">
+      <div class="title-modal">
+        Add Custom Item </div>
+      <div class="content-modal" *ngIf="saved==false">
+        <form [formGroup]="itemForm">
+          <div class="group-field">
+            <div class="form-item field-text">
+              Title
+            </div>
+            <div>
+              <input class="input" formControlName="title" id="title" type="text" placeholder="ex: Watch">
+            </div>
+          </div>
+          <div class="group-field">
+            <div class="form-item field-text">
+              Price
+            </div>
+            <div>
+              <input class="input" type="number" formControlName="price">
+            </div>
+          </div>
+          <div class="group-field">
+            <div class="form-item field-text">
+              Link
+            </div>
+            <div>
+              <input class="input" formControlName="link" id="link" type="text" placeholder="ex: https://www.apple.com/ro/watch/">
+            </div>
+          </div>
+          <div class="group-field">
+            <div class="form-item field-text">
+              Vendor
+            </div>
+            <div>
+              <select class="input" id="vendor" name="vendorDropdown" formControlName="vendor"
+                style="width: 258px;">
+                <option style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                  value='{{vendorItem[ven]}}' *ngFor="let ven of vendors">{{vendorItem[ven]}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </form>
+        <div class="buttons">
+          <button class="cancel-btn" type="button" (click)="cancel()">
+            Cancel
+          </button>
+          <button class="submit-btn" type="button" (click)="addCustomItem()">
+            Save
+          </button>
+        </div>
+      </div>
+      <div class="success-message" *ngIf="saved==true">
+        Item added successfully to your wishlist!
+      </div>
+    </div>
+  </div>
 </div>
