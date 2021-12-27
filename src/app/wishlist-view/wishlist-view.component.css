@@ -1,0 +1,133 @@
+.container {
+  background-color: white;
+  border-radius: 20px;
+  align-self: center;
+  width: 83%;
+  height: 40rem;
+  padding: 40px;
+  margin: 5rem auto auto 10rem;
+}
+
+.subtitle {
+  height: 61px;
+  font-size: 36px;
+  line-height: 40px;
+  align-items: center;
+  letter-spacing: -0.015em;
+  margin-left: 40%;
+}
+
+.field-text {
+  font-size: 22px;
+  margin-right: 2rem;
+  text-align: center;
+}
+
+.group-field {
+  display: flex;
+  margin: 30px;
+}
+
+.form-item {
+  width: 50px;
+  margin-left: 3rem;
+}
+
+.input {
+  width: 200px;
+  height: 30px;
+  border-color: black;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+
+.buttons {
+  display: flex;
+  margin: 10%;
+  justify-content: space-between;
+}
+
+.submit-btn {
+  background-color: #1D4952;
+  color: white;
+  width: 150px;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: white;
+  color: #1D4952;
+  border-color: #1D4952;
+  width: 150px;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+
+.modal {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 40%;
+  left: 35%;
+  width: 35rem;
+  height: 10rem;
+  background-color: #E3EAEB;
+  border-radius: 20px;
+  align-self: center;
+  align-content: center;
+  border: 2px solid #1D4952;
+}
+
+
+.icon {
+  color: #1D4952;
+}
+
+.message-modal {
+  font-size: 20px;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  top: 0 !important;
+}
+
+
+.error_message {
+  margin-top: 0;
+  color: red;
+  font-size: 15px;
+}
+
+.p-text {
+  margin-bottom: 0;
+}
+
+.search-icon {
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.cards {
+  display: flex;
+  flex-flow: row wrap;
+  height: 27rem;
+  overflow: auto;
+}
+
+
+.item:nth-child(3n) {
+  page-break-after: always;
+  break-after: auto;
+}
+

@@ -1,4 +1,4 @@
-import { ISidebarItem } from './../sidebar-item.model';
+import { ISidebarItem } from '../sidebar-item.model';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -39,6 +39,11 @@ export class SidebarContainerComponent implements OnInit {
         title: 'Add to wishlist',
         icon: 'ic-add-to-wishlist',
         route: '/add-to-wishlist'
+      },
+      {
+        title:'View wishlist',
+        icon:'ic-wishlist',
+        route:'/wishlist-view'
       }
     ];
   }

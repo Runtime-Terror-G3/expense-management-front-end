@@ -37,9 +37,11 @@ import { ChartLineComponent } from './chart-line/chart-line.component';
 import { AddToWishlistComponent } from './add-to-wishlist/add-to-wishlist.component';
 import { ItemWishlistComponent } from './item-wishlist/item-wishlist.component';
 import { SessionInterceptor } from './helpers/session.interceptor';
+import { WishlistViewComponent } from './wishlist-view/wishlist-view.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
-  declarations: [		
+  declarations: [
     AppComponent,
     SignInComponent,
     AddExpenseComponent,
@@ -62,24 +64,26 @@ import { SessionInterceptor } from './helpers/session.interceptor';
     StatisticsTimeComponent,
     ChartLineComponent,
     AddToWishlistComponent,
-      ItemWishlistComponent
+      ItemWishlistComponent,
+      WishlistViewComponent
    ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatFormFieldModule,
-    NoopAnimationsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatDatepickerModule,
-    MatTableModule,
-    MatIconModule,
-    ChartsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatFormFieldModule,
+        NoopAnimationsModule,
+        MatInputModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatDatepickerModule,
+        MatTableModule,
+        MatIconModule,
+        ChartsModule,
+        MatTooltipModule
+    ],
   providers: [
     HttpClient,
     DatePipe,

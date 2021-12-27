@@ -66,3 +66,12 @@
     filter: invert(75%);
 }
 
+.ic-wishlist{
+  position: absolute;
+  display: block;
+  width: 3rem;
+  justify-content: center;
+  content: url('../../../assets/ic-wishlist.png');
+  filter: invert(90%);
+}
+
