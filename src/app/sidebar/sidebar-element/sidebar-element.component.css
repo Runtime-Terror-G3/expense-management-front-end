@@ -66,3 +66,12 @@
     filter: invert(75%);
 }
 
+.ic-statistics {
+    position: absolute;
+    display: block;
+    margin-left: 0.3rem;
+    width: 2.5rem;
+    justify-content: center;
+    content: url('../../../assets/ic_statistics.png');
+    filter: invert(90%);
+}
