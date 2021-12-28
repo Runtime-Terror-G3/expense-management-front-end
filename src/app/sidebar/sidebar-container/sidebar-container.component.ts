@@ -39,6 +39,11 @@ export class SidebarContainerComponent implements OnInit {
         title: 'Add to wishlist',
         icon: 'ic-add-to-wishlist',
         route: '/add-to-wishlist'
+      },
+      {
+        title: 'Statistics',
+        icon: 'ic-statistics',
+        route: '/statistics'
       }
     ];
   }

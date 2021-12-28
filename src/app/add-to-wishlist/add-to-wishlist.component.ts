@@ -47,13 +47,22 @@ export class AddToWishlistComponent implements OnInit {
     return (this.itemForm.get('vendor') as FormControl);
   }
   
+  searchResult: IWishlistItem[] = [];
 
   ngOnInit() {
     this.loggedUserId = this.sessionService.getLoggedUserId()!;
     this.createVendorsList();
   }
 
-  searchItem() {
+  searchItems() {
+    this.wishlistService.searchWishlistItems(this.form.get('item')?.value, 'ALL').subscribe(
+      items => {
+        this.searchResult = items;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   cancel() {

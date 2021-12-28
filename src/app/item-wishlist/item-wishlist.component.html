@@ -1,11 +1,11 @@
 <div class="container" >
-  <div class="title"> 
+  <div class="title" title="{{title}}"> 
     <div class="text"> {{ title }} </div>
     <img class="icon" src="../assets/ic_buy_white.png"/>
   </div>
   <div class="content">
     <div class="left">
-      <img id="action" class="image" [src]="image_src" alt="item photo" (click)="goToLink()"/>
+      <img id="action" class="image" [src]="image_src" alt="Image not available" (click)="goToLink()"/>
     </div>
     <div class="right">
       <p class="price">{{ price }} Lei</p>
