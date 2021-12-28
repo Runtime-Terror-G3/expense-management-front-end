@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { WishlistItemVendor } from '../models/wishlist-item-vendor.enum';
+import { IWishlistItem } from '../models/wishlist-item.model';
+import { WishlistServiceService } from '../services/wishlist-service/wishlist-service.service';
 
 @Component({
   selector: 'app-add-to-wishlist',
@@ -11,12 +14,24 @@ export class AddToWishlistComponent implements OnInit {
     item: new FormControl(''),
   });
 
-  constructor() { }
+  searchResult: IWishlistItem[] = [];
+
+  constructor(
+    private wishlistService: WishlistServiceService
+  ) { }
 
   ngOnInit() {
   }
 
-  searchItem() {
+  searchItems() {
+    this.wishlistService.searchWishlistItems(this.form.get('item')?.value, 'ALL').subscribe(
+      items => {
+        this.searchResult = items;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   openAddCustomItemModal() {
