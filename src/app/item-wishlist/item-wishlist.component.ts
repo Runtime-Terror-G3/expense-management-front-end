@@ -1,5 +1,7 @@
-import { VendorTypes } from './../models/vendorTypes.enum';
+import { WishlistServiceService } from './../services/wishlist-service/wishlist-service.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { IWishlistItem } from './../models/wishlist-item.model';
+import { WishlistItemVendor } from '../models/wishlist-item-vendor.enum';
 
 @Component({
   selector: 'item-wishlist',
@@ -26,8 +28,10 @@ export class ItemWishlistComponent implements OnInit {
   isItemAffordable!: boolean;
 
   vendor_src: string | undefined;
+  vendorItem = WishlistItemVendor;
+  showModal= false;
 
-  constructor() { }
+  constructor(private wishlistService: WishlistServiceService) { }
 
   ngOnInit() {
     if (this.vendor == "Altex") {
@@ -43,4 +47,24 @@ export class ItemWishlistComponent implements OnInit {
     window.open(this.link, "_blank");
   }
 
+  async addItemInWishlist() {
+    var vendorType: WishlistItemVendor = this.vendor as unknown as WishlistItemVendor
+
+    let wishlistItem = {
+      title: this.title,
+      price: this.price,
+      link: this.link,
+      vendor: vendorType,
+      image: this.image_src
+    } as IWishlistItem
+
+    this.wishlistService.createWishlistItem(wishlistItem).subscribe();
+    this.showModal = true;
+    await this.delay(2000);
+    this.showModal = false;
+  }
+
+  private delay(ms: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 }
