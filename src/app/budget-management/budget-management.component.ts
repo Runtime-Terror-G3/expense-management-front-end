@@ -61,7 +61,7 @@ export class BudgetManagementComponent implements OnInit {
   }
 
   delelteMonthlyBudget(budgetId: number) {
-    this.budgetService.deleteMonthlyBudget(budgetId, this.loggedUserId!).subscribe(x => {this.getMonthlyBudgetsFromCurrentYear();});
+    this.budgetService.deleteMonthlyBudget(budgetId).subscribe(x => {this.getMonthlyBudgetsFromCurrentYear();});
   }
 
   updateMonthlyBudget() {
