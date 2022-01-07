@@ -20,7 +20,7 @@
   </div>
   <div class="buttons">
     <button class="left_button" *ngIf="!isShowCompetitorMode">Show Competitor</button>
-    <button class="right_button" *ngIf="!isWishListItem">Add To Wishlist</button>
+    <button class="right_button" *ngIf="!isWishListItem" (click)="addItemInWishlist()">Add To Wishlist</button>
     <button class="right_button" *ngIf="isWishListItem" (click)="openModal()">Remove</button>
   </div>
 </div>
@@ -59,9 +59,11 @@
           </div>
           <div>
             <select class="input" id="category" name="categoryDropdown" formControlName="category"
-              style="width: 258px;">
+              style="width: 258px;" [ngModel]="this.defaultCategory">
               <option style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                value='{{expenseCategory[category]}}' *ngFor="let category of categories">{{expenseCategory[category]}}
+                value='{{expenseCategory[category]}}' 
+                *ngFor="let category of categories">
+                {{expenseCategory[category]}}
               </option>
             </select>
           </div>
@@ -79,6 +81,14 @@
     <div class="success-message" *ngIf="purchased==true">
       Item marked successfully as purchased <br/>
       Added a new expense
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showModal==true" class="modal-container">
+  <div class="custom-item-modal">
+    <div class="success-message">
+      Item added successfully to your wishlist!
     </div>
   </div>
 </div>

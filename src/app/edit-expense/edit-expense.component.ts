@@ -26,6 +26,7 @@ export class EditExpenseComponent implements OnInit {
     ExpenseCategory.Health,
     ExpenseCategory.Housekeeping,
     ExpenseCategory.SelfCare,
+    ExpenseCategory.Wishlist,
     ExpenseCategory.Others,
   ] as ExpenseCategory[];
   expenses: IExpense[] = [];

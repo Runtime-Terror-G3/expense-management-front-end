@@ -15,16 +15,13 @@ export class AddToWishlistComponent implements OnInit {
     item: new FormControl(''),
   });
 
-  loggedUserId: number | undefined;
-  vendors: WishlistItemVendor[] = [] as WishlistItemVendor[];
   vendorItem = WishlistItemVendor;
   saved=false;
 
   itemForm = new FormGroup({
     title: new FormControl(''),
     price: new FormControl(''),
-    link: new FormControl(''),
-    vendor: new FormControl('')
+    link: new FormControl('')
   });
 
   showCustomModal = false;
@@ -42,16 +39,10 @@ export class AddToWishlistComponent implements OnInit {
   get link() {
     return (this.itemForm.get('link') as FormControl);
   }
-
-  get vendor() {
-    return (this.itemForm.get('vendor') as FormControl);
-  }
   
   searchResult: IWishlistItem[] = [];
 
   ngOnInit() {
-    this.loggedUserId = this.sessionService.getLoggedUserId()!;
-    this.createVendorsList();
   }
 
   searchItems() {
@@ -72,11 +63,10 @@ export class AddToWishlistComponent implements OnInit {
 
   async addCustomItem() {
     let wishlistItem = {
-      userId: this.loggedUserId,
       title: this.title.value,
       price: this.price.value,
       link: this.link.value,
-      vendor: this.vendor.value
+      vendor: this.vendorItem.Other
     } as IWishlistItem
 
     this.wishlistService.createWishlistItem(wishlistItem).subscribe();
@@ -87,12 +77,6 @@ export class AddToWishlistComponent implements OnInit {
     this.showCustomModal = false;
     this.saved = false;
     
-  }
-
-  createVendorsList() {
-    this.vendors.push(WishlistItemVendor.Altex);
-    this.vendors.push(WishlistItemVendor.Cel);
-    this.vendors.push(WishlistItemVendor.Other);
   }
 
   private delay(ms: number): Promise<void> {

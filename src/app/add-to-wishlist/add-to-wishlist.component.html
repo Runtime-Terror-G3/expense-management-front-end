@@ -57,18 +57,6 @@
               placeholder="ex: https://www.apple.com/ro/watch/">
           </div>
         </div>
-        <div class="group-field">
-          <div class="form-item field-text">
-            Vendor
-          </div>
-          <div>
-            <select class="input" id="vendor" name="vendorDropdown" formControlName="vendor" style="width: 258px;">
-              <option style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-                value='{{vendorItem[ven]}}' *ngFor="let ven of vendors">{{vendorItem[ven]}}
-              </option>
-            </select>
-          </div>
-        </div>
       </form>
       <div class="buttons">
         <button class="cancel-btn" type="button" (click)="cancel()">
