@@ -1,7 +1,12 @@
 <div class="container" >
-  <div class="title" title="{{title}}"> 
+  <div class="title">
+    <img *ngIf="isWishListItem&&!isItemAffordable" class="exclamation-icon" src="../../assets/ic-exclamation.png"
+         matTooltip="Based on your previous purchases, you can't afford this item"
+         matTooltipPosition="above"
+         matTooltipClass="exclamation-tooltip"
+    />
     <div class="text"> {{ title }} </div>
-    <img class="icon" src="../assets/ic_buy_white.png"/>
+    <img *ngIf="isWishListItem" class="icon" src="../../assets/ic_buy_white.png"/>
   </div>
   <div class="content">
     <div class="left">
@@ -16,5 +21,6 @@
   <div class="buttons">
     <button class="left_button" *ngIf="!isShowCompetitorMode">Show Competitor</button>
     <button class="right_button" *ngIf="!isWishListItem">Add To Wishlist</button>
+    <button class="right_button" *ngIf="isWishListItem" (click)="openModal()">Remove</button>
   </div>
 </div>

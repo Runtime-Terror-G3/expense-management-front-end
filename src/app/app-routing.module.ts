@@ -1,7 +1,6 @@
 import { AddToWishlistComponent } from './add-to-wishlist/add-to-wishlist.component';
 import { ExpenseManagementComponent } from './expense-management/expense-management.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AddExpenseComponent } from './add-expense/add-expense.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignInComponent } from "./sign-in/sign-in.component";
@@ -9,6 +8,7 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { BudgetManagementComponent } from './budget-management/budget-management.component';
 import { ActivateAccountComponent } from './activate-account/activate-account.component';
 import {StatisticsComponent} from "./statistics/statistics.component";
+import {WishlistViewComponent} from "./wishlist-view/wishlist-view.component";
 
 const routes: Routes = [
 
@@ -31,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: 'budget-management',
-    component: BudgetManagementComponent 
+    component: BudgetManagementComponent
   },
   {
     path:'statistics',
@@ -44,6 +44,10 @@ const routes: Routes = [
   {
     path: 'add-to-wishlist',
     component: AddToWishlistComponent
+  },
+  {
+    path: 'wishlist-view',
+    component: WishlistViewComponent
   }
 ];
 

@@ -1,10 +1,9 @@
-import { VendorTypes } from './../models/vendorTypes.enum';
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'item-wishlist',
   templateUrl: './item-wishlist.component.html',
-  styleUrls: ['./item-wishlist.component.css']
+  styleUrls: ['./item-wishlist.component.css'],
 })
 export class ItemWishlistComponent implements OnInit {
 
@@ -27,6 +26,9 @@ export class ItemWishlistComponent implements OnInit {
 
   vendor_src: string | undefined;
 
+  @Output()
+  openModalEvent = new EventEmitter<boolean>();
+
   constructor() { }
 
   ngOnInit() {
@@ -41,6 +43,10 @@ export class ItemWishlistComponent implements OnInit {
 
   goToLink() {
     window.open(this.link, "_blank");
+  }
+
+  openModal(){
+    this.openModalEvent.emit(true);
   }
 
 }
