@@ -6,7 +6,7 @@
          matTooltipClass="exclamation-tooltip"
     />
     <div class="text"> {{ title }} </div>
-    <img *ngIf="isWishListItem" class="icon" src="../../assets/ic_buy_white.png"/>
+    <img *ngIf="isWishListItem" class="icon" (click)="purchaseConfirmationModal = true"src="../../assets/ic_buy_white.png"/>
   </div>
   <div class="content">
     <div class="left">
@@ -22,5 +22,63 @@
     <button class="left_button" *ngIf="!isShowCompetitorMode">Show Competitor</button>
     <button class="right_button" *ngIf="!isWishListItem">Add To Wishlist</button>
     <button class="right_button" *ngIf="isWishListItem" (click)="openModal()">Remove</button>
+  </div>
+</div>
+<div *ngIf="purchaseConfirmationModal==true" class="modal-container">
+  <div class="custom-item-modal">
+    Hello
+  </div>
+  
+</div>
+
+<div *ngIf="purchaseConfirmationModal === true" class="modal-container">
+  <div class="custom-item-modal">
+    <div class="title-modal">
+      Purchase this item</div>
+    <div class="content-modal" *ngIf="purchased==false">
+      <form [formGroup]="form">
+        <div class="group-field">
+          <div class="form-item field-text">
+            Amount
+          </div>
+          <div>
+            <input class="input" formControlName="amount" id="amount" type="number" [ngModel]="this.price">
+          </div>
+        </div>
+        <div class="group-field">
+          <div class="form-item field-text">
+            Date
+          </div>
+          <div>
+            <input class="input" type="date" formControlName="date" [ngModel]="this.formDate" (ngModelChange)="this.formDate = $event">
+          </div>
+        </div>
+        <div class="group-field">
+          <div class="form-item field-text">
+            Category
+          </div>
+          <div>
+            <select class="input" id="category" name="categoryDropdown" formControlName="category"
+              style="width: 258px;">
+              <option style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+                value='{{expenseCategory[category]}}' *ngFor="let category of categories">{{expenseCategory[category]}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </form>
+      <div class="buttons_modal">
+        <button class="cancel-btn" type="button" (click)="cancel()">
+          Cancel
+        </button>
+        <button class="submit-btn" type="button" (click)="purchaseItem()">
+          Save
+        </button>
+      </div>
+    </div>
+    <div class="success-message" *ngIf="purchased==true">
+      Item marked successfully as purchased <br/>
+      Added a new expense
+    </div>
   </div>
 </div>
