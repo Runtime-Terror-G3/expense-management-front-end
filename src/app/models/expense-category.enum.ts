@@ -6,5 +6,6 @@ export enum ExpenseCategory {
     SelfCare = 'SelfCare',
     Entertainment = 'Entertainment',
     Clothing = 'Clothing',
+    Wishlist = 'Wishlist',
     Others = 'Others'
 }

@@ -45,6 +45,7 @@ export class AddExpenseComponent implements OnInit {
     this.categories.push(ExpenseCategory.Health);
     this.categories.push(ExpenseCategory.Housekeeping);
     this.categories.push(ExpenseCategory.SelfCare);
+    this.categories.push(ExpenseCategory.Wishlist);
     this.categories.push(ExpenseCategory.Others);
   }
 
