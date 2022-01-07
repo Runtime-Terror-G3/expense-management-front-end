@@ -1,3 +1,6 @@
+import { WishlistServiceService } from './../services/wishlist-service/wishlist-service.service';
+import { IWishlistItem } from './../models/wishlist-item.model';
+import { WishlistItemVendor } from '../models/wishlist-item-vendor.enum';
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
@@ -24,12 +27,14 @@ export class ItemWishlistComponent implements OnInit {
   @Input()
   isItemAffordable!: boolean;
 
-  vendor_src: string | undefined;
-
   @Output()
   openModalEvent = new EventEmitter<boolean>();
 
-  constructor() { }
+  vendor_src: string | undefined;
+  vendorItem = WishlistItemVendor;
+  showModal= false;
+
+  constructor(private wishlistService: WishlistServiceService) { }
 
   ngOnInit() {
     if (this.vendor == "Altex") {
@@ -45,6 +50,26 @@ export class ItemWishlistComponent implements OnInit {
     window.open(this.link, "_blank");
   }
 
+  async addItemInWishlist() {
+    var vendorType: WishlistItemVendor = this.vendor as unknown as WishlistItemVendor
+
+    let wishlistItem = {
+      title: this.title,
+      price: this.price,
+      link: this.link,
+      vendor: vendorType,
+      image: this.image_src
+    } as IWishlistItem
+
+    this.wishlistService.createWishlistItem(wishlistItem).subscribe();
+    this.showModal = true;
+    await this.delay(2000);
+    this.showModal = false;
+  }
+
+  private delay(ms: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
   openModal(){
     this.openModalEvent.emit(true);
   }

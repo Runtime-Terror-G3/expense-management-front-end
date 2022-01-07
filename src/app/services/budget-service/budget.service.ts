@@ -27,8 +27,8 @@ export class BudgetService {
     return this.http.post<IMonthlyBudget>(this.baseUrl + 'add-monthly-budget', body, this.options);
   }
 
-  deleteMonthlyBudget(budgetId: number, userId: number): Observable<IMonthlyBudget> {
-    return this.http.delete<IMonthlyBudget>(this.baseUrl + 'delete-monthly-budget/' + budgetId + '/' + userId, this.options);
+  deleteMonthlyBudget(budgetId: number): Observable<IMonthlyBudget> {
+    return this.http.delete<IMonthlyBudget>(this.baseUrl + 'delete-monthly-budget/' + budgetId, this.options);
   }
 
   getMonthlyBudgets(userId: number, startDate: string, endDate: string): Observable<IMonthlyBudget[]> {
