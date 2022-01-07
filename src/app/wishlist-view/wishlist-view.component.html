@@ -1,3 +1,4 @@
+<script src="wishlist-view.component.ts"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <div class="container">
@@ -18,58 +19,18 @@
     </div>
   </form>
   <div class="cards">
-    <div class="item">
-      <item-wishlist
-        title="IPhone 12"
-        image_src="assets/iphone_example.png"
-        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/"
-        [price]="3999.90"
-        vendor="Altex"
-        [isShowCompetitorMode]="false"
-        [isWishListItem]="true"
-        [isItemAffordable]="true"
-        (openModalEvent)="openModal()"
-      ></item-wishlist>
+    <div class="item" *ngFor="let item of wishlistItems">
+      <item-wishlist title={{item.title}} image_src={{item.image}} link={{item.link}}
+                     [price]="item.price"
+                     vendor={{item.vendor}}
+                     [isShowCompetitorMode]="false"
+                     [isWishListItem]="true"
+                     [isItemAffordable]="item.affordable"
+                     (openModalEvent)="openModal(item)"
+      >
+      </item-wishlist>
     </div>
-    <div class="item">
-      <item-wishlist
-        title="IPhone 12"
-        image_src="assets/iphone_example.png"
-        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/"
-        [price]="3999.90"
-        vendor="CEL"
-        [isShowCompetitorMode]="false"
-        [isWishListItem]="true"
-        [isItemAffordable]="false"
-        (openModalEvent)="openModal()"
-      ></item-wishlist>
-    </div>
-    <div class="item">
-      <item-wishlist
-        title="IPhone 12"
-        image_src="assets/iphone_example.png"
-        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/"
-        [price]="3999.90"
-        vendor="Others"
-        [isShowCompetitorMode]="false"
-        [isWishListItem]="true"
-        [isItemAffordable]="true"
-        (openModalEvent)="openModal()"
-      ></item-wishlist>
-    </div>
-    <div class="item">
-      <item-wishlist
-        title="IPhone 12"
-        image_src="assets/iphone_example.png"
-        link="https://altex.ro/telefon-apple-iphone-12-5g-64gb-black/cpd/SMTIP126BK/"
-        [price]="3999.90"
-        vendor="CEL"
-        [isShowCompetitorMode]="false"
-        [isWishListItem]="true"
-        [isItemAffordable]="true"
-        (openModalEvent)="openModal()"
-      ></item-wishlist>
-    </div>
+
     <div *ngIf="showModal == true" class="modal">
         <p class="message-modal"> Are you sure you want to remove this item from wishlist?</p>
         <div class="buttons">

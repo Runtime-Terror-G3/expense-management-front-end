@@ -6,5 +6,6 @@ export interface IWishlistItem {
     price: number,
     link: string,
     image: string,
-    vendor: WishlistItemVendor
+    vendor: WishlistItemVendor,
+    affordable: boolean
 }
