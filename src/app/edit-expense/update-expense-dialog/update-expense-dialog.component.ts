@@ -24,6 +24,7 @@ export class UpdateExpenseDialogComponent {
     ExpenseCategory.Health,
     ExpenseCategory.Housekeeping,
     ExpenseCategory.SelfCare,
+    ExpenseCategory.Wishlist,
     ExpenseCategory.Others,
   ] as ExpenseCategory[];
 
