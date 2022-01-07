@@ -1,12 +1,12 @@
 import { WishlistServiceService } from './../services/wishlist-service/wishlist-service.service';
-import { Component, Input, OnInit } from '@angular/core';
 import { IWishlistItem } from './../models/wishlist-item.model';
 import { WishlistItemVendor } from '../models/wishlist-item-vendor.enum';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'item-wishlist',
   templateUrl: './item-wishlist.component.html',
-  styleUrls: ['./item-wishlist.component.css']
+  styleUrls: ['./item-wishlist.component.css'],
 })
 export class ItemWishlistComponent implements OnInit {
 
@@ -26,6 +26,9 @@ export class ItemWishlistComponent implements OnInit {
   isWishListItem!: boolean;
   @Input()
   isItemAffordable!: boolean;
+
+  @Output()
+  openModalEvent = new EventEmitter<boolean>();
 
   vendor_src: string | undefined;
   vendorItem = WishlistItemVendor;
@@ -67,4 +70,8 @@ export class ItemWishlistComponent implements OnInit {
   private delay(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
+  openModal(){
+    this.openModalEvent.emit(true);
+  }
+
 }
