@@ -19,30 +19,6 @@
     margin-left: 40%;
 }
 
-.field-text {
-    font-size: 22px;
-    margin-right: 2rem;
-    text-align: center;
-}
-
-.group-field {
-    display: flex;
-    margin: 30px;
-}
-
-.form-item {
-    width: 50px;
-    margin-left: 3rem;
-}
-
-.input {
-    width: 200px;
-    height: 30px;
-    border-color: black;
-    border-radius: 5px;
-    font-size: 20px;
-}
-
 .submit-btn {
     background-color: #1D4952;
     color: white;
@@ -67,64 +43,9 @@
 }
 
 .buttons {
-    width: 50%;
     align-self: flex-end;
-    margin-left: 50%;
+    margin-left: 20%;
     margin-bottom: 1rem;
-}
-
-.budget-image {
-    margin-top: 10rem !important;
-}
-
-.container-table {
-    margin-left: 15rem;
-    float: right;
-    top: 0% !important;
-    width: 100rem;
-}
-.budget-table {
-    width: 20rem;
-  }
-
-  .mat-column-date {
-    text-align: left;
-  }
-
-  .mat-column-actions {
-      text-align: right;
-  }
-
-  .mat-column-income {
-    text-align: center;
-  }
-  
-  .mat-header-cell {
-      background-color: #1D4952;
-      color: #E3EAEB;
-      font-weight: bold;
-      font-size: 18px;
-  }
-
-  .mat-row:nth-child(even){
-    background-color: #E3EAEB;
-    height: 1rem;
-}
-        
-.mat-row:nth-child(odd){
-    background-color: #C7CBCC;
-    height: 1rem;
-}
-
-.modal {
-    display: block;
-    position: absolute; z-index:2;
-    top: 40%; left: 30%;
-    width: 50rem;  
-    background-color: #E3EAEB;
-    border-radius: 20px;
-    align-self: center;
-    align-content: center;
 }
 
 .title-modal {
@@ -144,35 +65,11 @@
     border-top-left-radius: 0px;
 }
 
-.icon {
-    color: #1D4952;
-}
-
-.add-icon {
-    color: #E3EAEB;
-}
-
-.content {
-    display: flex;
-    top: 0% !important;
-}
-
-.left-child {
-    float: left;
-    width: 90%;
-}
-
-.error_message {
-    margin-top: 0%;
-    color: red;
-    font-size: 15px;
-}
-
 .p-text {
     margin-bottom: 0%;
 }
 
-.search-icon{
+.search-icon {
     margin-left: 0.5rem;
     cursor: pointer;
 }
@@ -186,15 +83,63 @@
 
 
 .item:nth-child(3n) {
-    page-break-after: always; /* CSS 2.1 syntax */
-    break-after: always; /* New syntax */
-  }
+    page-break-after: always;
+    /* CSS 2.1 syntax */
+    break-after: always;
+    /* New syntax */
+}
 
-  .breaker {
-    display: none;
-  }
-  .breaker:nth-child(3n) {
-    display: block;
+.modal-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 6.9rem;
     width: 100%;
-    height: 0;
-  }
+    height: 88%;
+    background-color: rgba(192, 192, 194, 0.4);
+}
+
+.modal-container .custom-item-modal {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    top: 30%;
+    left: 39%;
+    width: 30rem;
+    background-color: #E3EAEB;
+    border-radius: 20px;
+    align-self: center;
+    align-content: center;
+}
+
+.field-text {
+    font-size: 22px;
+    margin-right: 2rem;
+    text-align: center;
+}
+
+.group-field {
+    display: flex;
+    margin: 30px;
+}
+
+.form-item {
+    width: 100px;
+}
+
+.input {
+    width: 250px;
+    height: 25px;
+    border-color: black;
+    border-radius: 5px;
+}
+
+.success-message {
+    height: 61px;
+    font-size: 20px;
+    line-height: 40px;
+    align-items: center;
+    letter-spacing: -0.015em;
+    margin-left: 20%;
+    margin-top: 1rem;
+}

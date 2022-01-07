@@ -44,6 +44,11 @@ export class SidebarContainerComponent implements OnInit {
         title:'View wishlist',
         icon:'ic-wishlist',
         route:'/wishlist-view'
+      },
+      {
+        title: 'Statistics',
+        icon: 'ic-statistics',
+        route: '/statistics'
       }
     ];
   }

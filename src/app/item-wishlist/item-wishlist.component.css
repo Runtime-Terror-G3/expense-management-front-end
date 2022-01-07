@@ -1,104 +1,104 @@
 .container {
-    background-color: #ffffff;
-    border: 1px solid black;
-    width: 30rem;
-    height: 25rem;
-    margin: 1rem;
-    border-radius: 6px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  width: 30rem;
+  height: 25rem;
+  margin: 1rem;
+  border-radius: 6px;
 }
 
 .title {
-    background-color: #1D4952;
-    border-radius: 6px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    align-self: center;
-    height: 3rem;
-    color: white;
-    text-align: center;
-    padding: 0.5rem 1rem;
-    font-size: 25px;
-    display: flex;
+  background-color: #1d4952;
+  border-radius: 6px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  align-self: center;
+  height: 3rem;
+  color: white;
+  text-align: center;
+  padding: 0rem 1rem 0.5rem 1rem;
+  font-size: 23px;
+  display: flex;
 }
 
 .text {
-    margin-left: 1rem;
-    float: left;
-    margin-top: 0.5rem;
-    width: 25rem;
+  margin-left: 1rem;
+  float: left;
+  margin: auto;
+  width: 25rem;
 }
 
 .icon {
-    align-self: right;
-    float: right;
-    height: 3.5rem;
-    cursor: pointer;
+  align-self: right;
+  float: right;
+  height: 3.5rem;
+  cursor: pointer;
 }
 
 .image {
-    height: 13rem;
-    cursor: pointer;
+  padding-top: 2rem;
+  height: 11rem;
+  cursor: pointer;
 }
 
 .content {
-    display: flex;
+  display: flex;
 }
 
 .left {
-    width: 50%;
-    float: left;
-    align-content: center;
-    justify-content: center;
-    text-align: center;
+  width: 50%;
+  float: left;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .right {
-    width: 50%;
-    float: right;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-
+  width: 50%;
+  float: right;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
 }
 
 .price {
-    font-size: 35px;
-    align-self: center;
-    margin-bottom: 1rem;
+  font-size: 35px;
+  align-self: center;
+  margin-bottom: 1rem;
 }
 
 .image_vendor {
-    width: 10rem;
+  width: 10rem;
 }
 
 .buttons {
-    display: flex;
+  display: flex;
 }
 
-.left_button{
-    width: 40%;
-    margin-left: 2rem;
-    margin-right: 1rem;
-    margin-top: 2.5rem;
-    height: 3rem;
-    background-color: #E3EAEB;
-    color: #1D4952;
-    font-size: 20px;
-    border-radius: 6px;
-    cursor: pointer;
+.left_button {
+  width: 40%;
+  margin-left: 2rem;
+  margin-right: 1rem;
+  margin-top: 2.5rem;
+  height: 3rem;
+  background-color: #e3eaeb;
+  color: #1d4952;
+  font-size: 20px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.right_button{
-    width: 40%;
-    margin-right: 2rem;
-    margin-left: 1rem;
-    margin-top: 2.5rem;
-    height: 3rem;
-    background-color: #1D4952;
-    color: white;
-    font-size: 20px;
-    border-radius: 6px;
-    cursor: pointer;
+.right_button {
+  width: 40%;
+  margin-right: 2rem;
+  margin-left: 1rem;
+  margin-top: 2.5rem;
+  height: 3rem;
+  background-color: #1d4952;
+  color: white;
+  font-size: 20px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .affordable_tag {

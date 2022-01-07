@@ -34,7 +34,7 @@ export class ItemWishlistComponent implements OnInit {
   ngOnInit() {
     if (this.vendor == "Altex") {
       this.vendor_src = "assets/vendor_altex.png";
-    } else if (this.vendor == "CEL") {
+    } else if (this.vendor == "Cel") {
       this.vendor_src = "assets/vendor_cel.png";
     } else {
       this.vendor_src = "";

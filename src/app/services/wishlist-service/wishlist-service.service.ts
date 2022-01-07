@@ -28,17 +28,16 @@ export class WishlistServiceService {
     return this.http.get<IWishlistItem[]>(`${this.baseUrl}get-wishlist-items`, this.options);
   }
 
-  // TODO - add these methods and sync urls for them when BE implementations are in place 
-  // searchWishlistItems(keyword: string, vendor: string): Observable<IWishlistItem[]> {
-  //   return this.http.get<IWishlistItem[]>(`${this.baseUrl}search-wishlist-items?keyword=${keyword}&vendor=${vendor}`, this.options);
+  searchWishlistItems(keyword: string, vendor: string): Observable<IWishlistItem[]> {
+    return this.http.get<IWishlistItem[]>(`${this.baseUrl}find-products?keyword=${keyword}&vendor=${vendor}`, this.options);
+  }
+
+  // deleteWishlistItem(wishlistItemId: number): Observable<any> { //not yet implemented on BE
+  //   return this.http.delete<IWishlistItem>(`${this.baseUrl}delete-wishlist-item/${wishlistItemId}`, this.options);
   // }
 
-  // deleteWishlistItem(wishlistItemId: number, userId: number): Observable<IWishlistItem> {
-  //   return this.http.delete<IWishlistItem>(`${this.baseUrl}delete-wishlist-item/${wishlistItemId}/${userId}`, this.options);
-  // }
-
-  // purchaseWishlistItem(wishlistItemId: number, expense: IExpense): ... {
-  //   const body = JSON.stringify(expense);
-  //   return this.http.post<...>(`${this.baseUrl}purchase-wishlist-item/${wishlistItemId}`, body, this.options);
-  // }
+  purchaseWishlistItem(wishlistItemId: number, expense: IExpense): Observable<IExpense> {
+    const body = JSON.stringify(expense);
+    return this.http.post<IExpense>(`${this.baseUrl}purchase-wishlist-item/${wishlistItemId}`, body, this.options);
+  }
 }
