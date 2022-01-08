@@ -20,7 +20,7 @@
   </form>
   <div class="cards">
     <div class="item" *ngFor="let item of searchResult">
-      <item-wishlist title={{item.title}} image_src={{item.image}} link={{item.link}} [price]="item.price"
+      <item-wishlist [id]="item.id" title={{item.title}} image_src={{item.image}} link={{item.link}} [price]="item.price"
         vendor={{item.vendor}} [isShowCompetitorMode]="false" [isWishListItem]="false" [isItemAffordable]="false">
       </item-wishlist>
     </div>

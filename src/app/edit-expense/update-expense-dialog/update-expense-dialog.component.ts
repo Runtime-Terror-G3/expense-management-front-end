@@ -28,15 +28,14 @@ export class UpdateExpenseDialogComponent {
     ExpenseCategory.Others,
   ] as ExpenseCategory[];
 
-  date: string = this.data.date.toLocaleDateString('en-US');
+  date: string = new Date(this.data.date).toLocaleDateString('fr-CA');
 
   constructor(
     public dialogRef: MatDialogRef<UpdateExpenseDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: UpdateExpenseDialogData,
     private expenseService: ExpenseService,
   ) {
-    this.date = this.data.date.toLocaleDateString('en-US');
-    console.log(this.date);
+    this.date = new Date(this.data.date).toLocaleDateString('fr-CA');
   }
 
   onSave(): void {

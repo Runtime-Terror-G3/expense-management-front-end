@@ -35,7 +35,7 @@
       </tr>
       <tr *ngFor="let expense of this.expenses">
         <td>{{expense.category}}</td>
-        <td>{{expense.date.toLocaleDateString('en-US')}}</td>
+        <td>{{expense.date | date}}</td>
         <td>{{expense.amount}}</td>
         <td class="edit-buttons">
           <div class="edit-button" (click)="openUpdateDialog(expense)">

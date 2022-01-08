@@ -21,16 +21,17 @@
   <div class="cards">
     <div class="item" *ngFor="let item of wishlistItems">
       <item-wishlist title={{item.title}} image_src={{item.image}} link={{item.link}}
+                     [id]="item.id"
                      [price]="item.price"
                      vendor={{item.vendor}}
                      [isShowCompetitorMode]="false"
                      [isWishListItem]="true"
                      [isItemAffordable]="item.affordable"
                      (openModalEvent)="openModal(item)"
+                     (refreshTableEvent)="loadData()"
       >
       </item-wishlist>
     </div>
-
     <div *ngIf="showModal == true" class="modal">
         <p class="message-modal"> Are you sure you want to remove this item from wishlist?</p>
         <div class="buttons">

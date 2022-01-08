@@ -1,7 +1,7 @@
 import { WishlistItemVendor } from "./wishlist-item-vendor.enum";
 
 export interface IWishlistItem {
-    id?: number,
+    id: number,
     title: string,
     price: number,
     link: string,
