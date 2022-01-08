@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import {IWishlistItem} from "../models/wishlist-item.model";
+import {WishlistServiceService} from "../services/wishlist-service/wishlist-service.service";
 
 @Component({
   selector: 'app-wishlist-view',
@@ -11,28 +13,46 @@ export class WishlistViewComponent implements OnInit {
     item: new FormControl(''),
   });
 
-  showModal?:boolean=false;
+  showModal?: boolean = false;
 
-  constructor() {
+  wishlistItems: IWishlistItem[] = [];
+
+  selectedItem?: IWishlistItem;
+
+  constructor(private wishlistService: WishlistServiceService) {
   }
 
   ngOnInit(): void {
+    this.loadData();
+  }
 
+  loadData(){
+    this.wishlistService.getWishlistItems().subscribe(items => {
+      this.wishlistItems = items;
+    });
   }
 
   searchItem() {
+    this.wishlistService.searchUserWishlistItems().subscribe(
+      items => {
+        this.wishlistItems = items;
+      });
   }
 
-  cancel(){
+  cancel() {
     this.showModal = false;
   }
 
-  removeFromWishlist(){
+  removeFromWishlist() {
     this.showModal = false;
+    this.wishlistService.deleteWishlistItem(this.selectedItem!.id!).subscribe(()=>{
+      this.loadData();
+    })
   }
 
-  openModal(){
-    this.showModal=true;
+  openModal(item:IWishlistItem) {
+    this.showModal = true;
+    this.selectedItem=item;
   }
 
 }
