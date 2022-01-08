@@ -47,6 +47,8 @@ export class ItemWishlistComponent implements OnInit {
 
   @Output()
   openModalEvent = new EventEmitter<boolean>();
+  @Output()
+  refreshTableEvent = new EventEmitter<boolean>();
 
   vendorItem = WishlistItemVendor;
   showModal= false;
@@ -148,6 +150,7 @@ export class ItemWishlistComponent implements OnInit {
           await this.delay(2000);
           this.purchaseConfirmationModal = false;
           this.purchased = false;
+          this.refreshTableEvent.emit(true);
         },
         error => {
           alert(error.message);
