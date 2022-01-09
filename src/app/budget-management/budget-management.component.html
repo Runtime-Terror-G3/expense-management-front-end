@@ -35,7 +35,7 @@
             <button mat-icon-button color="primary" (click)="editRow(element)" title="Edit Budget">
               <mat-icon class="icon" aria-hidden="false" aria-label="Edit budget">edit</mat-icon>
             </button>
-            <button mat-icon-button color="primary" (click)="deleteRow(element)" title="Delete Budget">
+            <button mat-icon-button color="primary" (click)="showDeleteModal=true; setCurrentId(element.id)" title="Delete Budget">
               <mat-icon class="icon" aria-hidden="false" aria-label="Edit budget">delete</mat-icon>
             </button>
           </td>
@@ -80,5 +80,16 @@
           </button>
         </div>
       </div>
+  </div>
+</div>
+<div *ngIf="showDeleteModal==true" class="modal-container">
+  <div class="custom-item-modal">
+    <div class="success-message">
+      Are you sure to delete this item?
+    </div>
+    <div class="buttons-modal">
+      <button class="button" (click)="showDeleteModal=false">No</button>
+    <button class="button" (click)="deleteMonthlyBudget()">Yes</button>
+    </div>
   </div>
 </div>

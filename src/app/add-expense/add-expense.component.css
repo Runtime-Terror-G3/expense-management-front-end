@@ -58,3 +58,36 @@
   float: right;
   margin-left: 15rem;
 }
+
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 6.9rem;
+  width: 100%;
+  height: 88%;
+  background-color: rgba(192, 192, 194, 0.4);
+}
+
+.modal-container .custom-item-modal {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 30%;
+  left: 39%;
+  width: 30rem;
+  height: auto;
+  background-color: #1D4952;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.success-message {
+  color: white;
+  height: 90px;
+  font-size: 20px;
+  line-height: 40px;
+  align-items: center;
+  letter-spacing: -0.015em;
+  margin-top: 3rem;
+}

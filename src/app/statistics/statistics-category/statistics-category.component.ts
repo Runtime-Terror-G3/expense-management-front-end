@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ExpenseService} from "../../services/expense-service/expense.service";
@@ -19,7 +20,7 @@ export class StatisticsCategoryComponent implements OnInit {
 
   statistics:any;
 
-  constructor(private expenseService: ExpenseService, private sessionService: SessionService) { }
+  constructor(private expenseService: ExpenseService, private sessionService: SessionService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -53,7 +54,10 @@ export class StatisticsCategoryComponent implements OnInit {
       )
     }
     else {
-      alert('Invalid date fields!');
+      this.snackBar!.open('Invalid date fields!', '', {
+        duration: 3000,
+        panelClass: ['snackbar']
+      });
     }
   }
 

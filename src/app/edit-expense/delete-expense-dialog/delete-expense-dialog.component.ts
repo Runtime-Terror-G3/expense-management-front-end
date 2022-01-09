@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ExpenseService} from "../../services/expense-service/expense.service";
@@ -17,6 +18,7 @@ export class DeleteExpenseDialogComponent {
     public dialogRef: MatDialogRef<DeleteExpenseDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: UpdateExpenseDialogData,
     private expenseService: ExpenseService,
+    private snackBar: MatSnackBar
   ) { }
 
   onNo(): void {
@@ -27,7 +29,10 @@ export class DeleteExpenseDialogComponent {
     this.expenseService.deleteExpense(this.data.expenseId).subscribe(
       () => {},
       error => {
-        alert(error.message);
+        this.snackBar!.open(error.message, '', {
+          duration: 3000,
+          panelClass: ['snackbar']
+        });
       }
     );
     this.dialogRef.close();

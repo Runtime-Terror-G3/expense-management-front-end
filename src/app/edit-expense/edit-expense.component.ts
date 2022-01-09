@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {Component, OnInit} from '@angular/core';
 import {ExpenseCategory} from "../models/expense-category.enum";
 import {IExpense} from "../models/expense.model";
@@ -32,11 +33,13 @@ export class EditExpenseComponent implements OnInit {
   expenses: IExpense[] = [];
 
   category: string = 'All';
-  date: string = '';
+  startDate: string = '';
+  endDate: string = ''
 
   constructor(
     public dialog: MatDialog,
     public expenseService: ExpenseService,
+    private snackBar: MatSnackBar
   ) {
   }
 
@@ -50,28 +53,37 @@ export class EditExpenseComponent implements OnInit {
         this.expenses = response;
       },
       error => {
-        alert(error.message);
+        this.snackBar!.open(error.message, '', {
+          duration: 3000,
+          panelClass: ['snackbar']
+        });
       }
     );
   }
 
   displayFilteredExpenses() {
-    if (this.date == '') {
+    if (this.startDate == '' && this.endDate == '') {
       this.expenseService.getFilteredExpensesByCategory(this.category).subscribe(
         (response: IExpense[]) => {
           this.expenses = response;
         },
         error => {
-          alert(error.message);
+          this.snackBar!.open(error.message, '', {
+            duration: 3000,
+            panelClass: ['snackbar']
+          });
         }
       );
     } else {
-      this.expenseService.getFilteredExpenses(this.category, new Date(this.date)).subscribe(
+      this.expenseService.getFilteredExpenses(this.category, new Date(this.startDate), new Date(this.endDate)).subscribe(
         (response: IExpense[]) => {
           this.expenses = response;
         },
         error => {
-          alert(error.message);
+          this.snackBar!.open(error.message, '', {
+            duration: 3000,
+            panelClass: ['snackbar']
+          });
         }
       );
     }

@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { IMonthlyBudget } from './../models/monthly-budget.model';
 import { SessionService } from './../services/session.service';
 import { BudgetService } from './../services/budget-service/budget.service';
@@ -22,8 +23,10 @@ export class BudgetManagementComponent implements OnInit {
   } as IMonthlyBudget;
   currentDate: string | undefined;
   showModal = false;
+  showDeleteModal = false;
   isAddMode = true;
   currentBudget: IMonthlyBudget = {} as IMonthlyBudget;
+  currentId: number | undefined;
 
   form = new FormGroup({
     income: new FormControl(''),
@@ -40,7 +43,7 @@ export class BudgetManagementComponent implements OnInit {
     return this.form.get('date') as FormControl;
   }
 
-  constructor(private budgetService: BudgetService, private sessionService: SessionService, private datePipe: DatePipe) { }
+  constructor(private budgetService: BudgetService, private sessionService: SessionService, private datePipe: DatePipe, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.loggedUserId = this.sessionService.getLoggedUserId()!;
@@ -60,8 +63,13 @@ export class BudgetManagementComponent implements OnInit {
     }
   }
 
-  delelteMonthlyBudget(budgetId: number) {
-    this.budgetService.deleteMonthlyBudget(budgetId).subscribe(x => {this.getMonthlyBudgetsFromCurrentYear();});
+  deleteMonthlyBudget() {
+    this.budgetService.deleteMonthlyBudget(this.currentId!).subscribe(x => {this.getMonthlyBudgetsFromCurrentYear();});
+    this.showDeleteModal = false;
+  }
+
+  setCurrentId(budgetId: number) {
+    this.currentId = budgetId;
   }
 
   updateMonthlyBudget() {
@@ -89,12 +97,6 @@ export class BudgetManagementComponent implements OnInit {
     this.isAddMode = false;
   }
 
-  deleteRow(row: IMonthlyBudget) {
-    if(confirm("Are you sure to delete this item?")) {
-      this.delelteMonthlyBudget(row.id);
-    }
-  }
-
   cancel() {
     this.showModal = false;
   }
@@ -116,12 +118,18 @@ export class BudgetManagementComponent implements OnInit {
 
   validateBudget(budget: IMonthlyBudget) {
       if (!budget.income || budget.income < 0) {
-        alert('Invalid income field!');
+        this.snackBar!.open('Invalid income field!', '', {
+          duration: 3000,
+          panelClass: ['snackbar']
+        });
         return false;
       }
       if (this.monthlyBudgets.filter(x => new Date(x.date).getUTCMonth() == new Date(budget.date).getUTCMonth() && x.id != budget.id).length >= 1)
       {
-        alert('There is already a budget set for this month!');
+        this.snackBar!.open('There is already a budget set for this month!', '', {
+          duration: 3000,
+          panelClass: ['snackbar']
+        });
         return false;
       }
       return true;

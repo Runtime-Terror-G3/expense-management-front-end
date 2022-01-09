@@ -16,9 +16,16 @@
     </div>
     <div class="field-group">
       <p class="field-description">
-        Date
+        Start Date
       </p>
-      <input class="field-input" type="date" [ngModel]="date" (ngModelChange)="date = $event"
+      <input class="field-input" type="date" [ngModel]="startDate" (ngModelChange)="startDate = $event"
+             [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="field-group">
+      <p class="field-description">
+        End Date
+      </p>
+      <input class="field-input" type="date" [ngModel]="endDate" (ngModelChange)="endDate = $event"
              [ngModelOptions]="{standalone: true}">
     </div>
     <button id="filter-button" type="button" (click)="displayFilteredExpenses()">

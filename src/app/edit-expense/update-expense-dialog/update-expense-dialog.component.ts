@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {ExpenseCategory} from "../../models/expense-category.enum";
 import {Component, Inject} from "@angular/core";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
@@ -34,6 +35,7 @@ export class UpdateExpenseDialogComponent {
     public dialogRef: MatDialogRef<UpdateExpenseDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: UpdateExpenseDialogData,
     private expenseService: ExpenseService,
+    private snackBar: MatSnackBar
   ) {
     this.date = new Date(this.data.date).toLocaleDateString('fr-CA');
   }
@@ -42,7 +44,10 @@ export class UpdateExpenseDialogComponent {
     this.expenseService.updateExpense(this.data.expenseId, this.data.amount, this.data.category, new Date(this.date)).subscribe(
       () => {},
       error => {
-        alert(error.message);
+        this.snackBar!.open(error.message, '', {
+          duration: 3000,
+          panelClass: ['snackbar']
+        });
       }
     );
     this.dialogRef.close();
