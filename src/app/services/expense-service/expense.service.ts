@@ -29,8 +29,8 @@ export class ExpenseService {
     return this.http.get<IExpense[]>(this.baseUrl + 'get-expenses', {headers: this.headers, params: params});
   }
 
-  getFilteredExpenses(category: string, date: Date): Observable<IExpense[]> {
-    let params = new HttpParams().set('category', category).set('startDate', date.getTime()).set('endDate', date.getTime() * (1000 * 60 * 60 * 24));
+  getFilteredExpenses(category: string, startDate: Date, endDate: Date): Observable<IExpense[]> {
+    let params = new HttpParams().set('category', category).set('startDate', startDate.getTime() / 1000).set('endDate', endDate.getTime() / 1000);
     return this.http.get<IExpense[]>(this.baseUrl + 'get-expenses', {headers: this.headers, params: params});
   }
 

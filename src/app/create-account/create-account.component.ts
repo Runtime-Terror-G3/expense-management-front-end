@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from '../services/user-service.service';
 import { Router } from "@angular/router";
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create-account',
@@ -29,9 +30,12 @@ export class CreateAccountComponent implements OnInit {
     confirmPassword: this.confirmPassword
   });
 
+  showModal = false;
+
   constructor(
     private userService: UserServiceService,
     private router: Router,
+    public snackBar: MatSnackBar
   ) {
   }
 
@@ -41,16 +45,22 @@ export class CreateAccountComponent implements OnInit {
   createAccount(): void {
     if (this.createAccountForm.valid) {
       this.userService.createAccount(this.firstName.value, this.lastName.value, this.dateOfBirth.value, this.email.value, this.password.value).subscribe(
-        response => {
+        async response => {
           this.createAccountForm.reset();
-          alert("Account was created successfully! Please check your email and click the activation link in order to activate it!");
+          this.showModal = true;
         },
         error => {
-          alert(error.message);
+          return this.snackBar!.open(error.message, '', {
+            duration: 3000,
+            panelClass: ['snackbar']
+          });
         }
       );
     } else {
-      alert("Fields are invalid!")
+      this.snackBar!.open('Fields are invalid!', '', {
+        duration: 3000,
+        panelClass: ['snackbar']
+      });
     }
   }
 
@@ -64,4 +74,7 @@ export class CreateAccountComponent implements OnInit {
     return null;
   }
 
+  private delay(ms: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 }

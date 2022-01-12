@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { IExpense } from 'src/app/models/expense.model';
 import { WishlistServiceService } from './../services/wishlist-service/wishlist-service.service';
 import { IWishlistItem } from './../models/wishlist-item.model';
@@ -53,7 +54,7 @@ export class ItemWishlistComponent implements OnInit {
   vendorItem = WishlistItemVendor;
   showModal= false;
 
-  constructor(private wishlistService: WishlistServiceService) { }
+  constructor(private wishlistService: WishlistServiceService, private snackBar: MatSnackBar) { }
 
   get amount() {
     return (this.form.get('amount') as FormControl).value;
@@ -103,6 +104,7 @@ export class ItemWishlistComponent implements OnInit {
   private delay(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
+  
   openModal(){
     this.openModalEvent.emit(true);
   }
@@ -136,7 +138,10 @@ export class ItemWishlistComponent implements OnInit {
       error_messages = `${error_messages} Category is required!`;
     }
     if (error_messages !== ''){
-      alert(error_messages);
+      this.snackBar!.open(error_messages, '', {
+        duration: 3000,
+        panelClass: ['snackbar']
+      });
     } else {
       let expenseItem = {
         amount: this.amount,
@@ -153,7 +158,10 @@ export class ItemWishlistComponent implements OnInit {
           this.refreshTableEvent.emit(true);
         },
         error => {
-          alert(error.message);
+          this.snackBar!.open(error.message, '', {
+            duration: 3000,
+            panelClass: ['snackbar']
+          });
         }
       );
     }

@@ -1,3 +1,4 @@
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {SidebarElementComponent} from './sidebar/sidebar-element/sidebar-element.component';
 import {AddExpenseComponent} from './add-expense/add-expense.component';
 import {NgModule} from '@angular/core';
@@ -82,7 +83,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
         MatTableModule,
         MatIconModule,
         ChartsModule,
-        MatTooltipModule
+        MatTooltipModule,
+        MatSnackBarModule
     ],
   providers: [
     HttpClient,

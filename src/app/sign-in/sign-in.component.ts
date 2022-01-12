@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {Component, OnInit} from '@angular/core';
 import {SessionService} from "../services/session.service";
 import {FormBuilder} from "@angular/forms";
@@ -21,6 +22,7 @@ export class SignInComponent implements OnInit {
     private sessionService: SessionService,
     private router: Router,
     private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar
   ) {
   }
 
@@ -39,7 +41,10 @@ export class SignInComponent implements OnInit {
         this.toHome();
       },
       error => {
-        alert(error.message);
+        this.snackBar!.open(error.message, '', {
+          duration: 3000,
+          panelClass: ['snackbar']
+        });
         this.form.reset();
       });
   }

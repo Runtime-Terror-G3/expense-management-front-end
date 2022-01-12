@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { SessionService } from './../services/session.service';
 import { WishlistServiceService } from './../services/wishlist-service/wishlist-service.service';
 import { IWishlistItem } from './../models/wishlist-item.model';
@@ -26,7 +27,7 @@ export class AddToWishlistComponent implements OnInit {
 
   showCustomModal = false;
 
-  constructor(private wishlistService: WishlistServiceService, private sessionService: SessionService) { }
+  constructor(private wishlistService: WishlistServiceService, private sessionService: SessionService, private snackBar: MatSnackBar) { }
 
   get title() {
     return (this.itemForm.get('title') as FormControl);
@@ -51,7 +52,10 @@ export class AddToWishlistComponent implements OnInit {
         this.searchResult = items;
       },
       error => {
-        console.log(error);
+        this.snackBar!.open(error, '', {
+          duration: 3000,
+          panelClass: ['snackbar']
+        });
       }
     );
   }
