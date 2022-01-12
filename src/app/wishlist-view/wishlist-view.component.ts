@@ -26,17 +26,19 @@ export class WishlistViewComponent implements OnInit {
     this.loadData();
   }
 
-  loadData(){
+  loadData() {
     this.wishlistService.getWishlistItems().subscribe(items => {
       this.wishlistItems = items;
     });
   }
 
   searchItem() {
-    this.wishlistService.searchUserWishlistItems().subscribe(
-      items => {
-        this.wishlistItems = items;
-      });
+    const keyboard: string = this.form.get('item')?.value;
+    if (keyboard === '')
+      this.loadData();
+    else {
+      this.wishlistItems = this.wishlistItems.filter(item => item.title.toLowerCase().includes(keyboard.toLowerCase()))
+    }
   }
 
   cancel() {
@@ -45,14 +47,14 @@ export class WishlistViewComponent implements OnInit {
 
   removeFromWishlist() {
     this.showModal = false;
-    this.wishlistService.deleteWishlistItem(this.selectedItem!.id!).subscribe(()=>{
+    this.wishlistService.deleteWishlistItem(this.selectedItem!.id!).subscribe(() => {
       this.loadData();
     })
   }
 
-  openModal(item:IWishlistItem) {
+  openModal(item: IWishlistItem) {
     this.showModal = true;
-    this.selectedItem=item;
+    this.selectedItem = item;
   }
 
 }
