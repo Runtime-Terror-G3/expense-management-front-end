@@ -40,6 +40,8 @@ import { ItemWishlistComponent } from './item-wishlist/item-wishlist.component';
 import { SessionInterceptor } from './helpers/session.interceptor';
 import { WishlistViewComponent } from './wishlist-view/wishlist-view.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -84,7 +86,9 @@ import {MatTooltipModule} from "@angular/material/tooltip";
         MatIconModule,
         ChartsModule,
         MatTooltipModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+      MatProgressSpinnerModule,
+      BrowserAnimationsModule
     ],
   providers: [
     HttpClient,

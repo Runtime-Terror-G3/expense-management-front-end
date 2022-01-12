@@ -124,14 +124,16 @@
 }
 
 .form-item {
-    width: 100px;
+    width: 50px;
+    margin-left: 3rem;
 }
 
 .input {
     width: 250px;
-    height: 25px;
+    height: 32px;
     border-color: black;
     border-radius: 5px;
+    font-size: 20px;
 }
 
 .success-message {
@@ -142,4 +144,16 @@
     letter-spacing: -0.015em;
     margin-left: 20%;
     margin-top: 1rem;
+}
+
+::ng-deep .mat-progress-spinner circle, ::ng-deep .mat-spinner circle {
+  stroke: #1d4952;
+  width: 700px;
+}
+
+.progress-spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8%;
 }

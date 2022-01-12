@@ -34,8 +34,8 @@
 }
 
 .input {
-  width: 200px;
-  height: 30px;
+  width: 250px;
+  height: 32px;
   border-color: black;
   border-radius: 5px;
   font-size: 20px;
@@ -129,5 +129,17 @@
 .item:nth-child(3n) {
   page-break-after: always;
   break-after: auto;
+}
+
+::ng-deep .mat-progress-spinner circle, ::ng-deep .mat-spinner circle {
+  stroke: #1d4952;
+  width: 700px;
+}
+
+.progress-spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8%;
 }
 

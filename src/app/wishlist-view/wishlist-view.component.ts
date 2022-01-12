@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {IWishlistItem} from "../models/wishlist-item.model";
 import {WishlistServiceService} from "../services/wishlist-service/wishlist-service.service";
+import {ProgressSpinnerMode} from "@angular/material/progress-spinner";
 
 @Component({
   selector: 'app-wishlist-view',
@@ -19,6 +20,10 @@ export class WishlistViewComponent implements OnInit {
 
   selectedItem?: IWishlistItem;
 
+  spinnerMode: ProgressSpinnerMode = 'indeterminate';
+
+  isLoading: boolean = true;
+
   constructor(private wishlistService: WishlistServiceService) {
   }
 
@@ -29,15 +34,25 @@ export class WishlistViewComponent implements OnInit {
   loadData() {
     this.wishlistService.getWishlistItems().subscribe(items => {
       this.wishlistItems = items;
+      this.isLoading = false;
+    });
+  }
+
+  filterData(keyword:string){
+    this.wishlistService.getWishlistItems().subscribe(items => {
+      this.wishlistItems = items.filter(item => item.title.toLowerCase().includes(keyword.toLowerCase()));
+      this.isLoading = false;
     });
   }
 
   searchItem() {
-    const keyboard: string = this.form.get('item')?.value;
-    if (keyboard === '')
+    const keyword: string = this.form.get('item')?.value;
+    this.wishlistItems = []
+    this.isLoading = true;
+    if (keyword === '') {
       this.loadData();
-    else {
-      this.wishlistItems = this.wishlistItems.filter(item => item.title.toLowerCase().includes(keyboard.toLowerCase()))
+    } else {
+      this.filterData(keyword);
     }
   }
 
@@ -48,7 +63,7 @@ export class WishlistViewComponent implements OnInit {
   removeFromWishlist() {
     this.showModal = false;
     this.wishlistService.deleteWishlistItem(this.selectedItem!.id!).subscribe(() => {
-      this.loadData();
+      this.wishlistItems=this.wishlistItems.filter(item => item.id!==this.selectedItem!.id!);
     })
   }
 

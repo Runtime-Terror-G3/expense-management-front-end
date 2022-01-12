@@ -5,6 +5,7 @@ import { IWishlistItem } from './../models/wishlist-item.model';
 import { WishlistItemVendor } from './../models/wishlist-item-vendor.enum';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import {ProgressSpinnerMode} from "@angular/material/progress-spinner";
 
 @Component({
   selector: 'app-add-to-wishlist',
@@ -27,6 +28,10 @@ export class AddToWishlistComponent implements OnInit {
 
   showCustomModal = false;
 
+  isLoading?:boolean;
+
+  spinnerMode: ProgressSpinnerMode = 'indeterminate';
+
   constructor(private wishlistService: WishlistServiceService, private sessionService: SessionService, private snackBar: MatSnackBar) { }
 
   get title() {
@@ -40,16 +45,19 @@ export class AddToWishlistComponent implements OnInit {
   get link() {
     return (this.itemForm.get('link') as FormControl);
   }
-  
+
   searchResult: IWishlistItem[] = [];
 
   ngOnInit() {
   }
 
   searchItems() {
+    this.searchResult=[];
+    this.isLoading=true;
     this.wishlistService.searchWishlistItems(this.form.get('item')?.value, 'ALL').subscribe(
       items => {
         this.searchResult = items;
+        this.isLoading=false;
       },
       error => {
         this.snackBar!.open(error, '', {
@@ -75,12 +83,12 @@ export class AddToWishlistComponent implements OnInit {
 
     this.wishlistService.createWishlistItem(wishlistItem).subscribe();
     this.itemForm.reset();
-    
+
     this.saved = true;
     await this.delay(2000);
     this.showCustomModal = false;
     this.saved = false;
-    
+
   }
 
   private delay(ms: number): Promise<void> {
