@@ -75,6 +75,7 @@ export class ItemWishlistComponent implements OnInit {
       this.vendor_src = "assets/vendor_cel.png";
     } else {
       this.vendor_src = "";
+      this.image_src = "assets/wishlist_item.jpg";
     }
     this.createCategoryList();
     this.formDate = new Date().toLocaleDateString('fr-CA');
