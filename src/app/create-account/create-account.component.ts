@@ -50,7 +50,7 @@ export class CreateAccountComponent implements OnInit {
           this.showModal = true;
         },
         error => {
-          return this.snackBar!.open(error.message, '', {
+          return this.snackBar!.open('This account already exists!', '', {
             duration: 3000,
             panelClass: ['snackbar']
           });

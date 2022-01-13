@@ -26,7 +26,7 @@ export class UpdateExpenseDialogComponent {
     ExpenseCategory.Housekeeping,
     ExpenseCategory.SelfCare,
     ExpenseCategory.Wishlist,
-    ExpenseCategory.Others,
+    ExpenseCategory.Other,
   ] as ExpenseCategory[];
 
   date: string = new Date(this.data.date).toLocaleDateString('fr-CA');
@@ -44,7 +44,7 @@ export class UpdateExpenseDialogComponent {
     this.expenseService.updateExpense(this.data.expenseId, this.data.amount, this.data.category, new Date(this.date)).subscribe(
       () => {},
       error => {
-        this.snackBar!.open(error.message, '', {
+        this.snackBar!.open("Oops! We could not process your request, please try again.", '', {
           duration: 3000,
           panelClass: ['snackbar']
         });
