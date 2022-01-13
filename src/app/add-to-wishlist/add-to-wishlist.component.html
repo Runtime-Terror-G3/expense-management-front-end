@@ -18,6 +18,9 @@
       </div>
     </div>
   </form>
+  <div class="progress-spinner" *ngIf="isLoading">
+    <mat-progress-spinner [mode]="spinnerMode"></mat-progress-spinner>
+  </div>
   <div class="cards">
     <div class="item" *ngFor="let item of searchResult">
       <item-wishlist [id]="item.id" title={{item.title}} image_src={{item.image}} link={{item.link}} [price]="item.price"
