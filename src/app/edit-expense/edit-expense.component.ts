@@ -28,7 +28,7 @@ export class EditExpenseComponent implements OnInit {
     ExpenseCategory.Housekeeping,
     ExpenseCategory.SelfCare,
     ExpenseCategory.Wishlist,
-    ExpenseCategory.Others,
+    ExpenseCategory.Other,
   ] as ExpenseCategory[];
   expenses: IExpense[] = [];
 
@@ -53,7 +53,7 @@ export class EditExpenseComponent implements OnInit {
         this.expenses = response;
       },
       error => {
-        this.snackBar!.open(error.message, '', {
+        this.snackBar!.open('Oops! We could not process your request, please try again.', '', {
           duration: 3000,
           panelClass: ['snackbar']
         });
@@ -68,7 +68,7 @@ export class EditExpenseComponent implements OnInit {
           this.expenses = response;
         },
         error => {
-          this.snackBar!.open(error.message, '', {
+          this.snackBar!.open("Oops! We could not process your request, please try again.", '', {
             duration: 3000,
             panelClass: ['snackbar']
           });
@@ -80,7 +80,7 @@ export class EditExpenseComponent implements OnInit {
           this.expenses = response;
         },
         error => {
-          this.snackBar!.open(error.message, '', {
+          this.snackBar!.open("Oops! We could not process your request, please try again.", '', {
             duration: 3000,
             panelClass: ['snackbar']
           });

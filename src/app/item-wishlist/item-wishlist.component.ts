@@ -119,7 +119,7 @@ export class ItemWishlistComponent implements OnInit {
     this.categories.push(ExpenseCategory.Housekeeping);
     this.categories.push(ExpenseCategory.SelfCare);
     this.categories.push(ExpenseCategory.Wishlist);
-    this.categories.push(ExpenseCategory.Others);
+    this.categories.push(ExpenseCategory.Other);
   }
 
   cancel() {
@@ -159,7 +159,7 @@ export class ItemWishlistComponent implements OnInit {
           this.refreshTableEvent.emit(true);
         },
         error => {
-          this.snackBar!.open(error.message, '', {
+          this.snackBar!.open('Oops! We could not process your request, please try again.', '', {
             duration: 3000,
             panelClass: ['snackbar']
           });

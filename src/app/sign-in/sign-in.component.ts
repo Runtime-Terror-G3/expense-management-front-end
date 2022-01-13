@@ -41,7 +41,7 @@ export class SignInComponent implements OnInit {
         this.toHome();
       },
       error => {
-        this.snackBar!.open(error.message, '', {
+        this.snackBar!.open('Invalid email or password!', '', {
           duration: 3000,
           panelClass: ['snackbar']
         });

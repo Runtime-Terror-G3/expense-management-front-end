@@ -29,7 +29,7 @@ export class DeleteExpenseDialogComponent {
     this.expenseService.deleteExpense(this.data.expenseId).subscribe(
       () => {},
       error => {
-        this.snackBar!.open(error.message, '', {
+        this.snackBar!.open("Oops! We could not process your request, please try again.", '', {
           duration: 3000,
           panelClass: ['snackbar']
         });
