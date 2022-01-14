@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="buttons">
-    <button class="left_button" *ngIf="!isShowCompetitorMode">Show Competitor</button>
+    <button class="left_button" *ngIf="!isShowCompetitorMode" (click)="openShowCompetitorModal()">Show Competitor</button>
     <button class="right_button" *ngIf="!isWishListItem" (click)="addItemInWishlist()">Add To Wishlist</button>
     <button class="right_button" *ngIf="isWishListItem" (click)="openModal()">Remove</button>
   </div>
@@ -88,5 +88,17 @@
     <div class="success-message">
       Item added successfully to your wishlist!
     </div>
+  </div>
+</div>
+
+<div *ngIf="showCompetitorModal==true" class="modal-container">
+  <div class="show-competitor-modal">
+    <app-wishlist-show-competitor
+      title={{title}}
+      [price]="price"
+      vendor_src={{vendor_src}}
+      [searchResultCompetitor]="searchResultCompetitor"
+      [closeShowCompetitorModal]="closeShowCompetitorModal"
+    ></app-wishlist-show-competitor>    
   </div>
 </div>

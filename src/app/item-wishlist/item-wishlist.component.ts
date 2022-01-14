@@ -54,6 +54,16 @@ export class ItemWishlistComponent implements OnInit {
   vendorItem = WishlistItemVendor;
   showModal= false;
 
+  showCompetitorModal=false;
+  searchResultCompetitor: IWishlistItem[] = []; 
+  //[
+  //   {id: 1, title:"title1",price:120.05, link:"link1", vendor:WishlistItemVendor.Cel, image: "img1", affordable:false},
+  //   {id: 2, title:"title2",price:120.05, link:"link1", vendor:WishlistItemVendor.Cel, image: "img1", affordable:false},
+  //   {id: 3, title:"title3 lung sa nu incapa pe un singur rand",price:12000, link:"link1", vendor:WishlistItemVendor.Cel, image: "img1", affordable:false},
+  //   {id: 4, title:"title4",price:3420.50, link:"link1", vendor:WishlistItemVendor.Cel, image: "img1", affordable:false},
+  //   {id: 5, title:"title5",price:14.65, link:"link1", vendor:WishlistItemVendor.Cel, image: "img1", affordable:false}
+  // ];
+
   constructor(private wishlistService: WishlistServiceService, private snackBar: MatSnackBar) { }
 
   get amount() {
@@ -76,6 +86,7 @@ export class ItemWishlistComponent implements OnInit {
     } else {
       this.vendor_src = "";
       this.image_src = "assets/wishlist_item.jpg";
+      this.isShowCompetitorMode = true;
     }
     this.createCategoryList();
     this.formDate = new Date().toLocaleDateString('fr-CA');
@@ -166,6 +177,26 @@ export class ItemWishlistComponent implements OnInit {
         }
       );
     }
+  }
+
+  openShowCompetitorModal(): void {
+    let competitor = "Altex";
+    if (this.vendor == "Altex")
+      competitor = "Cel";
+    this.wishlistService.searchWishlistItems(encodeURI(this.title), competitor).subscribe(
+      result => {
+        this.searchResultCompetitor = result;
+        this.showCompetitorModal = true;
+      },
+      error => {
+        console.log(error);
+      }
+      
+    )
+  }
+
+  closeShowCompetitorModal = (): void => {
+    this.showCompetitorModal = false;
   }
 
 }
