@@ -12,9 +12,15 @@
 }
 
 .title {
-    font-size: 25px;
+    font-size: 30px;
     color: #e7e5e9;
     margin-top: 0.6rem;
+    filter: invert(5%);
+    cursor: pointer;
+}
+
+title:hover {
+    cursor: pointer;
 }
 
 .menu:hover {

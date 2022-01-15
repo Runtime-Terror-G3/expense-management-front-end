@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit{
   name="";
   isSignedOut = false;
-  title = "Expense Management App";
+  title = "ExPlus";
 
   constructor(private sessionService: SessionService) { }
 
