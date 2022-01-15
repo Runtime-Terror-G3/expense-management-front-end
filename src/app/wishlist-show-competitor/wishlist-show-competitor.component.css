@@ -1,0 +1,70 @@
+.cards {
+  display: flex;
+  flex-flow: row wrap;
+  height: 32.7rem;
+  width: 100.1rem;
+  justify-content: space-between;
+  overflow: auto;
+  border-color: pink;
+  border: 1px;
+  border-style: solid;
+}
+
+.item:nth-child(3n) {
+  page-break-after: always;
+  /* CSS 2.1 syntax */
+  break-after: always;
+  /* New syntax */
+}
+
+.header {
+  background-color: #1d4952;
+  color: white;
+  display: grid;
+  grid-template-columns: 3fr 15fr 3fr 1fr;
+  height: 3rem;
+  padding: 1rem 0 0 3rem;
+  border-radius: 20px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  width: 97.3rem;
+}
+
+.price {
+  font-size: 25px;
+  align-content: flex-start;
+}
+
+.title {
+  font-size: 20px;
+  text-align: center;
+  margin: auto;
+  padding-bottom: 3rem;
+}
+
+.close-button {
+  margin: 0 10px 0 10px;
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: white;
+  color: #1d4952;
+  border: 1px solid #1d4952;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.ic-close {
+  content: url('../../assets/ic-close.png');
+  width: 2rem;
+  filter: invert(90%);
+  margin-left: 12rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.vendor img {
+  width: 100px;
+}

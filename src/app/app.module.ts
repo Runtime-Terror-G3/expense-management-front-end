@@ -42,6 +42,7 @@ import { WishlistViewComponent } from './wishlist-view/wishlist-view.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { WishlistShowCompetitorComponent } from './wishlist-show-competitor/wishlist-show-competitor.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     ChartLineComponent,
     AddToWishlistComponent,
       ItemWishlistComponent,
-      WishlistViewComponent
+      WishlistViewComponent,
+      WishlistShowCompetitorComponent
    ],
     imports: [
         BrowserModule,

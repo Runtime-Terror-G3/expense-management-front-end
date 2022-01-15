@@ -1,0 +1,17 @@
+<div class="header">
+    <div class="price">{{price}} Lei</div>
+    <div class="title">{{title}}</div>
+    <div class="vendor">
+        <img src={{vendor_src}} alt="vendor img">
+    </div>
+    <div (click)="close()"><i class="ic-close"> (click)="close()" </i></div>
+</div>
+
+<div class="cards">
+    <div class="item" *ngFor="let item of searchResultCompetitor">
+        <item-wishlist [id]="item.id" title={{item.title}} image_src={{item.image}} link={{item.link}}
+            [price]="item.price" vendor={{item.vendor}} [isShowCompetitorMode]="true" [isWishListItem]="false"
+            [isItemAffordable]="false">
+        </item-wishlist>
+    </div>
+</div>
