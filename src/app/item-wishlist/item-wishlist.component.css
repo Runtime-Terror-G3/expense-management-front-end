@@ -73,6 +73,7 @@
 
 .buttons {
   display: flex;
+  justify-content: space-evenly;
 }
 
 .left_button {
@@ -143,7 +144,7 @@
   z-index: 2;
   top: 30%;
   left: 39%;
-  width: 30rem;
+  width: 40rem;
   background-color: #e3eaeb;
   border-radius: 20px;
   border-top-left-radius: 60px;
@@ -173,7 +174,7 @@
   display: block;
   position: absolute;
   z-index: 2;
-  top: 20%;
+  top: 19%;
   left: 10%;
   width: 80%;
   background-color: #e3eaeb;

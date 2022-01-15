@@ -1,8 +1,13 @@
 .cards {
   display: flex;
   flex-flow: row wrap;
-  height: 27rem;
+  height: 32.7rem;
+  width: 100.1rem;
+  justify-content: space-between;
   overflow: auto;
+  border-color: pink;
+  border: 1px;
+  border-style: solid;
 }
 
 .item:nth-child(3n) {
@@ -22,6 +27,7 @@
   border-radius: 20px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
+  width: 97.3rem;
 }
 
 .price {
@@ -48,6 +54,15 @@
   font-weight: normal;
   font-size: 13px;
   text-transform: uppercase;
+}
+
+.ic-close {
+  content: url('../../assets/ic-close.png');
+  width: 2rem;
+  filter: invert(90%);
+  margin-left: 12rem;
+  margin-right: 1rem;
+  cursor: pointer;
 }
 
 .vendor img {

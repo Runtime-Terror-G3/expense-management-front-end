@@ -189,9 +189,11 @@ export class ItemWishlistComponent implements OnInit {
         this.showCompetitorModal = true;
       },
       error => {
-        console.log(error);
+        this.snackBar!.open('Oops! We could not process your request, please try again.', '', {
+          duration: 3000,
+          panelClass: ['snackbar']
+        });
       }
-      
     )
   }
 
